@@ -2,11 +2,14 @@
 
 Some useful Go packages.
 
-- [mailer](mailer/)
-    For sending emails with:
-    - Gmail
-    - Mailgun
-    - Fake (stdout)
+## [mailer](mailer/)
+    
+Implemented providers:
+- Gmail
+- Mailgun
+- Fake (stdout)
 
-- [rdb](rdb/) (utilities for Rethink DB)
 
+## [rdb](rdb/)
+
+Various utilities for dealing with Rethink DB.
