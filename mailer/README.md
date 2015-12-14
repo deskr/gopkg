@@ -6,7 +6,7 @@ Implemented providers:
 - Gmail
 - Mailgun
 
-Sending an email:
+#### Sending an email:
 ```go
 m := mailer.NewFakeMailer()
 
@@ -26,7 +26,7 @@ if err != nil {
 ```
 
 
-Sending an email with YAML template:
+#### Sending an email with YAML template:
 ```go
 m := mailer.NewFakeMailer()
 
@@ -62,7 +62,8 @@ if err != nil {
 }
 ```
 
-Sending an email with "on sent" email handler:
+
+#### Sending an email with "on sent" email handler:
 ```go
 m := mailer.NewFakeMailer()
 
