@@ -2,7 +2,7 @@
 
 Some useful Go packages.
 
-## [mailer](mailer/)
+### [mailer](mailer/)
     
 Implemented providers:
 - Gmail
@@ -10,6 +10,6 @@ Implemented providers:
 - Fake (stdout)
 
 
-## [rdb](rdb/)
+### [rdb](rdb/)
 
 Various utilities for dealing with Rethink DB.
