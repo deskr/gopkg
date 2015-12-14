@@ -72,7 +72,7 @@ m := mailer.NewFakeMailer()
 wg := sync.WaitGroup{}
 wg.Add(1)
 
-h := mailer.SentMailHandler(func(email Email) {
+h := mailer.SentMailHandler(func(email mailer.Email) {
     wg.Done()
 })
 m.AttachSentMailHandler(&h)
