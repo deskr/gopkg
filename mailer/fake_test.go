@@ -1,26 +1,18 @@
-package fake
+package mailer
 
 import (
 	"sync"
 	"testing"
-
-	"github.com/deskr/gopkg/mailer"
 )
 
-type SentMailListener func(email mailer.Email)
-
-func (l SentMailListener) OnSent(email mailer.Email) {
-	l(email)
-}
-
 func TestSendMail(t *testing.T) {
-	m := NewMailer()
+	m := NewFakeMailer()
 
-	err := m.Send(mailer.Email{
+	err := m.Send(Email{
 		To:      "mike@deskr.co",
 		From:    "carina@deskr.co",
 		Subject: "Something important",
-		Body: mailer.Body{
+		Body: Body{
 			Text: "Hello you",
 			HTML: "<strong>Hello you</strong>",
 		},
@@ -32,12 +24,12 @@ func TestSendMail(t *testing.T) {
 }
 
 func TestAddRemoveSentHandler(t *testing.T) {
-	m := &Mailer{}
+	m := &fakeMailer{}
 
 	wg := sync.WaitGroup{}
 
 	wg.Add(1)
-	h := mailer.SentMailHandler(func(email mailer.Email) {
+	h := SentMailHandler(func(email Email) {
 		wg.Done()
 	})
 
@@ -47,11 +39,11 @@ func TestAddRemoveSentHandler(t *testing.T) {
 		return
 	}
 
-	m.Send(mailer.Email{
+	m.Send(Email{
 		To:      "mike@deskr.co",
 		From:    "carina@deskr.co",
 		Subject: "Something important",
-		Body: mailer.Body{
+		Body: Body{
 			Text: "Hello you",
 			HTML: "<strong>Hello you</strong>",
 		},

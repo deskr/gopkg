@@ -3,11 +3,11 @@ package mailer
 // Mailer interface
 type Mailer interface {
 	Send(email Email) (err error)
-	AttachSentMailHandler(listener *SentMailHandler)
-	RemoveSentMailHandler(listener *SentMailHandler)
+	AttachSentMailHandler(handler *SentMailHandler)
+	RemoveSentMailHandler(handler *SentMailHandler)
 }
 
-// SentMailHandler for on sent email event
+// SentMailHandler listener for on sent email
 type SentMailHandler func(email Email)
 
 // HTML for HTML string

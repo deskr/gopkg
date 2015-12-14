@@ -1,28 +1,25 @@
-package fake
+package mailer
 
 import (
 	"fmt"
-
-	"github.com/deskr/gopkg/mailer"
 )
 
-// Mailer for mailing through gmail relay service
-type Mailer struct {
-	sentHandlers []*mailer.SentMailHandler
+type fakeMailer struct {
+	sentHandlers []*SentMailHandler
 }
 
-// NewMailer creates an new gmail mailer
-func NewMailer() mailer.Mailer {
-	return &Mailer{}
+// NewFakeMailer creates a new fake email sender
+func NewFakeMailer() Mailer {
+	return &fakeMailer{}
 }
 
 // AttachSentMailHandler attaches an handler to "OnSent" event
-func (m *Mailer) AttachSentMailHandler(handler *mailer.SentMailHandler) {
+func (m *fakeMailer) AttachSentMailHandler(handler *SentMailHandler) {
 	m.sentHandlers = append(m.sentHandlers, handler)
 }
 
 // RemoveSentMailHandler removes the handler
-func (m *Mailer) RemoveSentMailHandler(handler *mailer.SentMailHandler) {
+func (m *fakeMailer) RemoveSentMailHandler(handler *SentMailHandler) {
 	for i, l := range m.sentHandlers {
 		if l == handler {
 			m.sentHandlers = append(m.sentHandlers[:i], m.sentHandlers[i+1:]...)
@@ -32,7 +29,7 @@ func (m *Mailer) RemoveSentMailHandler(handler *mailer.SentMailHandler) {
 }
 
 // Send sends an email
-func (m Mailer) Send(email mailer.Email) (err error) {
+func (m fakeMailer) Send(email Email) (err error) {
 
 	fmt.Printf("Fake email sent: %+v", email)
 
