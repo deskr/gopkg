@@ -3,7 +3,6 @@ package mailer
 import (
 	"bytes"
 	ht "html/template"
-	"io/ioutil"
 	tt "text/template"
 
 	"gopkg.in/yaml.v2"
@@ -47,12 +46,7 @@ func (e EmailTemplate) Execute(textData interface{}, htmlData interface{}) (b Bo
 }
 
 // ParseYAML gets an email template from file
-func ParseYAML(file string) (t EmailTemplate, err error) {
-
-	data, err := ioutil.ReadFile(file)
-	if err != nil {
-		return
-	}
+func ParseYAML(data []byte) (t EmailTemplate, err error) {
 
 	var yt emailTemplateYAML
 	if err = yaml.Unmarshal([]byte(data), &yt); err != nil {
