@@ -1,7 +1,6 @@
 package rdb
 
 import (
-	"log"
 	"time"
 
 	"github.com/dancannon/gorethink"
@@ -25,7 +24,7 @@ func OpenConnection(address string, database string) (c *gorethink.Session, err 
 	}
 
 	if err != nil {
-		log.Fatal(err.Error())
+		return
 	}
 
 	// Create database if not already exists
