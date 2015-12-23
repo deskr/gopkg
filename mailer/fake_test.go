@@ -1,6 +1,7 @@
 package mailer
 
 import (
+	"bytes"
 	"sync"
 	"testing"
 )
@@ -61,25 +62,34 @@ func TestAddRemoveSentHandler(t *testing.T) {
 func TestSendWithYAML(t *testing.T) {
 	m := NewFakeMailer()
 
-	tmpl, err := ParseYAML([]byte(
+	tmpl, err := ParseYAML(bytes.NewReader([]byte(
 		`subject: Something important
 body:
     text: Hello {{.Who}}
     html: <strong>Hello {{.Who}}</strong>
-`))
+`)))
 
 	if err != nil {
 		t.Errorf("Failed to parse yaml: %s", err)
 		return
 	}
 
+	email := Email{
+		To:   "mike@deskr.co",
+		From: "carina@deskr.co",
+	}
+
 	data := struct {
 		Who string
 	}{
-		Who: "You",
+		Who: "Someone",
 	}
 
-	body, err := tmpl.Execute(data, data)
+	td := EmailTemplateData{}
+	td.Body.HTML = data
+	td.Body.Text = data
+
+	err = tmpl.Execute(&email, td)
 	if err != nil {
 		t.Errorf("Failed to execute template data: %s", err)
 		return
@@ -89,19 +99,14 @@ body:
 
 	wg.Add(1)
 	h := SentMailHandler(func(email Email) {
-		if email.Body.Text != "Hello You" {
+		if email.Body.Text != "Hello Someone" {
 			t.Errorf("Unexpected Body.Text for sent email: %s", email.Body.Text)
 		}
 		wg.Done()
 	})
 	m.AttachSentMailHandler(&h)
 
-	err = m.Send(Email{
-		To:      "mike@deskr.co",
-		From:    "carina@deskr.co",
-		Subject: "Something important",
-		Body:    body,
-	})
+	err = m.Send(email)
 
 	if err != nil {
 		t.Errorf("Failed to send mail: %s", err)
