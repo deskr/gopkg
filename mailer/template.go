@@ -3,18 +3,28 @@ package mailer
 import (
 	"bytes"
 	ht "html/template"
+	"io"
+	"io/ioutil"
 	tt "text/template"
 
 	"gopkg.in/yaml.v2"
 )
 
 // EmailTemplate represents a simple email with html and text body
-// in Go template language HTML and Text
 type EmailTemplate struct {
-	Subject string
+	Subject *tt.Template
 	Body    struct {
-		Text tt.Template
-		HTML ht.Template
+		Text *tt.Template
+		HTML *ht.Template
+	}
+}
+
+// EmailData is the data to execute with the template
+type EmailData struct {
+	Subject interface{}
+	Body    struct {
+		Text interface{}
+		HTML interface{}
 	}
 }
 
@@ -27,47 +37,64 @@ type emailTemplateYAML struct {
 }
 
 // Execute the body templates
-func (e EmailTemplate) Execute(textData interface{}, htmlData interface{}) (b Body, err error) {
+func (e EmailTemplate) Execute(d EmailData) (email Email, err error) {
 	var buf bytes.Buffer
 
-	if err = e.Body.Text.Execute(&buf, textData); err != nil {
+	// Execute subject
+	if err = e.Subject.Execute(&buf, d.Subject); err != nil {
 		return
 	}
-
-	b.Text = Text(buf.String())
+	email.Subject = buf.String()
 	buf.Reset()
 
-	if err = e.Body.HTML.Execute(&buf, htmlData); err != nil {
+	// Execute body text
+	if err = e.Body.Text.Execute(&buf, d.Body.Text); err != nil {
 		return
 	}
+	email.Body.Text = Text(buf.String())
+	buf.Reset()
 
-	b.HTML = HTML(buf.String())
+	// Execute body HTML
+	if err = e.Body.HTML.Execute(&buf, d.Body.HTML); err != nil {
+		return
+	}
+	email.Body.HTML = HTML(buf.String())
+
 	return
 }
 
-// ParseYAML gets an email template from file
-func ParseYAML(data []byte) (t EmailTemplate, err error) {
+// ParseYAML reads and parses an email template
+func ParseYAML(r io.Reader) (t EmailTemplate, err error) {
+
+	b, err := ioutil.ReadAll(r)
+	if err != nil {
+		return
+	}
 
 	var yt emailTemplateYAML
-	if err = yaml.Unmarshal([]byte(data), &yt); err != nil {
+	if err = yaml.Unmarshal(b, &yt); err != nil {
 		return
 	}
 
-	t = EmailTemplate{
-		Subject: yt.Subject,
-	}
+	t = EmailTemplate{}
 
-	btt, err := tt.New("").Parse(yt.Body.Text)
+	// Parse subject
+	t.Subject, err = tt.New("").Parse(yt.Subject)
 	if err != nil {
 		return
 	}
-	t.Body.Text = *btt
 
-	bht, err := ht.New("").Parse(yt.Body.HTML)
+	// Parse body text
+	t.Body.Text, err = tt.New("").Parse(yt.Body.Text)
 	if err != nil {
 		return
 	}
-	t.Body.HTML = *bht
+
+	// Parse body HTML
+	t.Body.HTML, err = ht.New("").Parse(yt.Body.HTML)
+	if err != nil {
+		return
+	}
 
 	return
 }
