@@ -19,8 +19,8 @@ type EmailTemplate struct {
 	}
 }
 
-// EmailData is the data to execute with the template
-type EmailData struct {
+// EmailTemplateData is the data to execute with the template
+type EmailTemplateData struct {
 	Subject interface{}
 	Body    struct {
 		Text interface{}
@@ -37,7 +37,7 @@ type emailTemplateYAML struct {
 }
 
 // Execute the body templates
-func (e EmailTemplate) Execute(d EmailData) (email Email, err error) {
+func (e EmailTemplate) Execute(email *Email, d EmailTemplateData) (err error) {
 	var buf bytes.Buffer
 
 	// Execute subject
