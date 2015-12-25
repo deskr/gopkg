@@ -16,6 +16,9 @@ func NewUUID() UUID {
 
 // IsValid checks for valid username
 func (v UUID) IsValid() bool {
+	if v.String() == "" {
+		return false
+	}
 	if matched := regexp.MustCompile(`^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]` +
 		`{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$`).
 		Match([]byte(v)); !matched {
