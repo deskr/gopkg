@@ -45,6 +45,19 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/nfnt/resize",
+			"repository": "https://github.com/nfnt/resize",
+			"revision": "dc93e1b98c579d90ee2fa15c1fd6dac34f6e7899",
+			"branch": "master"
+		},
+		{
+			"importpath": "golang.org/x/crypto/pbkdf2",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "f18420efc3b4f8e9f3d51f6bd2476e92c46260e9",
+			"branch": "master",
+			"path": "/pbkdf2"
+		},
+		{
 			"importpath": "gopkg.in/fatih/pool.v2",
 			"repository": "https://gopkg.in/fatih/pool.v2",
 			"revision": "cba550ebf9bce999a02e963296d4bc7a486cb715",
