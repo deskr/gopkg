@@ -1,8 +1,11 @@
-package types
+package token
 
 import (
 	"crypto/sha256"
 	"fmt"
+
+	"github.com/deskr/gopkg/types/secret"
+	"github.com/deskr/gopkg/types/uuid"
 )
 
 // Token for use with urls
@@ -14,8 +17,8 @@ func NewToken() Token {
 }
 
 func generateToken() string {
-	s := fmt.Sprintf("%s%s", NewUUID().String(),
-		NewSecret(SecretMedium).String())
+	s := fmt.Sprintf("%s%s", uuid.NewUUID().String(),
+		secret.NewSecret(secret.Medium).String())
 	h := sha256.New224()
 	h.Write([]byte(s))
 	bs := h.Sum(nil)

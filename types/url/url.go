@@ -1,7 +1,7 @@
-package types
+package url
 
 import (
-	"net/url"
+	netURL "net/url"
 	"regexp"
 	"strings"
 )
@@ -17,7 +17,7 @@ func (v URL) IsValid() bool {
 	if v == "" || len(v) >= 2083 || len(v) <= 3 || strings.HasPrefix(v.String(), ".") {
 		return false
 	}
-	u, err := url.Parse(v.String())
+	u, err := netURL.Parse(v.String())
 	if err != nil {
 		return false
 	}

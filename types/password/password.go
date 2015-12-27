@@ -1,9 +1,11 @@
-package types
+package password
 
 import (
 	"bytes"
 	"crypto/sha1"
 	"io"
+
+	"github.com/deskr/gopkg/types/secret"
 
 	"golang.org/x/crypto/pbkdf2"
 )
@@ -11,25 +13,25 @@ import (
 // Password for user
 type Password string
 
-// PasswordHash is the hashed version of the clear-text password
+// Hash is the hashed version of the clear-text password
 // The salt used in creating the hash is kept along the password.
-type PasswordHash struct {
+type Hash struct {
 	Hash []byte
 	Salt []byte
 }
 
-// MinimumPasswordLength is the minimum password length
-const MinimumPasswordLength = 6
+// MinimumLength is the minimum password length
+const MinimumLength = 6
 
 const (
-	hashIterations = 4096 // DO NOT CHANGE - will invalidate all current passwords
-	keyLength      = 32   // DO NOT CHANGE
+	hashIterations = 4096
+	keyLength      = 32
 )
 
 // generateSalt generates a random strong salt to use in hashing secret stuff
 func generateSalt() []byte {
 	h := sha1.New()
-	io.WriteString(h, NewSecret(SecretMedium).String())
+	io.WriteString(h, secret.NewSecret(secret.Medium).String())
 	return h.Sum(nil)
 }
 
@@ -40,7 +42,7 @@ func generateHash(str string, salt []byte) []byte {
 
 // IsValid checks for valid password
 func (v Password) IsValid() bool {
-	if len(v.String()) < MinimumPasswordLength {
+	if len(v.String()) < MinimumLength {
 		return false
 	}
 	return true
@@ -52,16 +54,16 @@ func (v Password) String() string {
 
 // NewHash creates a new hash variant (including salt) of the clear text password
 // this method will return a new value each time called
-func (v Password) NewHash() PasswordHash {
+func (v Password) NewHash() Hash {
 	salt := generateSalt()
 	hash := generateHash(v.String(), salt)
-	return PasswordHash{
+	return Hash{
 		Hash: hash,
 		Salt: salt,
 	}
 }
 
 // Validate checks the clear-text password against the stored hash password
-func (v PasswordHash) Validate(password Password) bool {
+func (v Hash) Validate(password Password) bool {
 	return bytes.Equal(generateHash(password.String(), v.Salt), v.Hash)
 }

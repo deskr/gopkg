@@ -1,4 +1,4 @@
-package types
+package url
 
 import (
 	"testing"

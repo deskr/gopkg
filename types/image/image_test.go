@@ -1,4 +1,4 @@
-package types
+package image
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ func testCreateProfilePicture(b64 string) error {
 	if err != nil {
 		return fmt.Errorf("Failed to base64 decode: %+v", err)
 	}
-	p, err := NewProfilePicture(data, ImageSize{180, 180})
+	p, err := NewImage(data, Size{180, 180})
 	if !p.IsValid() {
 		return fmt.Errorf("Profile picture not valid: %+v", p)
 	}

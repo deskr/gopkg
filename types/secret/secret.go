@@ -1,4 +1,4 @@
-package types
+package secret
 
 import (
 	"errors"
@@ -10,18 +10,18 @@ import (
 // Secret for weak to strong crypto's
 type Secret string
 
-// SecretGrade for weak, medium, strong secrets
-type SecretGrade int
+// Grade for weak, medium, strong secrets
+type Grade int
 
 const (
-	// SecretInvalid for below weak (invalid)
-	SecretInvalid SecretGrade = 0
-	// SecretWeak for a weak secret
-	SecretWeak SecretGrade = 8
-	// SecretMedium for a medium secret
-	SecretMedium SecretGrade = 16
-	// SecretStrong for a strong secret
-	SecretStrong SecretGrade = 48
+	// Invalid for below weak (invalid)
+	Invalid Grade = 0
+	// Weak for a weak secret
+	Weak Grade = 8
+	// Medium for a medium secret
+	Medium Grade = 16
+	// Strong for a strong secret
+	Strong Grade = 48
 )
 
 const (
@@ -38,7 +38,7 @@ var randSrc = rand.NewSource(time.Now().UnixNano())
 var mutex = sync.Mutex{}
 
 // NewSecret generates a new secret
-func NewSecret(grade SecretGrade) Secret {
+func NewSecret(grade Grade) Secret {
 	return Secret(randString(int(grade)))
 }
 
@@ -67,23 +67,23 @@ func (v Secret) String() string {
 }
 
 // Grade gets the secret grade weak, medium or strong
-func (v Secret) Grade() SecretGrade {
+func (v Secret) Grade() Grade {
 	l := len(v)
 
 	// Strong secret
-	if l >= int(SecretStrong) {
-		return SecretStrong
+	if l >= int(Strong) {
+		return Strong
 	}
 
 	// Medium secret
-	if l >= int(SecretMedium) {
-		return SecretMedium
+	if l >= int(Medium) {
+		return Medium
 	}
 
 	// Weak secret
-	if l >= int(SecretWeak) {
-		return SecretWeak
+	if l >= int(Weak) {
+		return Weak
 	}
 
-	return SecretInvalid
+	return Invalid
 }

@@ -1,9 +1,9 @@
-package types
+package uuid
 
 import (
 	"regexp"
 
-	"github.com/satori/go.uuid"
+	goUUID "github.com/satori/go.uuid"
 )
 
 // UUID for id
@@ -11,7 +11,7 @@ type UUID string
 
 // NewUUID generates a new UUID
 func NewUUID() UUID {
-	return UUID(uuid.NewV4().String())
+	return UUID(goUUID.NewV4().String())
 }
 
 // IsValid checks for valid username
