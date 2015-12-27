@@ -11,7 +11,7 @@ func TestGetContinentNL(t *testing.T) {
 		return
 	}
 
-	if c.ContientName != "Europe" {
+	if c.ContinentName != "Europe" {
 		t.Errorf("Unexpected continent name: %+v", c)
 		return
 	}
@@ -31,7 +31,7 @@ func TestGetContinentBR(t *testing.T) {
 		return
 	}
 
-	if c.ContientName != "South America" {
+	if c.ContinentName != "South America" {
 		t.Errorf("Unexpected continent name: %+v", c)
 		return
 	}

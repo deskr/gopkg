@@ -1,17 +1,17 @@
-package country
+package currency
 
 import "testing"
 
 func TestGetCurrencySE(t *testing.T) {
 	t.Parallel()
 
-	c, ok := GetCountry(Code("SE"))
+	c, ok := GetCurrency(Code("SEK"))
 	if !ok {
-		t.Error("Failed to get country SE")
+		t.Error("Failed to get currency SEK")
 		return
 	}
 
-	if c.Currency != "SEK" {
+	if c.Name != "Swedish Krona" {
 		t.Errorf("Unexpected currency: %+v", c)
 		return
 	}
@@ -20,13 +20,13 @@ func TestGetCurrencySE(t *testing.T) {
 func TestGetCurrencyNO(t *testing.T) {
 	t.Parallel()
 
-	c, ok := GetCountry(Code("NO"))
+	c, ok := GetCurrency(Code("NOK"))
 	if !ok {
-		t.Error("Failed to get country NO")
+		t.Error("Failed to get currency NOK")
 		return
 	}
 
-	if c.Currency != "NOK" {
+	if c.Name != "Norwegian Krone" {
 		t.Errorf("Unexpected currency: %+v", c)
 		return
 	}
@@ -35,13 +35,13 @@ func TestGetCurrencyNO(t *testing.T) {
 func TestGetCurrencyUS(t *testing.T) {
 	t.Parallel()
 
-	c, ok := GetCountry(Code("US"))
+	c, ok := GetCurrency(Code("USD"))
 	if !ok {
-		t.Error("Failed to get country US")
+		t.Error("Failed to get currency USD")
 		return
 	}
 
-	if c.Currency != "USD" {
+	if c.Name != "US Dollar" {
 		t.Errorf("Unexpected currency: %+v", c)
 		return
 	}
@@ -50,13 +50,13 @@ func TestGetCurrencyUS(t *testing.T) {
 func TestGetCurrencyFR(t *testing.T) {
 	t.Parallel()
 
-	c, ok := GetCountry(Code("FR"))
+	c, ok := GetCurrency(Code("EUR"))
 	if !ok {
-		t.Error("Failed to get country FR")
+		t.Error("Failed to get currency EUR")
 		return
 	}
 
-	if c.Currency != "EUR" {
+	if c.Name != "Euro" {
 		t.Errorf("Unexpected currency: %+v", c)
 		return
 	}

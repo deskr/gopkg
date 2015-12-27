@@ -17,7 +17,7 @@ func TestGetCountryUS(t *testing.T) {
 	}
 
 	found := false
-	for _, v := range c.Languages {
+	for _, v := range c.Languages() {
 		if v.Name == "English" {
 			found = true
 		}
@@ -44,7 +44,7 @@ func TestGetCountrySweden(t *testing.T) {
 	}
 
 	found := false
-	for _, v := range c.Languages {
+	for _, v := range c.Languages() {
 		if v.NativeName == "Svenska" {
 			found = true
 		}
