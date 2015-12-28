@@ -9,9 +9,9 @@ deps:
 	go install -v
 
 test:
-	./test unit
+	@./test unit
 
 test-race:
-	./test unit-race
+	@./test unit-race
 
 .PHONY: all deps test
