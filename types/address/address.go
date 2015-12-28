@@ -7,8 +7,8 @@ import (
 	"github.com/deskr/gopkg/types/country"
 )
 
-func trimLine(str string) string {
-	return strings.TrimSpace(strings.Replace(str), "  ", " ", -1)
+func trimLine(str string) string {
+	return strings.TrimSpace(strings.Replace(str, "  ", " ", -1))
 }
 
 // NOAddress for norwegian format
