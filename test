@@ -14,7 +14,7 @@ function race {
 function unit {
 	echo "Running unit tests ..."
 	go vet $TEST_FILES
-	go test $TEST_FILES -timeout=60s -parallel=4
+	go test $TEST_FILES -cover -timeout=60s -parallel=4
 }
 
 STARTTIME=$(date +%s)

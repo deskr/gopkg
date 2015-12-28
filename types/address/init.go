@@ -24,7 +24,10 @@ func loadPostalCodeInfoByCountryCode(cc country.Code, code string) (PostalCodeIn
 	csvFile, err := os.Open(path.Join(path.Dir(filename),
 		fmt.Sprintf("data/p%s.csv", cc.String())))
 	if err != nil {
-		return PostalCodeInfo{}, false
+		csvFile, err = os.Open(fmt.Sprintf("data/p%s.csv", cc.String()))
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	r := csv.NewReader(csvFile)
@@ -39,7 +42,7 @@ func loadPostalCodeInfoByCountryCode(cc country.Code, code string) (PostalCodeIn
 			break
 		}
 		if err != nil {
-			return PostalCodeInfo{}, false
+			panic(err)
 		}
 
 		postalCodeInfo := parsePostalCodeInfo(record)
@@ -50,7 +53,12 @@ func loadPostalCodeInfoByCountryCode(cc country.Code, code string) (PostalCodeIn
 
 	postalCodeInfosByCountryCode[cc] = infos
 
-	return postalCodeInfosByCountryCode[cc][code], true
+	csvFile.Close()
+
+	if v, ok := infos[code]; ok {
+		return v, true
+	}
+	return PostalCodeInfo{}, false
 }
 
 func parsePostalCodeInfo(record []string) PostalCodeInfo {
