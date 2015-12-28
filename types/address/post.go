@@ -16,7 +16,7 @@ type PostalCodeInfo struct {
 }
 
 // GetPostalCodeInfo by code
-func GetPostalCodeInfo(c country.Code, code string) (p PostalCodeInfo, ok bool) {
-	p, ok = postalCodeInfosByCountryCode[c][code]
+func GetPostalCodeInfo(c country.Code, code string) (i PostalCodeInfo, ok bool) {
+	i, ok = loadPostalCodeInfoByCountryCode(c, code)
 	return
 }
