@@ -11,7 +11,7 @@ deps:
 test:
 	@export GO15VENDOREXPERIMENT=1
 	go vet $(TEST)
-	go test $(TEST) $(TESTARGS) -cover -timeout=30s -parallel=4
+	go test $(TEST) $(TESTARGS) -cover -timeout=640s -parallel=4
 
 test-race:
 	go test $(TEST) -race
