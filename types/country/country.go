@@ -5,13 +5,13 @@ import "github.com/deskr/gopkg/types/currency"
 
 // Country contains info about a country
 type Country struct {
-	Code          Code
-	Name          string
-	Capital       string
-	Continent     Continent
-	ContinentName string
-	CurrencyCode  currency.Code
-	LanguageCodes []language.Code
+	Code          Code            `json:"code"`
+	Name          string          `json:"name"`
+	Capital       string          `json:"capital"`
+	Continent     Continent       `json:"continent"`
+	ContinentName string          `json:"continentName"`
+	CurrencyCode  currency.Code   `json:"currencyCode"`
+	LanguageCodes []language.Code `json:"languageCodes"`
 }
 
 // Languages gets the country languages

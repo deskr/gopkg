@@ -1,0 +1,31 @@
+#!/bin/bash
+
+trap 'jobs -p | xargs kill' EXIT
+
+TEST_FILES=$(GO15VENDOREXPERIMENT=1 go list ./... | grep -v '/vendor/')
+
+export GO15VENDOREXPERIMENT=1
+
+function race {
+	echo "Running unit race tests ..."
+	go test $TEST_FILES -race -parallel=4
+}
+
+function unit {
+	echo "Running unit tests ..."
+	go vet $TEST_FILES
+	go test $TEST_FILES -timeout=60s -parallel=4
+}
+
+STARTTIME=$(date +%s)
+
+if [ "$1" = "unit" ]; then
+	unit
+elif [ "$1" = "unit-race" ]; then
+	race
+fi
+
+ENDTIME=$(date +%s)
+echo "Tests completed in $(($ENDTIME - $STARTTIME)) seconds"
+
+exit

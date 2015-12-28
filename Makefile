@@ -9,11 +9,9 @@ deps:
 	go install -v
 
 test:
-	@export GO15VENDOREXPERIMENT=1
-	go vet $(TEST)
-	go test $(TEST) $(TESTARGS) -cover -timeout=640s -parallel=4
+	./test unit
 
 test-race:
-	go test $(TEST) -race
+	./test unit-race
 
 .PHONY: all deps test

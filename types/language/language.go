@@ -4,9 +4,9 @@ import "strings"
 
 // Language ISO 639-1
 type Language struct {
-	Code       Code
-	Name       string
-	NativeName string
+	Code       Code   `json:"code"`
+	Name       string `json:"name"`
+	NativeName string `json:"nativeName"`
 }
 
 // Code ISO 639-1

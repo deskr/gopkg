@@ -5,6 +5,8 @@ import (
 	"encoding/csv"
 	"io"
 	"os"
+	"path"
+	"runtime"
 	"strconv"
 	"strings"
 
@@ -16,7 +18,9 @@ var postalCodeInfos []PostalCodeInfo
 var postalCodeInfosByCountryCode map[country.Code]map[string]PostalCodeInfo
 
 func init() {
-	csvFile, err := os.Open("post.csv.gz")
+	_, filename, _, _ := runtime.Caller(1)
+	csvFile, err := os.Open(path.Join(path.Dir(filename), "data/post.csv.gz"))
+
 	if err != nil {
 		panic(err)
 	}

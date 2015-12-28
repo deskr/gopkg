@@ -7,12 +7,12 @@ import (
 
 // PostalCodeInfo holds information for post code
 type PostalCodeInfo struct {
-	CountryCode country.Code
-	Code        string
-	F1          string
-	F2          string
-	F3          string
-	Geo         geo.Geo
+	CountryCode country.Code `json:"countryCode"`
+	Code        string       `json:"code"`
+	F1          string       `json:"f1"`
+	F2          string       `json:"f2"`
+	F3          string       `json:"f3"`
+	Geo         geo.Geo      `json:"geo"`
 }
 
 // GetPostalCodeInfo by code
