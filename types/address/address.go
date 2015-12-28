@@ -11,6 +11,11 @@ func trimLine(str string) string {
 	return strings.TrimSpace(strings.Replace(str, "  ", " ", -1))
 }
 
+// Formatter for address
+type Formatter interface {
+	Format() string
+}
+
 // NOAddress for norwegian format
 type NOAddress struct {
 	Recipient   string `json:"recipient"`
