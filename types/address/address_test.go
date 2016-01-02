@@ -7,11 +7,10 @@ import (
 func TestNOAddress(t *testing.T) {
 
 	adr := NOAddress{
-		Recipient:   "Mike Lowrey",
-		StreetName:  "Markveien",
-		HouseNumber: "21",
-		PostalCode:  "0554",
-		Locality:    "Oslo",
+		Recipient:  "Mike Lowrey",
+		Street:     "Markveien 21",
+		PostalCode: "0554",
+		Locality:   "Oslo",
 	}
 
 	pi, ok := adr.PostalCodeInfo()
@@ -39,12 +38,11 @@ NORWAY`
 func TestUSAddress(t *testing.T) {
 
 	adr := USAddress{
-		Recipient:            "Jeremy Martinson",
-		HouseNumber:          "455",
-		StreetName:           "Larkspur Dr.",
-		Locality:             "San Jose",
-		ProvinceAbbreviation: "CA",
-		PostalCode:           "95111",
+		Recipient:  "Jeremy Martinson",
+		Street:     "455 Larkspur Dr.",
+		Locality:   "San Jose",
+		StateCode:  "CA",
+		PostalCode: "95111",
 	}
 
 	pi, ok := adr.PostalCodeInfo()
