@@ -11,7 +11,6 @@ import (
 	"image/png"
 	"io"
 	"io/ioutil"
-	"net/http"
 
 	"github.com/nfnt/resize"
 )
@@ -68,18 +67,13 @@ func (v Type) String() string {
 }
 
 // NewImage creates a new profile picture
-func NewImage(r io.Reader, maxSize Size) (pic Image, err error) {
+func NewImage(r io.Reader, typ Type, maxSize Size) (pic Image, err error) {
 	data, err := ioutil.ReadAll(r)
 	if err != nil {
 		return
 	}
 
-	typ, err := detectImageType(data)
-	if err != nil {
-		return
-	}
-
-	img, err := createProfileImage(*typ, data)
+	img, err := createProfileImage(typ, data)
 	if err != nil {
 		return
 	}
@@ -101,14 +95,14 @@ func NewImage(r io.Reader, maxSize Size) (pic Image, err error) {
 		}
 		b = buf.Bytes()
 		return
-	}(img, *typ)
+	}(img, typ)
 
 	if err != nil {
 		err = ProcessError{err}
 		return
 	}
 
-	pic = Image{bytes, *typ}
+	pic = Image{bytes, typ}
 	return
 }
 
@@ -130,9 +124,7 @@ func (v Image) IsValid() bool {
 	}
 
 	if v.Type == Invalid {
-		if _, err := detectImageType(v.Content); err != nil {
-			return false
-		}
+		return false
 	}
 	return true
 }
@@ -165,14 +157,4 @@ func resizeProfileImage(img simage.Image, maxSize Size) simage.Image {
 		return resize.Thumbnail(uint(maxSize.Width), uint(maxSize.Height), img, resize.Lanczos3)
 	}
 	return img
-}
-
-func detectImageType(data []byte) (*Type, error) {
-	typ := http.DetectContentType(data)
-	for _, t := range validImageTypes {
-		if typ == string(t) {
-			return &t, nil
-		}
-	}
-	return nil, ErrInvalidType
 }

@@ -8,12 +8,12 @@ import (
 	"encoding/base64"
 )
 
-func testCreateProfilePicture(b64 string) error {
+func testCreateProfilePicture(b64 string, typ Type) error {
 	data, err := base64.StdEncoding.DecodeString(b64)
 	if err != nil {
 		return fmt.Errorf("Failed to base64 decode: %+v", err)
 	}
-	p, err := NewImage(bytes.NewReader(data), Size{180, 180})
+	p, err := NewImage(bytes.NewReader(data), typ, Size{180, 180})
 	if !p.IsValid() {
 		return fmt.Errorf("Profile picture not valid: %+v", p)
 	}
@@ -31,17 +31,17 @@ func testCreateProfilePicture(b64 string) error {
 }
 
 func TestCreateProfilePicture(t *testing.T) {
-	err := testCreateProfilePicture(goboGIF)
+	err := testCreateProfilePicture(goboGIF, Type("image/gif"))
 	if err != nil {
 		t.Errorf("GIF failed: %+v", err)
 		return
 	}
-	err = testCreateProfilePicture(goboJPEG)
+	err = testCreateProfilePicture(goboJPEG, Type("image/jpeg"))
 	if err != nil {
 		t.Errorf("JPEG failed: %+v", err)
 		return
 	}
-	err = testCreateProfilePicture(goboPNG)
+	err = testCreateProfilePicture(goboPNG, Type("image/png"))
 	if err != nil {
 		t.Errorf("PNG failed: %+v", err)
 		return
