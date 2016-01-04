@@ -9,6 +9,8 @@ import (
 	"image/gif"
 	"image/jpeg"
 	"image/png"
+	"io"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/nfnt/resize"
@@ -66,9 +68,9 @@ func (v Type) String() string {
 }
 
 // NewImage creates a new profile picture
-func NewImage(data []byte, maxSize Size) (pic Image, err error) {
-	if len(data) < 10 {
-		err = ErrInvalidData
+func NewImage(r io.Reader, maxSize Size) (pic Image, err error) {
+	data, err := ioutil.ReadAll(r)
+	if err != nil {
 		return
 	}
 
