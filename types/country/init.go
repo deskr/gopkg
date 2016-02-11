@@ -5,1295 +5,1803 @@ import (
 	"encoding/json"
 )
 
-var countries []Country
 var countriesByCode map[Code]Country
-var countriesByContinent map[Continent][]Country
 
 func init() {
-	if err := json.NewDecoder(bytes.NewReader([]byte(countriesJSON))).Decode(&countries); err != nil {
+	if err := json.NewDecoder(bytes.NewReader([]byte(countriesJSON))).Decode(&countriesByCode); err != nil {
 		panic(err)
-	}
-
-	countriesByCode = make(map[Code]Country)
-	for _, v := range countries {
-		countriesByCode[v.Code] = v
-	}
-
-	countriesByContinent = make(map[Continent][]Country)
-	for _, v := range countries {
-		countriesByContinent[v.Continent] = append(countriesByContinent[v.Continent], v)
 	}
 }
 
-const countriesJSON = `[
-  {
-    "Code": "AD",
-    "Name": "Andorra",
-    "Capital": "Andorra la Vella",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+const countriesJSON = `{
+  "AD": {
+    "code": "AD",
+    "name": "Andorra",
+    "capital": "Andorra la Vella",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "ca"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AE",
-    "Name": "United Arab Emirates",
-    "Capital": "Abu Dhabi",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "AED",
-    "LanguageCodes": [
+  "AE": {
+    "code": "AE",
+    "name": "United Arab Emirates",
+    "capital": "Abu Dhabi",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "AED",
+    "languageCodes": [
       "ar",
       "fa",
       "en",
       "hi",
       "ur"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AF",
-    "Name": "Afghanistan",
-    "Capital": "Kabul",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "AFN",
-    "LanguageCodes": [
+  "AF": {
+    "code": "AF",
+    "name": "Afghanistan",
+    "capital": "Kabul",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "AFN",
+    "languageCodes": [
       "fa",
       "ps",
       "uz",
       "tk"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AG",
-    "Name": "Antigua and Barbuda",
-    "Capital": "St. John's",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "AG": {
+    "code": "AG",
+    "name": "Antigua and Barbuda",
+    "capital": "St. John's",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AI",
-    "Name": "Anguilla",
-    "Capital": "The Valley",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "AI": {
+    "code": "AI",
+    "name": "Anguilla",
+    "capital": "The Valley",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AL",
-    "Name": "Albania",
-    "Capital": "Tirana",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "ALL",
-    "LanguageCodes": [
+  "AL": {
+    "code": "AL",
+    "name": "Albania",
+    "capital": "Tirana",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "ALL",
+    "languageCodes": [
       "sq",
       "el"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AM",
-    "Name": "Armenia",
-    "Capital": "Yerevan",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "AMD",
-    "LanguageCodes": [
+  "AM": {
+    "code": "AM",
+    "name": "Armenia",
+    "capital": "Yerevan",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "AMD",
+    "languageCodes": [
       "hy"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AO",
-    "Name": "Angola",
-    "Capital": "Luanda",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "AOA",
-    "LanguageCodes": [
+  "AO": {
+    "code": "AO",
+    "name": "Angola",
+    "capital": "Luanda",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "AOA",
+    "languageCodes": [
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AQ",
-    "Name": "Antarctica",
-    "Capital": "",
-    "Continent": "AN",
-    "ContinentName": "Antarctica",
-    "CurrencyCode": "",
-    "LanguageCodes": null
+  "AQ": {
+    "code": "AQ",
+    "name": "Antarctica",
+    "capital": "",
+    "continent": "AN",
+    "continentName": "Antarctica",
+    "currencyCode": "",
+    "languageCodes": null,
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AR",
-    "Name": "Argentina",
-    "Capital": "Buenos Aires",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "ARS",
-    "LanguageCodes": [
+  "AR": {
+    "code": "AR",
+    "name": "Argentina",
+    "capital": "Buenos Aires",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "ARS",
+    "languageCodes": [
       "es",
       "en",
       "it",
       "de",
       "fr",
       "gn"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AS",
-    "Name": "American Samoa",
-    "Capital": "Pago Pago",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "AS": {
+    "code": "AS",
+    "name": "American Samoa",
+    "capital": "Pago Pago",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en",
       "sm",
       "to"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AT",
-    "Name": "Austria",
-    "Capital": "Vienna",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "AT": {
+    "code": "AT",
+    "name": "Austria",
+    "capital": "Vienna",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "de",
       "hr",
       "hu",
       "sl"
-    ]
+    ],
+    "vatRates": {
+      "standard": 20,
+      "reduced1": 10,
+      "reduced2": 13
+    }
   },
-  {
-    "Code": "AU",
-    "Name": "Australia",
-    "Capital": "Canberra",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": [
+  "AU": {
+    "code": "AU",
+    "name": "Australia",
+    "capital": "Canberra",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "AUD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AW",
-    "Name": "Aruba",
-    "Capital": "Oranjestad",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "AWG",
-    "LanguageCodes": [
+  "AW": {
+    "code": "AW",
+    "name": "Aruba",
+    "capital": "Oranjestad",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "AWG",
+    "languageCodes": [
       "nl",
       "es",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AX",
-    "Name": "Åland",
-    "Capital": "Mariehamn",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "AX": {
+    "code": "AX",
+    "name": "\u00c5land",
+    "capital": "Mariehamn",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "sv"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "AZ",
-    "Name": "Azerbaijan",
-    "Capital": "Baku",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "AZN",
-    "LanguageCodes": [
+  "AZ": {
+    "code": "AZ",
+    "name": "Azerbaijan",
+    "capital": "Baku",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "AZN",
+    "languageCodes": [
       "az",
       "ru",
       "hy"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BA",
-    "Name": "Bosnia and Herzegovina",
-    "Capital": "Sarajevo",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "BAM",
-    "LanguageCodes": [
+  "BA": {
+    "code": "BA",
+    "name": "Bosnia and Herzegovina",
+    "capital": "Sarajevo",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "BAM",
+    "languageCodes": [
       "bs",
       "hr",
       "sr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BB",
-    "Name": "Barbados",
-    "Capital": "Bridgetown",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "BBD",
-    "LanguageCodes": [
+  "BB": {
+    "code": "BB",
+    "name": "Barbados",
+    "capital": "Bridgetown",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "BBD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BD",
-    "Name": "Bangladesh",
-    "Capital": "Dhaka",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "BDT",
-    "LanguageCodes": [
+  "BD": {
+    "code": "BD",
+    "name": "Bangladesh",
+    "capital": "Dhaka",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "BDT",
+    "languageCodes": [
       "bn",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BE",
-    "Name": "Belgium",
-    "Capital": "Brussels",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "BE": {
+    "code": "BE",
+    "name": "Belgium",
+    "capital": "Brussels",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "nl",
       "fr",
       "de"
-    ]
+    ],
+    "vatRates": {
+      "standard": 21,
+      "reduced1": 12,
+      "reduced2": 6
+    }
   },
-  {
-    "Code": "BF",
-    "Name": "Burkina Faso",
-    "Capital": "Ouagadougou",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "BF": {
+    "code": "BF",
+    "name": "Burkina Faso",
+    "capital": "Ouagadougou",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BG",
-    "Name": "Bulgaria",
-    "Capital": "Sofia",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "BGN",
-    "LanguageCodes": [
+  "BG": {
+    "code": "BG",
+    "name": "Bulgaria",
+    "capital": "Sofia",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "BGN",
+    "languageCodes": [
       "bg",
       "tr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 20,
+      "reduced1": 9,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BH",
-    "Name": "Bahrain",
-    "Capital": "Manama",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "BHD",
-    "LanguageCodes": [
+  "BH": {
+    "code": "BH",
+    "name": "Bahrain",
+    "capital": "Manama",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "BHD",
+    "languageCodes": [
       "ar",
       "en",
       "fa",
       "ur"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BI",
-    "Name": "Burundi",
-    "Capital": "Bujumbura",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "BIF",
-    "LanguageCodes": [
+  "BI": {
+    "code": "BI",
+    "name": "Burundi",
+    "capital": "Bujumbura",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "BIF",
+    "languageCodes": [
       "fr",
       "rn"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BJ",
-    "Name": "Benin",
-    "Capital": "Porto-Novo",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "BJ": {
+    "code": "BJ",
+    "name": "Benin",
+    "capital": "Porto-Novo",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BL",
-    "Name": "Saint Barthélemy",
-    "Capital": "Gustavia",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "BL": {
+    "code": "BL",
+    "name": "Saint Barth\u00e9lemy",
+    "capital": "Gustavia",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BM",
-    "Name": "Bermuda",
-    "Capital": "Hamilton",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "BMD",
-    "LanguageCodes": [
+  "BM": {
+    "code": "BM",
+    "name": "Bermuda",
+    "capital": "Hamilton",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "BMD",
+    "languageCodes": [
       "en",
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BN",
-    "Name": "Brunei",
-    "Capital": "Bandar Seri Begawan",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "BND",
-    "LanguageCodes": [
+  "BN": {
+    "code": "BN",
+    "name": "Brunei",
+    "capital": "Bandar Seri Begawan",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "BND",
+    "languageCodes": [
       "ms",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BO",
-    "Name": "Bolivia",
-    "Capital": "Sucre",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "BOB",
-    "LanguageCodes": [
+  "BO": {
+    "code": "BO",
+    "name": "Bolivia",
+    "capital": "Sucre",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "BOB",
+    "languageCodes": [
       "es",
       "qu",
       "ay"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BQ",
-    "Name": "Bonaire",
-    "Capital": "Kralendijk",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "BQ": {
+    "code": "BQ",
+    "name": "Bonaire",
+    "capital": "Kralendijk",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "nl",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BR",
-    "Name": "Brazil",
-    "Capital": "Brasília",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "BRL",
-    "LanguageCodes": [
+  "BR": {
+    "code": "BR",
+    "name": "Brazil",
+    "capital": "Bras\u00edlia",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "BRL",
+    "languageCodes": [
       "pt",
       "es",
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BS",
-    "Name": "Bahamas",
-    "Capital": "Nassau",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "BSD",
-    "LanguageCodes": [
+  "BS": {
+    "code": "BS",
+    "name": "Bahamas",
+    "capital": "Nassau",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "BSD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BT",
-    "Name": "Bhutan",
-    "Capital": "Thimphu",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "BTN",
-    "LanguageCodes": null
+  "BT": {
+    "code": "BT",
+    "name": "Bhutan",
+    "capital": "Thimphu",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "BTN",
+    "languageCodes": null,
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BV",
-    "Name": "Bouvet Island",
-    "Capital": "",
-    "Continent": "AN",
-    "ContinentName": "Antarctica",
-    "CurrencyCode": "NOK",
-    "LanguageCodes": null
+  "BV": {
+    "code": "BV",
+    "name": "Bouvet Island",
+    "capital": "",
+    "continent": "AN",
+    "continentName": "Antarctica",
+    "currencyCode": "NOK",
+    "languageCodes": null,
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BW",
-    "Name": "Botswana",
-    "Capital": "Gaborone",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "BWP",
-    "LanguageCodes": [
+  "BW": {
+    "code": "BW",
+    "name": "Botswana",
+    "capital": "Gaborone",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "BWP",
+    "languageCodes": [
       "en",
       "tn"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BY",
-    "Name": "Belarus",
-    "Capital": "Minsk",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "BYR",
-    "LanguageCodes": [
+  "BY": {
+    "code": "BY",
+    "name": "Belarus",
+    "capital": "Minsk",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "BYR",
+    "languageCodes": [
       "be",
       "ru"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "BZ",
-    "Name": "Belize",
-    "Capital": "Belmopan",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "BZD",
-    "LanguageCodes": [
+  "BZ": {
+    "code": "BZ",
+    "name": "Belize",
+    "capital": "Belmopan",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "BZD",
+    "languageCodes": [
       "en",
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CA",
-    "Name": "Canada",
-    "Capital": "Ottawa",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "CAD",
-    "LanguageCodes": [
+  "CA": {
+    "code": "CA",
+    "name": "Canada",
+    "capital": "Ottawa",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "CAD",
+    "languageCodes": [
       "en",
       "fr",
       "iu"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CC",
-    "Name": "Cocos [Keeling] Islands",
-    "Capital": "West Island",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": [
+  "CC": {
+    "code": "CC",
+    "name": "Cocos [Keeling] Islands",
+    "capital": "West Island",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "AUD",
+    "languageCodes": [
       "ms",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CD",
-    "Name": "Democratic Republic of the Congo",
-    "Capital": "Kinshasa",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "CDF",
-    "LanguageCodes": [
+  "CD": {
+    "code": "CD",
+    "name": "Democratic Republic of the Congo",
+    "capital": "Kinshasa",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "CDF",
+    "languageCodes": [
       "fr",
       "ln",
       "kg"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CF",
-    "Name": "Central African Republic",
-    "Capital": "Bangui",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XAF",
-    "LanguageCodes": [
+  "CF": {
+    "code": "CF",
+    "name": "Central African Republic",
+    "capital": "Bangui",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XAF",
+    "languageCodes": [
       "fr",
       "sg",
       "ln",
       "kg"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CG",
-    "Name": "Republic of the Congo",
-    "Capital": "Brazzaville",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XAF",
-    "LanguageCodes": [
+  "CG": {
+    "code": "CG",
+    "name": "Republic of the Congo",
+    "capital": "Brazzaville",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XAF",
+    "languageCodes": [
       "fr",
       "kg",
       "ln"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CH",
-    "Name": "Switzerland",
-    "Capital": "Bern",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "CHF",
-    "LanguageCodes": [
+  "CH": {
+    "code": "CH",
+    "name": "Switzerland",
+    "capital": "Bern",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "CHF",
+    "languageCodes": [
       "de",
       "fr",
       "it",
       "rm"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CI",
-    "Name": "Ivory Coast",
-    "Capital": "Yamoussoukro",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "CI": {
+    "code": "CI",
+    "name": "Ivory Coast",
+    "capital": "Yamoussoukro",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CK",
-    "Name": "Cook Islands",
-    "Capital": "Avarua",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "NZD",
-    "LanguageCodes": [
+  "CK": {
+    "code": "CK",
+    "name": "Cook Islands",
+    "capital": "Avarua",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "NZD",
+    "languageCodes": [
       "en",
       "mi"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CL",
-    "Name": "Chile",
-    "Capital": "Santiago",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "CLP",
-    "LanguageCodes": [
+  "CL": {
+    "code": "CL",
+    "name": "Chile",
+    "capital": "Santiago",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "CLP",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CM",
-    "Name": "Cameroon",
-    "Capital": "Yaoundé",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XAF",
-    "LanguageCodes": [
+  "CM": {
+    "code": "CM",
+    "name": "Cameroon",
+    "capital": "Yaound\u00e9",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XAF",
+    "languageCodes": [
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CN",
-    "Name": "China",
-    "Capital": "Beijing",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "CNY",
-    "LanguageCodes": [
+  "CN": {
+    "code": "CN",
+    "name": "China",
+    "capital": "Beijing",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "CNY",
+    "languageCodes": [
       "zh",
       "ug",
       "za"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CO",
-    "Name": "Colombia",
-    "Capital": "Bogotá",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "COP",
-    "LanguageCodes": [
+  "CO": {
+    "code": "CO",
+    "name": "Colombia",
+    "capital": "Bogot\u00e1",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "COP",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CR",
-    "Name": "Costa Rica",
-    "Capital": "San José",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "CRC",
-    "LanguageCodes": [
+  "CR": {
+    "code": "CR",
+    "name": "Costa Rica",
+    "capital": "San Jos\u00e9",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "CRC",
+    "languageCodes": [
       "es",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CU",
-    "Name": "Cuba",
-    "Capital": "Havana",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "CUP",
-    "LanguageCodes": [
+  "CU": {
+    "code": "CU",
+    "name": "Cuba",
+    "capital": "Havana",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "CUP",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CV",
-    "Name": "Cape Verde",
-    "Capital": "Praia",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "CVE",
-    "LanguageCodes": [
+  "CV": {
+    "code": "CV",
+    "name": "Cape Verde",
+    "capital": "Praia",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "CVE",
+    "languageCodes": [
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CW",
-    "Name": "Curacao",
-    "Capital": "Willemstad",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "ANG",
-    "LanguageCodes": [
+  "CW": {
+    "code": "CW",
+    "name": "Curacao",
+    "capital": "Willemstad",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "ANG",
+    "languageCodes": [
       "nl"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CX",
-    "Name": "Christmas Island",
-    "Capital": "Flying Fish Cove",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": [
+  "CX": {
+    "code": "CX",
+    "name": "Christmas Island",
+    "capital": "Flying Fish Cove",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "AUD",
+    "languageCodes": [
       "en",
       "zh",
       "ms"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "CY",
-    "Name": "Cyprus",
-    "Capital": "Nicosia",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "CY": {
+    "code": "CY",
+    "name": "Cyprus",
+    "capital": "Nicosia",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "el",
       "tr",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 19,
+      "reduced1": 9,
+      "reduced2": 5
+    }
   },
-  {
-    "Code": "CZ",
-    "Name": "Czech Republic",
-    "Capital": "Prague",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "CZK",
-    "LanguageCodes": [
+  "CZ": {
+    "code": "CZ",
+    "name": "Czech Republic",
+    "capital": "Prague",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "CZK",
+    "languageCodes": [
       "cs",
       "sk"
-    ]
+    ],
+    "vatRates": {
+      "standard": 21,
+      "reduced1": 15,
+      "reduced2": 10
+    }
   },
-  {
-    "Code": "DE",
-    "Name": "Germany",
-    "Capital": "Berlin",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "DE": {
+    "code": "DE",
+    "name": "Germany",
+    "capital": "Berlin",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "de"
-    ]
+    ],
+    "vatRates": {
+      "standard": 19,
+      "reduced1": 7,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "DJ",
-    "Name": "Djibouti",
-    "Capital": "Djibouti",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "DJF",
-    "LanguageCodes": [
+  "DJ": {
+    "code": "DJ",
+    "name": "Djibouti",
+    "capital": "Djibouti",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "DJF",
+    "languageCodes": [
       "fr",
       "ar",
       "so",
       "aa"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "DK",
-    "Name": "Denmark",
-    "Capital": "Copenhagen",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "DKK",
-    "LanguageCodes": [
+  "DK": {
+    "code": "DK",
+    "name": "Denmark",
+    "capital": "Copenhagen",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "DKK",
+    "languageCodes": [
       "da",
       "en",
       "fo",
       "de"
-    ]
+    ],
+    "vatRates": {
+      "standard": 25,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "DM",
-    "Name": "Dominica",
-    "Capital": "Roseau",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "DM": {
+    "code": "DM",
+    "name": "Dominica",
+    "capital": "Roseau",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "DO",
-    "Name": "Dominican Republic",
-    "Capital": "Santo Domingo",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "DOP",
-    "LanguageCodes": [
+  "DO": {
+    "code": "DO",
+    "name": "Dominican Republic",
+    "capital": "Santo Domingo",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "DOP",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "DZ",
-    "Name": "Algeria",
-    "Capital": "Algiers",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "DZD",
-    "LanguageCodes": [
+  "DZ": {
+    "code": "DZ",
+    "name": "Algeria",
+    "capital": "Algiers",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "DZD",
+    "languageCodes": [
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "EC",
-    "Name": "Ecuador",
-    "Capital": "Quito",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "EC": {
+    "code": "EC",
+    "name": "Ecuador",
+    "capital": "Quito",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "EE",
-    "Name": "Estonia",
-    "Capital": "Tallinn",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "EE": {
+    "code": "EE",
+    "name": "Estonia",
+    "capital": "Tallinn",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "et",
       "ru"
-    ]
+    ],
+    "vatRates": {
+      "standard": 20,
+      "reduced1": 9,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "EG",
-    "Name": "Egypt",
-    "Capital": "Cairo",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "EGP",
-    "LanguageCodes": [
+  "EG": {
+    "code": "EG",
+    "name": "Egypt",
+    "capital": "Cairo",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "EGP",
+    "languageCodes": [
       "ar",
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "EH",
-    "Name": "Western Sahara",
-    "Capital": "Laâyoune / El Aaiún",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "MAD",
-    "LanguageCodes": [
+  "EH": {
+    "code": "EH",
+    "name": "Western Sahara",
+    "capital": "La\u00e2youne \/ El Aai\u00fan",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "MAD",
+    "languageCodes": [
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ER",
-    "Name": "Eritrea",
-    "Capital": "Asmara",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "ERN",
-    "LanguageCodes": [
+  "ER": {
+    "code": "ER",
+    "name": "Eritrea",
+    "capital": "Asmara",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "ERN",
+    "languageCodes": [
       "aa",
       "ar",
       "ti"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ES",
-    "Name": "Spain",
-    "Capital": "Madrid",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "ES": {
+    "code": "ES",
+    "name": "Spain",
+    "capital": "Madrid",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "es",
       "ca",
       "gl",
       "eu",
       "oc"
-    ]
+    ],
+    "vatRates": {
+      "standard": 21,
+      "reduced1": 10,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ET",
-    "Name": "Ethiopia",
-    "Capital": "Addis Ababa",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "ETB",
-    "LanguageCodes": [
+  "ET": {
+    "code": "ET",
+    "name": "Ethiopia",
+    "capital": "Addis Ababa",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "ETB",
+    "languageCodes": [
       "am",
       "en",
       "om",
       "ti",
       "so"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "FI",
-    "Name": "Finland",
-    "Capital": "Helsinki",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "FI": {
+    "code": "FI",
+    "name": "Finland",
+    "capital": "Helsinki",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fi",
       "sv"
-    ]
+    ],
+    "vatRates": {
+      "standard": 24,
+      "reduced1": 14,
+      "reduced2": 10
+    }
   },
-  {
-    "Code": "FJ",
-    "Name": "Fiji",
-    "Capital": "Suva",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "FJD",
-    "LanguageCodes": [
+  "FJ": {
+    "code": "FJ",
+    "name": "Fiji",
+    "capital": "Suva",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "FJD",
+    "languageCodes": [
       "en",
       "fj"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "FK",
-    "Name": "Falkland Islands",
-    "Capital": "Stanley",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "FKP",
-    "LanguageCodes": [
+  "FK": {
+    "code": "FK",
+    "name": "Falkland Islands",
+    "capital": "Stanley",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "FKP",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "FM",
-    "Name": "Micronesia",
-    "Capital": "Palikir",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "FM": {
+    "code": "FM",
+    "name": "Micronesia",
+    "capital": "Palikir",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "FO",
-    "Name": "Faroe Islands",
-    "Capital": "Tórshavn",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "DKK",
-    "LanguageCodes": [
+  "FO": {
+    "code": "FO",
+    "name": "Faroe Islands",
+    "capital": "T\u00f3rshavn",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "DKK",
+    "languageCodes": [
       "fo",
       "da"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "FR",
-    "Name": "France",
-    "Capital": "Paris",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "FR": {
+    "code": "FR",
+    "name": "France",
+    "capital": "Paris",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr",
       "br",
       "co",
       "ca",
       "eu",
       "oc"
-    ]
+    ],
+    "vatRates": {
+      "standard": 20,
+      "reduced1": 10,
+      "reduced2": 5.5
+    }
   },
-  {
-    "Code": "GA",
-    "Name": "Gabon",
-    "Capital": "Libreville",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XAF",
-    "LanguageCodes": [
+  "GA": {
+    "code": "GA",
+    "name": "Gabon",
+    "capital": "Libreville",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XAF",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GB",
-    "Name": "United Kingdom",
-    "Capital": "London",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "GBP",
-    "LanguageCodes": [
+  "GB": {
+    "code": "GB",
+    "name": "United Kingdom",
+    "capital": "London",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "GBP",
+    "languageCodes": [
       "en",
       "cy",
       "gd"
-    ]
+    ],
+    "vatRates": {
+      "standard": 20,
+      "reduced1": 5,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GD",
-    "Name": "Grenada",
-    "Capital": "St. George's",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "GD": {
+    "code": "GD",
+    "name": "Grenada",
+    "capital": "St. George's",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GE",
-    "Name": "Georgia",
-    "Capital": "Tbilisi",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "GEL",
-    "LanguageCodes": [
+  "GE": {
+    "code": "GE",
+    "name": "Georgia",
+    "capital": "Tbilisi",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "GEL",
+    "languageCodes": [
       "ka",
       "ru",
       "hy",
       "az"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GF",
-    "Name": "French Guiana",
-    "Capital": "Cayenne",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "GF": {
+    "code": "GF",
+    "name": "French Guiana",
+    "capital": "Cayenne",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GG",
-    "Name": "Guernsey",
-    "Capital": "St Peter Port",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "GBP",
-    "LanguageCodes": [
+  "GG": {
+    "code": "GG",
+    "name": "Guernsey",
+    "capital": "St Peter Port",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "GBP",
+    "languageCodes": [
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GH",
-    "Name": "Ghana",
-    "Capital": "Accra",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "GHS",
-    "LanguageCodes": [
+  "GH": {
+    "code": "GH",
+    "name": "Ghana",
+    "capital": "Accra",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "GHS",
+    "languageCodes": [
       "en",
       "ak",
       "ee",
       "tw"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GI",
-    "Name": "Gibraltar",
-    "Capital": "Gibraltar",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "GIP",
-    "LanguageCodes": [
+  "GI": {
+    "code": "GI",
+    "name": "Gibraltar",
+    "capital": "Gibraltar",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "GIP",
+    "languageCodes": [
       "en",
       "es",
       "it",
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GL",
-    "Name": "Greenland",
-    "Capital": "Nuuk",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "DKK",
-    "LanguageCodes": [
+  "GL": {
+    "code": "GL",
+    "name": "Greenland",
+    "capital": "Nuuk",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "DKK",
+    "languageCodes": [
       "kl",
       "da",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GM",
-    "Name": "Gambia",
-    "Capital": "Bathurst",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "GMD",
-    "LanguageCodes": [
+  "GM": {
+    "code": "GM",
+    "name": "Gambia",
+    "capital": "Bathurst",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "GMD",
+    "languageCodes": [
       "en",
       "wo",
       "ff"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GN",
-    "Name": "Guinea",
-    "Capital": "Conakry",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "GNF",
-    "LanguageCodes": [
+  "GN": {
+    "code": "GN",
+    "name": "Guinea",
+    "capital": "Conakry",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "GNF",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GP",
-    "Name": "Guadeloupe",
-    "Capital": "Basse-Terre",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "GP": {
+    "code": "GP",
+    "name": "Guadeloupe",
+    "capital": "Basse-Terre",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GQ",
-    "Name": "Equatorial Guinea",
-    "Capital": "Malabo",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XAF",
-    "LanguageCodes": [
+  "GQ": {
+    "code": "GQ",
+    "name": "Equatorial Guinea",
+    "capital": "Malabo",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XAF",
+    "languageCodes": [
       "es",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GR",
-    "Name": "Greece",
-    "Capital": "Athens",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "GR": {
+    "code": "GR",
+    "name": "Greece",
+    "capital": "Athens",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "el",
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 23,
+      "reduced1": 13,
+      "reduced2": 6
+    }
   },
-  {
-    "Code": "GS",
-    "Name": "South Georgia and the South Sandwich Islands",
-    "Capital": "Grytviken",
-    "Continent": "AN",
-    "ContinentName": "Antarctica",
-    "CurrencyCode": "GBP",
-    "LanguageCodes": [
+  "GS": {
+    "code": "GS",
+    "name": "South Georgia and the South Sandwich Islands",
+    "capital": "Grytviken",
+    "continent": "AN",
+    "continentName": "Antarctica",
+    "currencyCode": "GBP",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GT",
-    "Name": "Guatemala",
-    "Capital": "Guatemala City",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "GTQ",
-    "LanguageCodes": [
+  "GT": {
+    "code": "GT",
+    "name": "Guatemala",
+    "capital": "Guatemala City",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "GTQ",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GU",
-    "Name": "Guam",
-    "Capital": "Hagåtña",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "GU": {
+    "code": "GU",
+    "name": "Guam",
+    "capital": "Hag\u00e5t\u00f1a",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en",
       "ch"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GW",
-    "Name": "Guinea-Bissau",
-    "Capital": "Bissau",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "GW": {
+    "code": "GW",
+    "name": "Guinea-Bissau",
+    "capital": "Bissau",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "GY",
-    "Name": "Guyana",
-    "Capital": "Georgetown",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "GYD",
-    "LanguageCodes": [
+  "GY": {
+    "code": "GY",
+    "name": "Guyana",
+    "capital": "Georgetown",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "GYD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "HK",
-    "Name": "Hong Kong",
-    "Capital": "Hong Kong",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "HKD",
-    "LanguageCodes": [
+  "HK": {
+    "code": "HK",
+    "name": "Hong Kong",
+    "capital": "Hong Kong",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "HKD",
+    "languageCodes": [
       "zh",
       "zh",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "HM",
-    "Name": "Heard Island and McDonald Islands",
-    "Capital": "",
-    "Continent": "AN",
-    "ContinentName": "Antarctica",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": null
+  "HM": {
+    "code": "HM",
+    "name": "Heard Island and McDonald Islands",
+    "capital": "",
+    "continent": "AN",
+    "continentName": "Antarctica",
+    "currencyCode": "AUD",
+    "languageCodes": null,
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "HN",
-    "Name": "Honduras",
-    "Capital": "Tegucigalpa",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "HNL",
-    "LanguageCodes": [
+  "HN": {
+    "code": "HN",
+    "name": "Honduras",
+    "capital": "Tegucigalpa",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "HNL",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "HR",
-    "Name": "Croatia",
-    "Capital": "Zagreb",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "HRK",
-    "LanguageCodes": [
+  "HR": {
+    "code": "HR",
+    "name": "Croatia",
+    "capital": "Zagreb",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "HRK",
+    "languageCodes": [
       "hr",
       "sr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 25,
+      "reduced1": 13,
+      "reduced2": 5
+    }
   },
-  {
-    "Code": "HT",
-    "Name": "Haiti",
-    "Capital": "Port-au-Prince",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "HTG",
-    "LanguageCodes": [
+  "HT": {
+    "code": "HT",
+    "name": "Haiti",
+    "capital": "Port-au-Prince",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "HTG",
+    "languageCodes": [
       "ht",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "HU",
-    "Name": "Hungary",
-    "Capital": "Budapest",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "HUF",
-    "LanguageCodes": [
+  "HU": {
+    "code": "HU",
+    "name": "Hungary",
+    "capital": "Budapest",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "HUF",
+    "languageCodes": [
       "hu"
-    ]
+    ],
+    "vatRates": {
+      "standard": 27,
+      "reduced1": 18,
+      "reduced2": 5
+    }
   },
-  {
-    "Code": "ID",
-    "Name": "Indonesia",
-    "Capital": "Jakarta",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "IDR",
-    "LanguageCodes": [
+  "ID": {
+    "code": "ID",
+    "name": "Indonesia",
+    "capital": "Jakarta",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "IDR",
+    "languageCodes": [
       "id",
       "en",
       "nl",
       "jv"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IE",
-    "Name": "Ireland",
-    "Capital": "Dublin",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "IE": {
+    "code": "IE",
+    "name": "Ireland",
+    "capital": "Dublin",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "en",
       "ga"
-    ]
+    ],
+    "vatRates": {
+      "standard": 23,
+      "reduced1": 13.5,
+      "reduced2": 9
+    }
   },
-  {
-    "Code": "IL",
-    "Name": "Israel",
-    "Capital": "",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "ILS",
-    "LanguageCodes": [
+  "IL": {
+    "code": "IL",
+    "name": "Israel",
+    "capital": "",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "ILS",
+    "languageCodes": [
       "he",
       "ar",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IM",
-    "Name": "Isle of Man",
-    "Capital": "Douglas",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "GBP",
-    "LanguageCodes": [
+  "IM": {
+    "code": "IM",
+    "name": "Isle of Man",
+    "capital": "Douglas",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "GBP",
+    "languageCodes": [
       "en",
       "gv"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IN",
-    "Name": "India",
-    "Capital": "New Delhi",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "INR",
-    "LanguageCodes": [
+  "IN": {
+    "code": "IN",
+    "name": "India",
+    "capital": "New Delhi",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "INR",
+    "languageCodes": [
       "en",
       "hi",
       "bn",
@@ -1313,68 +1821,93 @@ const countriesJSON = `[
       "sd",
       "sa",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IO",
-    "Name": "British Indian Ocean Territory",
-    "Capital": "",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "IO": {
+    "code": "IO",
+    "name": "British Indian Ocean Territory",
+    "capital": "",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IQ",
-    "Name": "Iraq",
-    "Capital": "Baghdad",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "IQD",
-    "LanguageCodes": [
+  "IQ": {
+    "code": "IQ",
+    "name": "Iraq",
+    "capital": "Baghdad",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "IQD",
+    "languageCodes": [
       "ar",
       "ku",
       "hy"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IR",
-    "Name": "Iran",
-    "Capital": "Tehran",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "IRR",
-    "LanguageCodes": [
+  "IR": {
+    "code": "IR",
+    "name": "Iran",
+    "capital": "Tehran",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "IRR",
+    "languageCodes": [
       "fa",
       "ku"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IS",
-    "Name": "Iceland",
-    "Capital": "Reykjavik",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "ISK",
-    "LanguageCodes": [
+  "IS": {
+    "code": "IS",
+    "name": "Iceland",
+    "capital": "Reykjavik",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "ISK",
+    "languageCodes": [
       "is",
       "en",
       "de",
       "da",
       "sv",
       "no"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "IT",
-    "Name": "Italy",
-    "Capital": "Rome",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "IT": {
+    "code": "IT",
+    "name": "Italy",
+    "capital": "Rome",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "it",
       "de",
       "fr",
@@ -1382,587 +1915,827 @@ const countriesJSON = `[
       "ca",
       "co",
       "sl"
-    ]
+    ],
+    "vatRates": {
+      "standard": 22,
+      "reduced1": 10,
+      "reduced2": 4
+    }
   },
-  {
-    "Code": "JE",
-    "Name": "Jersey",
-    "Capital": "Saint Helier",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "GBP",
-    "LanguageCodes": [
+  "JE": {
+    "code": "JE",
+    "name": "Jersey",
+    "capital": "Saint Helier",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "GBP",
+    "languageCodes": [
       "en",
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "JM",
-    "Name": "Jamaica",
-    "Capital": "Kingston",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "JMD",
-    "LanguageCodes": [
+  "JM": {
+    "code": "JM",
+    "name": "Jamaica",
+    "capital": "Kingston",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "JMD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "JO",
-    "Name": "Jordan",
-    "Capital": "Amman",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "JOD",
-    "LanguageCodes": [
+  "JO": {
+    "code": "JO",
+    "name": "Jordan",
+    "capital": "Amman",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "JOD",
+    "languageCodes": [
       "ar",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "JP",
-    "Name": "Japan",
-    "Capital": "Tokyo",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "JPY",
-    "LanguageCodes": [
+  "JP": {
+    "code": "JP",
+    "name": "Japan",
+    "capital": "Tokyo",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "JPY",
+    "languageCodes": [
       "ja"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KE",
-    "Name": "Kenya",
-    "Capital": "Nairobi",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "KES",
-    "LanguageCodes": [
+  "KE": {
+    "code": "KE",
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "KES",
+    "languageCodes": [
       "en",
       "sw"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KG",
-    "Name": "Kyrgyzstan",
-    "Capital": "Bishkek",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "KGS",
-    "LanguageCodes": [
+  "KG": {
+    "code": "KG",
+    "name": "Kyrgyzstan",
+    "capital": "Bishkek",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "KGS",
+    "languageCodes": [
       "ky",
       "uz",
       "ru"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KH",
-    "Name": "Cambodia",
-    "Capital": "Phnom Penh",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "KHR",
-    "LanguageCodes": [
+  "KH": {
+    "code": "KH",
+    "name": "Cambodia",
+    "capital": "Phnom Penh",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "KHR",
+    "languageCodes": [
       "km",
       "fr",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KI",
-    "Name": "Kiribati",
-    "Capital": "Tarawa",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": [
+  "KI": {
+    "code": "KI",
+    "name": "Kiribati",
+    "capital": "Tarawa",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "AUD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KM",
-    "Name": "Comoros",
-    "Capital": "Moroni",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "KMF",
-    "LanguageCodes": [
+  "KM": {
+    "code": "KM",
+    "name": "Comoros",
+    "capital": "Moroni",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "KMF",
+    "languageCodes": [
       "ar",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KN",
-    "Name": "Saint Kitts and Nevis",
-    "Capital": "Basseterre",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "KN": {
+    "code": "KN",
+    "name": "Saint Kitts and Nevis",
+    "capital": "Basseterre",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KP",
-    "Name": "North Korea",
-    "Capital": "Pyongyang",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "KPW",
-    "LanguageCodes": [
+  "KP": {
+    "code": "KP",
+    "name": "North Korea",
+    "capital": "Pyongyang",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "KPW",
+    "languageCodes": [
       "ko"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KR",
-    "Name": "South Korea",
-    "Capital": "Seoul",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "KRW",
-    "LanguageCodes": [
+  "KR": {
+    "code": "KR",
+    "name": "South Korea",
+    "capital": "Seoul",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "KRW",
+    "languageCodes": [
       "ko",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KW",
-    "Name": "Kuwait",
-    "Capital": "Kuwait City",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "KWD",
-    "LanguageCodes": [
+  "KW": {
+    "code": "KW",
+    "name": "Kuwait",
+    "capital": "Kuwait City",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "KWD",
+    "languageCodes": [
       "ar",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KY",
-    "Name": "Cayman Islands",
-    "Capital": "George Town",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "KYD",
-    "LanguageCodes": [
+  "KY": {
+    "code": "KY",
+    "name": "Cayman Islands",
+    "capital": "George Town",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "KYD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "KZ",
-    "Name": "Kazakhstan",
-    "Capital": "Astana",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "KZT",
-    "LanguageCodes": [
+  "KZ": {
+    "code": "KZ",
+    "name": "Kazakhstan",
+    "capital": "Astana",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "KZT",
+    "languageCodes": [
       "kk",
       "ru"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LA",
-    "Name": "Laos",
-    "Capital": "Vientiane",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "LAK",
-    "LanguageCodes": [
+  "LA": {
+    "code": "LA",
+    "name": "Laos",
+    "capital": "Vientiane",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "LAK",
+    "languageCodes": [
       "lo",
       "fr",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LB",
-    "Name": "Lebanon",
-    "Capital": "Beirut",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "LBP",
-    "LanguageCodes": [
+  "LB": {
+    "code": "LB",
+    "name": "Lebanon",
+    "capital": "Beirut",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "LBP",
+    "languageCodes": [
       "ar",
       "fr",
       "en",
       "hy"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LC",
-    "Name": "Saint Lucia",
-    "Capital": "Castries",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "LC": {
+    "code": "LC",
+    "name": "Saint Lucia",
+    "capital": "Castries",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LI",
-    "Name": "Liechtenstein",
-    "Capital": "Vaduz",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "CHF",
-    "LanguageCodes": [
+  "LI": {
+    "code": "LI",
+    "name": "Liechtenstein",
+    "capital": "Vaduz",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "CHF",
+    "languageCodes": [
       "de"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LK",
-    "Name": "Sri Lanka",
-    "Capital": "Colombo",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "LKR",
-    "LanguageCodes": [
+  "LK": {
+    "code": "LK",
+    "name": "Sri Lanka",
+    "capital": "Colombo",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "LKR",
+    "languageCodes": [
       "si",
       "ta",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LR",
-    "Name": "Liberia",
-    "Capital": "Monrovia",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "LRD",
-    "LanguageCodes": [
+  "LR": {
+    "code": "LR",
+    "name": "Liberia",
+    "capital": "Monrovia",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "LRD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LS",
-    "Name": "Lesotho",
-    "Capital": "Maseru",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "LSL",
-    "LanguageCodes": [
+  "LS": {
+    "code": "LS",
+    "name": "Lesotho",
+    "capital": "Maseru",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "LSL",
+    "languageCodes": [
       "en",
       "st",
       "xh"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LT",
-    "Name": "Lithuania",
-    "Capital": "Vilnius",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "LT": {
+    "code": "LT",
+    "name": "Lithuania",
+    "capital": "Vilnius",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "lt",
       "ru",
       "pl"
-    ]
+    ],
+    "vatRates": {
+      "standard": 21,
+      "reduced1": 9,
+      "reduced2": 5
+    }
   },
-  {
-    "Code": "LU",
-    "Name": "Luxembourg",
-    "Capital": "Luxembourg",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "LU": {
+    "code": "LU",
+    "name": "Luxembourg",
+    "capital": "Luxembourg",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "lb",
       "de",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 17,
+      "reduced1": 14,
+      "reduced2": 8
+    }
   },
-  {
-    "Code": "LV",
-    "Name": "Latvia",
-    "Capital": "Riga",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "LV": {
+    "code": "LV",
+    "name": "Latvia",
+    "capital": "Riga",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "lv",
       "ru",
       "lt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 21,
+      "reduced1": 12,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "LY",
-    "Name": "Libya",
-    "Capital": "Tripoli",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "LYD",
-    "LanguageCodes": [
+  "LY": {
+    "code": "LY",
+    "name": "Libya",
+    "capital": "Tripoli",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "LYD",
+    "languageCodes": [
       "ar",
       "it",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MA",
-    "Name": "Morocco",
-    "Capital": "Rabat",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "MAD",
-    "LanguageCodes": [
+  "MA": {
+    "code": "MA",
+    "name": "Morocco",
+    "capital": "Rabat",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "MAD",
+    "languageCodes": [
       "ar",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MC",
-    "Name": "Monaco",
-    "Capital": "Monaco",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "MC": {
+    "code": "MC",
+    "name": "Monaco",
+    "capital": "Monaco",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr",
       "en",
       "it"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MD",
-    "Name": "Moldova",
-    "Capital": "Chişinău",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "MDL",
-    "LanguageCodes": [
+  "MD": {
+    "code": "MD",
+    "name": "Moldova",
+    "capital": "Chi\u015fin\u0103u",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "MDL",
+    "languageCodes": [
       "ro",
       "ru",
       "tr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ME",
-    "Name": "Montenegro",
-    "Capital": "Podgorica",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "ME": {
+    "code": "ME",
+    "name": "Montenegro",
+    "capital": "Podgorica",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "sr",
       "hu",
       "bs",
       "sq",
       "hr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MF",
-    "Name": "Saint Martin",
-    "Capital": "Marigot",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "MF": {
+    "code": "MF",
+    "name": "Saint Martin",
+    "capital": "Marigot",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MG",
-    "Name": "Madagascar",
-    "Capital": "Antananarivo",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "MGA",
-    "LanguageCodes": [
+  "MG": {
+    "code": "MG",
+    "name": "Madagascar",
+    "capital": "Antananarivo",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "MGA",
+    "languageCodes": [
       "fr",
       "mg"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MH",
-    "Name": "Marshall Islands",
-    "Capital": "Majuro",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "MH": {
+    "code": "MH",
+    "name": "Marshall Islands",
+    "capital": "Majuro",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "mh",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MK",
-    "Name": "Macedonia",
-    "Capital": "Skopje",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "MKD",
-    "LanguageCodes": [
+  "MK": {
+    "code": "MK",
+    "name": "Macedonia",
+    "capital": "Skopje",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "MKD",
+    "languageCodes": [
       "mk",
       "sq",
       "tr",
       "sr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ML",
-    "Name": "Mali",
-    "Capital": "Bamako",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "ML": {
+    "code": "ML",
+    "name": "Mali",
+    "capital": "Bamako",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "fr",
       "bm"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MM",
-    "Name": "Myanmar [Burma]",
-    "Capital": "Naypyitaw",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "MMK",
-    "LanguageCodes": [
+  "MM": {
+    "code": "MM",
+    "name": "Myanmar [Burma]",
+    "capital": "Naypyitaw",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "MMK",
+    "languageCodes": [
       "my"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MN",
-    "Name": "Mongolia",
-    "Capital": "Ulan Bator",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "MNT",
-    "LanguageCodes": [
+  "MN": {
+    "code": "MN",
+    "name": "Mongolia",
+    "capital": "Ulan Bator",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "MNT",
+    "languageCodes": [
       "mn",
       "ru"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MO",
-    "Name": "Macao",
-    "Capital": "Macao",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "MOP",
-    "LanguageCodes": [
+  "MO": {
+    "code": "MO",
+    "name": "Macao",
+    "capital": "Macao",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "MOP",
+    "languageCodes": [
       "zh",
       "zh",
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MP",
-    "Name": "Northern Mariana Islands",
-    "Capital": "Saipan",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "MP": {
+    "code": "MP",
+    "name": "Northern Mariana Islands",
+    "capital": "Saipan",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "tl",
       "zh",
       "ch",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MQ",
-    "Name": "Martinique",
-    "Capital": "Fort-de-France",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "MQ": {
+    "code": "MQ",
+    "name": "Martinique",
+    "capital": "Fort-de-France",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MR",
-    "Name": "Mauritania",
-    "Capital": "Nouakchott",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "MRO",
-    "LanguageCodes": [
+  "MR": {
+    "code": "MR",
+    "name": "Mauritania",
+    "capital": "Nouakchott",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "MRO",
+    "languageCodes": [
       "ar",
       "fr",
       "wo"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MS",
-    "Name": "Montserrat",
-    "Capital": "Plymouth",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "MS": {
+    "code": "MS",
+    "name": "Montserrat",
+    "capital": "Plymouth",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MT",
-    "Name": "Malta",
-    "Capital": "Valletta",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "MT": {
+    "code": "MT",
+    "name": "Malta",
+    "capital": "Valletta",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "mt",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 18,
+      "reduced1": 7,
+      "reduced2": 5
+    }
   },
-  {
-    "Code": "MU",
-    "Name": "Mauritius",
-    "Capital": "Port Louis",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "MUR",
-    "LanguageCodes": [
+  "MU": {
+    "code": "MU",
+    "name": "Mauritius",
+    "capital": "Port Louis",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "MUR",
+    "languageCodes": [
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MV",
-    "Name": "Maldives",
-    "Capital": "Malé",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "MVR",
-    "LanguageCodes": [
+  "MV": {
+    "code": "MV",
+    "name": "Maldives",
+    "capital": "Mal\u00e9",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "MVR",
+    "languageCodes": [
       "dv",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MW",
-    "Name": "Malawi",
-    "Capital": "Lilongwe",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "MWK",
-    "LanguageCodes": [
+  "MW": {
+    "code": "MW",
+    "name": "Malawi",
+    "capital": "Lilongwe",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "MWK",
+    "languageCodes": [
       "ny"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MX",
-    "Name": "Mexico",
-    "Capital": "Mexico City",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "MXN",
-    "LanguageCodes": [
+  "MX": {
+    "code": "MX",
+    "name": "Mexico",
+    "capital": "Mexico City",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "MXN",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MY",
-    "Name": "Malaysia",
-    "Capital": "Kuala Lumpur",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "MYR",
-    "LanguageCodes": [
+  "MY": {
+    "code": "MY",
+    "name": "Malaysia",
+    "capital": "Kuala Lumpur",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "MYR",
+    "languageCodes": [
       "ms",
       "en",
       "zh",
@@ -1971,1104 +2744,1554 @@ const countriesJSON = `[
       "ml",
       "pa",
       "th"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "MZ",
-    "Name": "Mozambique",
-    "Capital": "Maputo",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "MZN",
-    "LanguageCodes": [
+  "MZ": {
+    "code": "MZ",
+    "name": "Mozambique",
+    "capital": "Maputo",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "MZN",
+    "languageCodes": [
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NA",
-    "Name": "Namibia",
-    "Capital": "Windhoek",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "NAD",
-    "LanguageCodes": [
+  "NA": {
+    "code": "NA",
+    "name": "Namibia",
+    "capital": "Windhoek",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "NAD",
+    "languageCodes": [
       "en",
       "af",
       "de",
       "hz"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NC",
-    "Name": "New Caledonia",
-    "Capital": "Noumea",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "XPF",
-    "LanguageCodes": [
+  "NC": {
+    "code": "NC",
+    "name": "New Caledonia",
+    "capital": "Noumea",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "XPF",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NE",
-    "Name": "Niger",
-    "Capital": "Niamey",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "NE": {
+    "code": "NE",
+    "name": "Niger",
+    "capital": "Niamey",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "fr",
       "ha",
       "kr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NF",
-    "Name": "Norfolk Island",
-    "Capital": "Kingston",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": [
+  "NF": {
+    "code": "NF",
+    "name": "Norfolk Island",
+    "capital": "Kingston",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "AUD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NG",
-    "Name": "Nigeria",
-    "Capital": "Abuja",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "NGN",
-    "LanguageCodes": [
+  "NG": {
+    "code": "NG",
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "NGN",
+    "languageCodes": [
       "en",
       "ha",
       "yo",
       "ig",
       "ff"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NI",
-    "Name": "Nicaragua",
-    "Capital": "Managua",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "NIO",
-    "LanguageCodes": [
+  "NI": {
+    "code": "NI",
+    "name": "Nicaragua",
+    "capital": "Managua",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "NIO",
+    "languageCodes": [
       "es",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NL",
-    "Name": "Netherlands",
-    "Capital": "Amsterdam",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "NL": {
+    "code": "NL",
+    "name": "Netherlands",
+    "capital": "Amsterdam",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "nl",
       "fy"
-    ]
+    ],
+    "vatRates": {
+      "standard": 21,
+      "reduced1": 6,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NO",
-    "Name": "Norway",
-    "Capital": "Oslo",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "NOK",
-    "LanguageCodes": [
+  "NO": {
+    "code": "NO",
+    "name": "Norway",
+    "capital": "Oslo",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "NOK",
+    "languageCodes": [
       "no",
       "nb",
       "nn",
       "se",
       "fi"
-    ]
+    ],
+    "vatRates": {
+      "standard": 25,
+      "reduced1": 15,
+      "reduced2": 8
+    }
   },
-  {
-    "Code": "NP",
-    "Name": "Nepal",
-    "Capital": "Kathmandu",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "NPR",
-    "LanguageCodes": [
+  "NP": {
+    "code": "NP",
+    "name": "Nepal",
+    "capital": "Kathmandu",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "NPR",
+    "languageCodes": [
       "ne",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NR",
-    "Name": "Nauru",
-    "Capital": "Yaren",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": [
+  "NR": {
+    "code": "NR",
+    "name": "Nauru",
+    "capital": "Yaren",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "AUD",
+    "languageCodes": [
       "na",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NU",
-    "Name": "Niue",
-    "Capital": "Alofi",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "NZD",
-    "LanguageCodes": [
+  "NU": {
+    "code": "NU",
+    "name": "Niue",
+    "capital": "Alofi",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "NZD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "NZ",
-    "Name": "New Zealand",
-    "Capital": "Wellington",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "NZD",
-    "LanguageCodes": [
+  "NZ": {
+    "code": "NZ",
+    "name": "New Zealand",
+    "capital": "Wellington",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "NZD",
+    "languageCodes": [
       "en",
       "mi"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "OM",
-    "Name": "Oman",
-    "Capital": "Muscat",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "OMR",
-    "LanguageCodes": [
+  "OM": {
+    "code": "OM",
+    "name": "Oman",
+    "capital": "Muscat",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "OMR",
+    "languageCodes": [
       "ar",
       "en",
       "ur"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PA",
-    "Name": "Panama",
-    "Capital": "Panama City",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "PAB",
-    "LanguageCodes": [
+  "PA": {
+    "code": "PA",
+    "name": "Panama",
+    "capital": "Panama City",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "PAB",
+    "languageCodes": [
       "es",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PE",
-    "Name": "Peru",
-    "Capital": "Lima",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "PEN",
-    "LanguageCodes": [
+  "PE": {
+    "code": "PE",
+    "name": "Peru",
+    "capital": "Lima",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "PEN",
+    "languageCodes": [
       "es",
       "qu",
       "ay"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PF",
-    "Name": "French Polynesia",
-    "Capital": "Papeete",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "XPF",
-    "LanguageCodes": [
+  "PF": {
+    "code": "PF",
+    "name": "French Polynesia",
+    "capital": "Papeete",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "XPF",
+    "languageCodes": [
       "fr",
       "ty"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PG",
-    "Name": "Papua New Guinea",
-    "Capital": "Port Moresby",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "PGK",
-    "LanguageCodes": [
+  "PG": {
+    "code": "PG",
+    "name": "Papua New Guinea",
+    "capital": "Port Moresby",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "PGK",
+    "languageCodes": [
       "en",
       "ho"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PH",
-    "Name": "Philippines",
-    "Capital": "Manila",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "PHP",
-    "LanguageCodes": [
+  "PH": {
+    "code": "PH",
+    "name": "Philippines",
+    "capital": "Manila",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "PHP",
+    "languageCodes": [
       "tl",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PK",
-    "Name": "Pakistan",
-    "Capital": "Islamabad",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "PKR",
-    "LanguageCodes": [
+  "PK": {
+    "code": "PK",
+    "name": "Pakistan",
+    "capital": "Islamabad",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "PKR",
+    "languageCodes": [
       "ur",
       "en",
       "pa",
       "sd",
       "ps"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PL",
-    "Name": "Poland",
-    "Capital": "Warsaw",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "PLN",
-    "LanguageCodes": [
+  "PL": {
+    "code": "PL",
+    "name": "Poland",
+    "capital": "Warsaw",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "PLN",
+    "languageCodes": [
       "pl"
-    ]
+    ],
+    "vatRates": {
+      "standard": 23,
+      "reduced1": 8,
+      "reduced2": 5
+    }
   },
-  {
-    "Code": "PM",
-    "Name": "Saint Pierre and Miquelon",
-    "Capital": "Saint-Pierre",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "PM": {
+    "code": "PM",
+    "name": "Saint Pierre and Miquelon",
+    "capital": "Saint-Pierre",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PN",
-    "Name": "Pitcairn Islands",
-    "Capital": "Adamstown",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "NZD",
-    "LanguageCodes": [
+  "PN": {
+    "code": "PN",
+    "name": "Pitcairn Islands",
+    "capital": "Adamstown",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "NZD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PR",
-    "Name": "Puerto Rico",
-    "Capital": "San Juan",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "PR": {
+    "code": "PR",
+    "name": "Puerto Rico",
+    "capital": "San Juan",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en",
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PS",
-    "Name": "Palestine",
-    "Capital": "",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "ILS",
-    "LanguageCodes": [
+  "PS": {
+    "code": "PS",
+    "name": "Palestine",
+    "capital": "",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "ILS",
+    "languageCodes": [
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PT",
-    "Name": "Portugal",
-    "Capital": "Lisbon",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "PT": {
+    "code": "PT",
+    "name": "Portugal",
+    "capital": "Lisbon",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 23,
+      "reduced1": 13,
+      "reduced2": 6
+    }
   },
-  {
-    "Code": "PW",
-    "Name": "Palau",
-    "Capital": "Melekeok",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "PW": {
+    "code": "PW",
+    "name": "Palau",
+    "capital": "Melekeok",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en",
       "ja",
       "zh"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "PY",
-    "Name": "Paraguay",
-    "Capital": "Asunción",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "PYG",
-    "LanguageCodes": [
+  "PY": {
+    "code": "PY",
+    "name": "Paraguay",
+    "capital": "Asunci\u00f3n",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "PYG",
+    "languageCodes": [
       "es",
       "gn"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "QA",
-    "Name": "Qatar",
-    "Capital": "Doha",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "QAR",
-    "LanguageCodes": [
+  "QA": {
+    "code": "QA",
+    "name": "Qatar",
+    "capital": "Doha",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "QAR",
+    "languageCodes": [
       "ar",
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "RE",
-    "Name": "Réunion",
-    "Capital": "Saint-Denis",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "RE": {
+    "code": "RE",
+    "name": "R\u00e9union",
+    "capital": "Saint-Denis",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "RO",
-    "Name": "Romania",
-    "Capital": "Bucharest",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "RON",
-    "LanguageCodes": [
+  "RO": {
+    "code": "RO",
+    "name": "Romania",
+    "capital": "Bucharest",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "RON",
+    "languageCodes": [
       "ro",
       "hu"
-    ]
+    ],
+    "vatRates": {
+      "standard": 20,
+      "reduced1": 9,
+      "reduced2": 5
+    }
   },
-  {
-    "Code": "RS",
-    "Name": "Serbia",
-    "Capital": "Belgrade",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "RSD",
-    "LanguageCodes": [
+  "RS": {
+    "code": "RS",
+    "name": "Serbia",
+    "capital": "Belgrade",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "RSD",
+    "languageCodes": [
       "sr",
       "hu",
       "bs"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "RU",
-    "Name": "Russia",
-    "Capital": "Moscow",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "RUB",
-    "LanguageCodes": [
+  "RU": {
+    "code": "RU",
+    "name": "Russia",
+    "capital": "Moscow",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "RUB",
+    "languageCodes": [
       "ru",
       "tt",
       "kv",
       "ce",
       "cv",
       "ba"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "RW",
-    "Name": "Rwanda",
-    "Capital": "Kigali",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "RWF",
-    "LanguageCodes": [
+  "RW": {
+    "code": "RW",
+    "name": "Rwanda",
+    "capital": "Kigali",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "RWF",
+    "languageCodes": [
       "rw",
       "en",
       "fr",
       "sw"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SA",
-    "Name": "Saudi Arabia",
-    "Capital": "Riyadh",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "SAR",
-    "LanguageCodes": [
+  "SA": {
+    "code": "SA",
+    "name": "Saudi Arabia",
+    "capital": "Riyadh",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "SAR",
+    "languageCodes": [
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SB",
-    "Name": "Solomon Islands",
-    "Capital": "Honiara",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "SBD",
-    "LanguageCodes": [
+  "SB": {
+    "code": "SB",
+    "name": "Solomon Islands",
+    "capital": "Honiara",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "SBD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SC",
-    "Name": "Seychelles",
-    "Capital": "Victoria",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "SCR",
-    "LanguageCodes": [
+  "SC": {
+    "code": "SC",
+    "name": "Seychelles",
+    "capital": "Victoria",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "SCR",
+    "languageCodes": [
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SD",
-    "Name": "Sudan",
-    "Capital": "Khartoum",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "SDG",
-    "LanguageCodes": [
+  "SD": {
+    "code": "SD",
+    "name": "Sudan",
+    "capital": "Khartoum",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "SDG",
+    "languageCodes": [
       "ar",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SE",
-    "Name": "Sweden",
-    "Capital": "Stockholm",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "SEK",
-    "LanguageCodes": [
+  "SE": {
+    "code": "SE",
+    "name": "Sweden",
+    "capital": "Stockholm",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "SEK",
+    "languageCodes": [
       "sv",
       "se",
       "fi"
-    ]
+    ],
+    "vatRates": {
+      "standard": 25,
+      "reduced1": 12,
+      "reduced2": 6
+    }
   },
-  {
-    "Code": "SG",
-    "Name": "Singapore",
-    "Capital": "Singapore",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "SGD",
-    "LanguageCodes": [
+  "SG": {
+    "code": "SG",
+    "name": "Singapore",
+    "capital": "Singapore",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "SGD",
+    "languageCodes": [
       "en",
       "ms",
       "ta",
       "zh"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SH",
-    "Name": "Saint Helena",
-    "Capital": "Jamestown",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "SHP",
-    "LanguageCodes": [
+  "SH": {
+    "code": "SH",
+    "name": "Saint Helena",
+    "capital": "Jamestown",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "SHP",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SI",
-    "Name": "Slovenia",
-    "Capital": "Ljubljana",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "SI": {
+    "code": "SI",
+    "name": "Slovenia",
+    "capital": "Ljubljana",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "sl"
-    ]
+    ],
+    "vatRates": {
+      "standard": 22,
+      "reduced1": 9.5,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SJ",
-    "Name": "Svalbard and Jan Mayen",
-    "Capital": "Longyearbyen",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "NOK",
-    "LanguageCodes": [
+  "SJ": {
+    "code": "SJ",
+    "name": "Svalbard and Jan Mayen",
+    "capital": "Longyearbyen",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "NOK",
+    "languageCodes": [
       "no",
       "ru"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SK",
-    "Name": "Slovakia",
-    "Capital": "Bratislava",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "SK": {
+    "code": "SK",
+    "name": "Slovakia",
+    "capital": "Bratislava",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "sk",
       "hu"
-    ]
+    ],
+    "vatRates": {
+      "standard": 20,
+      "reduced1": 10,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SL",
-    "Name": "Sierra Leone",
-    "Capital": "Freetown",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "SLL",
-    "LanguageCodes": [
+  "SL": {
+    "code": "SL",
+    "name": "Sierra Leone",
+    "capital": "Freetown",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "SLL",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SM",
-    "Name": "San Marino",
-    "Capital": "San Marino",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "SM": {
+    "code": "SM",
+    "name": "San Marino",
+    "capital": "San Marino",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "it"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SN",
-    "Name": "Senegal",
-    "Capital": "Dakar",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "SN": {
+    "code": "SN",
+    "name": "Senegal",
+    "capital": "Dakar",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "fr",
       "wo"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SO",
-    "Name": "Somalia",
-    "Capital": "Mogadishu",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "SOS",
-    "LanguageCodes": [
+  "SO": {
+    "code": "SO",
+    "name": "Somalia",
+    "capital": "Mogadishu",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "SOS",
+    "languageCodes": [
       "so",
       "ar",
       "it",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SR",
-    "Name": "Suriname",
-    "Capital": "Paramaribo",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "SRD",
-    "LanguageCodes": [
+  "SR": {
+    "code": "SR",
+    "name": "Suriname",
+    "capital": "Paramaribo",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "SRD",
+    "languageCodes": [
       "nl",
       "en",
       "jv"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SS",
-    "Name": "South Sudan",
-    "Capital": "Juba",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "SSP",
-    "LanguageCodes": [
+  "SS": {
+    "code": "SS",
+    "name": "South Sudan",
+    "capital": "Juba",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "SSP",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ST",
-    "Name": "São Tomé and Príncipe",
-    "Capital": "São Tomé",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "STD",
-    "LanguageCodes": [
+  "ST": {
+    "code": "ST",
+    "name": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
+    "capital": "S\u00e3o Tom\u00e9",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "STD",
+    "languageCodes": [
       "pt"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SV",
-    "Name": "El Salvador",
-    "Capital": "San Salvador",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "SV": {
+    "code": "SV",
+    "name": "El Salvador",
+    "capital": "San Salvador",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SX",
-    "Name": "Sint Maarten",
-    "Capital": "Philipsburg",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "ANG",
-    "LanguageCodes": [
+  "SX": {
+    "code": "SX",
+    "name": "Sint Maarten",
+    "capital": "Philipsburg",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "ANG",
+    "languageCodes": [
       "nl",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SY",
-    "Name": "Syria",
-    "Capital": "Damascus",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "SYP",
-    "LanguageCodes": [
+  "SY": {
+    "code": "SY",
+    "name": "Syria",
+    "capital": "Damascus",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "SYP",
+    "languageCodes": [
       "ar",
       "ku",
       "hy",
       "fr",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "SZ",
-    "Name": "Swaziland",
-    "Capital": "Mbabane",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "SZL",
-    "LanguageCodes": [
+  "SZ": {
+    "code": "SZ",
+    "name": "Swaziland",
+    "capital": "Mbabane",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "SZL",
+    "languageCodes": [
       "en",
       "ss"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TC",
-    "Name": "Turks and Caicos Islands",
-    "Capital": "Cockburn Town",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "TC": {
+    "code": "TC",
+    "name": "Turks and Caicos Islands",
+    "capital": "Cockburn Town",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TD",
-    "Name": "Chad",
-    "Capital": "N'Djamena",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XAF",
-    "LanguageCodes": [
+  "TD": {
+    "code": "TD",
+    "name": "Chad",
+    "capital": "N'Djamena",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XAF",
+    "languageCodes": [
       "fr",
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TF",
-    "Name": "French Southern Territories",
-    "Capital": "Port-aux-Français",
-    "Continent": "AN",
-    "ContinentName": "Antarctica",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "TF": {
+    "code": "TF",
+    "name": "French Southern Territories",
+    "capital": "Port-aux-Fran\u00e7ais",
+    "continent": "AN",
+    "continentName": "Antarctica",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TG",
-    "Name": "Togo",
-    "Capital": "Lomé",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "XOF",
-    "LanguageCodes": [
+  "TG": {
+    "code": "TG",
+    "name": "Togo",
+    "capital": "Lom\u00e9",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "XOF",
+    "languageCodes": [
       "fr",
       "ee",
       "ha"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TH",
-    "Name": "Thailand",
-    "Capital": "Bangkok",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "THB",
-    "LanguageCodes": [
+  "TH": {
+    "code": "TH",
+    "name": "Thailand",
+    "capital": "Bangkok",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "THB",
+    "languageCodes": [
       "th",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TJ",
-    "Name": "Tajikistan",
-    "Capital": "Dushanbe",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "TJS",
-    "LanguageCodes": [
+  "TJ": {
+    "code": "TJ",
+    "name": "Tajikistan",
+    "capital": "Dushanbe",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "TJS",
+    "languageCodes": [
       "tg",
       "ru"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TK",
-    "Name": "Tokelau",
-    "Capital": "",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "NZD",
-    "LanguageCodes": [
+  "TK": {
+    "code": "TK",
+    "name": "Tokelau",
+    "capital": "",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "NZD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TL",
-    "Name": "East Timor",
-    "Capital": "Dili",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "TL": {
+    "code": "TL",
+    "name": "East Timor",
+    "capital": "Dili",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "pt",
       "id",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TM",
-    "Name": "Turkmenistan",
-    "Capital": "Ashgabat",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "TMT",
-    "LanguageCodes": [
+  "TM": {
+    "code": "TM",
+    "name": "Turkmenistan",
+    "capital": "Ashgabat",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "TMT",
+    "languageCodes": [
       "tk",
       "ru",
       "uz"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TN",
-    "Name": "Tunisia",
-    "Capital": "Tunis",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "TND",
-    "LanguageCodes": [
+  "TN": {
+    "code": "TN",
+    "name": "Tunisia",
+    "capital": "Tunis",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "TND",
+    "languageCodes": [
       "ar",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TO",
-    "Name": "Tonga",
-    "Capital": "Nuku'alofa",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "TOP",
-    "LanguageCodes": [
+  "TO": {
+    "code": "TO",
+    "name": "Tonga",
+    "capital": "Nuku'alofa",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "TOP",
+    "languageCodes": [
       "to",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TR",
-    "Name": "Turkey",
-    "Capital": "Ankara",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "TRY",
-    "LanguageCodes": [
+  "TR": {
+    "code": "TR",
+    "name": "Turkey",
+    "capital": "Ankara",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "TRY",
+    "languageCodes": [
       "tr",
       "ku",
       "az",
       "av"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TT",
-    "Name": "Trinidad and Tobago",
-    "Capital": "Port of Spain",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "TTD",
-    "LanguageCodes": [
+  "TT": {
+    "code": "TT",
+    "name": "Trinidad and Tobago",
+    "capital": "Port of Spain",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "TTD",
+    "languageCodes": [
       "en",
       "fr",
       "es",
       "zh"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TV",
-    "Name": "Tuvalu",
-    "Capital": "Funafuti",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "AUD",
-    "LanguageCodes": [
+  "TV": {
+    "code": "TV",
+    "name": "Tuvalu",
+    "capital": "Funafuti",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "AUD",
+    "languageCodes": [
       "en",
       "sm"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TW",
-    "Name": "Taiwan",
-    "Capital": "Taipei",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "TWD",
-    "LanguageCodes": [
+  "TW": {
+    "code": "TW",
+    "name": "Taiwan",
+    "capital": "Taipei",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "TWD",
+    "languageCodes": [
       "zh",
       "zh"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "TZ",
-    "Name": "Tanzania",
-    "Capital": "Dodoma",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "TZS",
-    "LanguageCodes": [
+  "TZ": {
+    "code": "TZ",
+    "name": "Tanzania",
+    "capital": "Dodoma",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "TZS",
+    "languageCodes": [
       "sw",
       "en",
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "UA",
-    "Name": "Ukraine",
-    "Capital": "Kiev",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "UAH",
-    "LanguageCodes": [
+  "UA": {
+    "code": "UA",
+    "name": "Ukraine",
+    "capital": "Kiev",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "UAH",
+    "languageCodes": [
       "uk",
       "ru",
       "pl",
       "hu"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "UG",
-    "Name": "Uganda",
-    "Capital": "Kampala",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "UGX",
-    "LanguageCodes": [
+  "UG": {
+    "code": "UG",
+    "name": "Uganda",
+    "capital": "Kampala",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "UGX",
+    "languageCodes": [
       "en",
       "lg",
       "sw",
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "UM",
-    "Name": "U.S. Minor Outlying Islands",
-    "Capital": "",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "UM": {
+    "code": "UM",
+    "name": "U.S. Minor Outlying Islands",
+    "capital": "",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "US",
-    "Name": "United States",
-    "Capital": "Washington",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "US": {
+    "code": "US",
+    "name": "United States",
+    "capital": "Washington",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en",
       "es",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "UY",
-    "Name": "Uruguay",
-    "Capital": "Montevideo",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "UYU",
-    "LanguageCodes": [
+  "UY": {
+    "code": "UY",
+    "name": "Uruguay",
+    "capital": "Montevideo",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "UYU",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "UZ",
-    "Name": "Uzbekistan",
-    "Capital": "Tashkent",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "UZS",
-    "LanguageCodes": [
+  "UZ": {
+    "code": "UZ",
+    "name": "Uzbekistan",
+    "capital": "Tashkent",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "UZS",
+    "languageCodes": [
       "uz",
       "ru",
       "tg"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "VA",
-    "Name": "Vatican City",
-    "Capital": "Vatican City",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "VA": {
+    "code": "VA",
+    "name": "Vatican City",
+    "capital": "Vatican City",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "la",
       "it",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "VC",
-    "Name": "Saint Vincent and the Grenadines",
-    "Capital": "Kingstown",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "XCD",
-    "LanguageCodes": [
+  "VC": {
+    "code": "VC",
+    "name": "Saint Vincent and the Grenadines",
+    "capital": "Kingstown",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "XCD",
+    "languageCodes": [
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "VE",
-    "Name": "Venezuela",
-    "Capital": "Caracas",
-    "Continent": "SA",
-    "ContinentName": "South America",
-    "CurrencyCode": "VEF",
-    "LanguageCodes": [
+  "VE": {
+    "code": "VE",
+    "name": "Venezuela",
+    "capital": "Caracas",
+    "continent": "SA",
+    "continentName": "South America",
+    "currencyCode": "VEF",
+    "languageCodes": [
       "es"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "VG",
-    "Name": "British Virgin Islands",
-    "Capital": "Road Town",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "VG": {
+    "code": "VG",
+    "name": "British Virgin Islands",
+    "capital": "Road Town",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "VI",
-    "Name": "U.S. Virgin Islands",
-    "Capital": "Charlotte Amalie",
-    "Continent": "NA",
-    "ContinentName": "North America",
-    "CurrencyCode": "USD",
-    "LanguageCodes": [
+  "VI": {
+    "code": "VI",
+    "name": "U.S. Virgin Islands",
+    "capital": "Charlotte Amalie",
+    "continent": "NA",
+    "continentName": "North America",
+    "currencyCode": "USD",
+    "languageCodes": [
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "VN",
-    "Name": "Vietnam",
-    "Capital": "Hanoi",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "VND",
-    "LanguageCodes": [
+  "VN": {
+    "code": "VN",
+    "name": "Vietnam",
+    "capital": "Hanoi",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "VND",
+    "languageCodes": [
       "vi",
       "en",
       "fr",
       "zh",
       "km"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "VU",
-    "Name": "Vanuatu",
-    "Capital": "Port Vila",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "VUV",
-    "LanguageCodes": [
+  "VU": {
+    "code": "VU",
+    "name": "Vanuatu",
+    "capital": "Port Vila",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "VUV",
+    "languageCodes": [
       "bi",
       "en",
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "WF",
-    "Name": "Wallis and Futuna",
-    "Capital": "Mata-Utu",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "XPF",
-    "LanguageCodes": [
+  "WF": {
+    "code": "WF",
+    "name": "Wallis and Futuna",
+    "capital": "Mata-Utu",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "XPF",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "WS",
-    "Name": "Samoa",
-    "Capital": "Apia",
-    "Continent": "OC",
-    "ContinentName": "Oceania",
-    "CurrencyCode": "WST",
-    "LanguageCodes": [
+  "WS": {
+    "code": "WS",
+    "name": "Samoa",
+    "capital": "Apia",
+    "continent": "OC",
+    "continentName": "Oceania",
+    "currencyCode": "WST",
+    "languageCodes": [
       "sm",
       "en"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "XK",
-    "Name": "Kosovo",
-    "Capital": "Pristina",
-    "Continent": "EU",
-    "ContinentName": "Europe",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "XK": {
+    "code": "XK",
+    "name": "Kosovo",
+    "capital": "Pristina",
+    "continent": "EU",
+    "continentName": "Europe",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "sq",
       "sr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "YE",
-    "Name": "Yemen",
-    "Capital": "Sanaa",
-    "Continent": "AS",
-    "ContinentName": "Asia",
-    "CurrencyCode": "YER",
-    "LanguageCodes": [
+  "YE": {
+    "code": "YE",
+    "name": "Yemen",
+    "capital": "Sanaa",
+    "continent": "AS",
+    "continentName": "Asia",
+    "currencyCode": "YER",
+    "languageCodes": [
       "ar"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "YT",
-    "Name": "Mayotte",
-    "Capital": "Mamoudzou",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "EUR",
-    "LanguageCodes": [
+  "YT": {
+    "code": "YT",
+    "name": "Mayotte",
+    "capital": "Mamoudzou",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "EUR",
+    "languageCodes": [
       "fr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ZA",
-    "Name": "South Africa",
-    "Capital": "Pretoria",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "ZAR",
-    "LanguageCodes": [
+  "ZA": {
+    "code": "ZA",
+    "name": "South Africa",
+    "capital": "Pretoria",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "ZAR",
+    "languageCodes": [
       "xh",
       "af",
       "en",
@@ -3078,32 +4301,47 @@ const countriesJSON = `[
       "ss",
       "ve",
       "nr"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ZM",
-    "Name": "Zambia",
-    "Capital": "Lusaka",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "ZMW",
-    "LanguageCodes": [
+  "ZM": {
+    "code": "ZM",
+    "name": "Zambia",
+    "capital": "Lusaka",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "ZMW",
+    "languageCodes": [
       "en",
       "ny"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   },
-  {
-    "Code": "ZW",
-    "Name": "Zimbabwe",
-    "Capital": "Harare",
-    "Continent": "AF",
-    "ContinentName": "Africa",
-    "CurrencyCode": "ZWL",
-    "LanguageCodes": [
+  "ZW": {
+    "code": "ZW",
+    "name": "Zimbabwe",
+    "capital": "Harare",
+    "continent": "AF",
+    "continentName": "Africa",
+    "currencyCode": "ZWL",
+    "languageCodes": [
       "en",
       "sn",
       "nr",
       "nd"
-    ]
+    ],
+    "vatRates": {
+      "standard": 0,
+      "reduced1": 0,
+      "reduced2": 0
+    }
   }
-]`
+}`
