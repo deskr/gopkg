@@ -147,7 +147,7 @@ const languagesJSON = `[
   },
   {
     "Code": "ca",
-    "Name": "Catalan; Valencian",
+    "Name": "Catalan",
     "NativeName": "Català"
   },
   {
@@ -162,8 +162,8 @@ const languagesJSON = `[
   },
   {
     "Code": "ny",
-    "Name": "Chichewa; Chewa; Nyanja",
-    "NativeName": "ChiCheŵa, Chinyanja"
+    "Name": "Chichewa",
+    "NativeName": "ChiCheŵa"
   },
   {
     "Code": "zh",
@@ -207,8 +207,8 @@ const languagesJSON = `[
   },
   {
     "Code": "dv",
-    "Name": "Divehi; Dhivehi; Maldivian;",
-    "NativeName": "ދިވެހި"
+    "Name": "Maldivian",
+    "NativeName": ""
   },
   {
     "Code": "nl",
@@ -257,8 +257,8 @@ const languagesJSON = `[
   },
   {
     "Code": "ff",
-    "Name": "Fula; Fulah; Pulaar; Pular",
-    "NativeName": "Fulfulde, Pulaar, Pular"
+    "Name": "Pular",
+    "NativeName": "Pular"
   },
   {
     "Code": "gl",
@@ -292,7 +292,7 @@ const languagesJSON = `[
   },
   {
     "Code": "ht",
-    "Name": "Haitian; Haitian Creole",
+    "Name": "Haitian",
     "NativeName": "Kreyòl Ayisyen"
   },
   {
@@ -338,7 +338,7 @@ const languagesJSON = `[
   {
     "Code": "ie",
     "Name": "Interlingue",
-    "NativeName": "Originally Called Occidental; Then Interlingue After WWII"
+    "NativeName": ""
   },
   {
     "Code": "ga",
@@ -722,7 +722,7 @@ const languagesJSON = `[
   },
   {
     "Code": "gd",
-    "Name": "Scottish Gaelic; Gaelic",
+    "Name": "Gaelic",
     "NativeName": "Gàidhlig"
   },
   {
@@ -757,8 +757,8 @@ const languagesJSON = `[
   },
   {
     "Code": "es",
-    "Name": "Spanish; Castilian",
-    "NativeName": "Español, Castellano"
+    "Name": "Spanish",
+    "NativeName": "Español"
   },
   {
     "Code": "su",
