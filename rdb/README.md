@@ -1,3 +1,3 @@
-#rdb
+# rdb
 
 Rethink DB utilities

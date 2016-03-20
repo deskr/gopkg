@@ -1,4 +1,4 @@
-# mailer
+# types
 
 Implemented types:
 
