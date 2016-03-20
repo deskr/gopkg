@@ -6,7 +6,7 @@ import (
 	"io"
 	"os"
 	"path"
-	"runtime"
+	"path/filepath"
 	"strconv"
 
 	"github.com/deskr/gopkg/types/country"
@@ -20,11 +20,16 @@ func loadPostalCodeInfoByCountryCode(cc country.Code, code string) (PostalCodeIn
 		return v[code], true
 	}
 
-	_, filename, _, _ := runtime.Caller(1)
-	csvFile, err := os.Open(path.Join(path.Dir(filename),
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		panic(err)
+	}
+
+	csvFile, err := os.Open(path.Join(dir,
 		fmt.Sprintf("data/p%s.csv", cc.String())))
 	if err != nil {
-		csvFile, err = os.Open(fmt.Sprintf("data/p%s.csv", cc.String()))
+		csvFile, err = os.Open(path.Join("",
+			fmt.Sprintf("data/p%s.csv", cc.String())))
 		if err != nil {
 			panic(err)
 		}
