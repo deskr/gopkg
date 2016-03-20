@@ -66,6 +66,20 @@ func (v Type) String() string {
 	return string(v)
 }
 
+// IsValid returns true if the image type is either gif/png/jpeg
+func (v Type) IsValid() bool {
+	switch v {
+	case GIF:
+		return true
+	case PNG:
+		return true
+	case JPEG:
+		return true
+	default:
+		return false
+	}
+}
+
 // NewImage creates a new profile picture
 func NewImage(r io.Reader, typ Type, maxSize Size) (pic Image, err error) {
 	data, err := ioutil.ReadAll(r)
