@@ -51,6 +51,12 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/tvdburgt/go-argon2",
+			"repository": "https://github.com/tvdburgt/go-argon2",
+			"revision": "0721cf0e7c54454db2976f0be17561288a322ce3",
+			"branch": "master"
+		},
+		{
 			"importpath": "golang.org/x/crypto/pbkdf2",
 			"repository": "https://go.googlesource.com/crypto",
 			"revision": "f18420efc3b4f8e9f3d51f6bd2476e92c46260e9",

@@ -24,8 +24,8 @@ type Hash struct {
 const MinimumLength = 6
 
 const (
-	hashIterations = 4096
-	keyLength      = 32
+	hashIterations = 100000
+	keyLength      = 128
 )
 
 // generateSalt generates a random strong salt to use in hashing secret stuff

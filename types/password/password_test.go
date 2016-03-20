@@ -3,6 +3,7 @@ package password
 import (
 	"bytes"
 	"testing"
+	"time"
 )
 
 func TestPasswordValidate(t *testing.T) {
@@ -38,4 +39,18 @@ func TestPasswordNewHash(t *testing.T) {
 	if bytes.Equal(ph1.Salt, ph2.Salt) {
 		t.Error("Password NewHash generated the same salt output twice")
 	}
+}
+
+func TestPasswordGenerationTime(t *testing.T) {
+	clearText := "pAssWrodAbc12"
+
+	pw := Password(clearText)
+
+	start := time.Now()
+
+	pw.NewHash()
+
+	end := time.Now()
+
+	t.Logf("Password generation time: %s", end.Sub(start).String())
 }
