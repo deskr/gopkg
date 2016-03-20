@@ -1,12 +1,11 @@
-TEST = $$(GO15VENDOREXPERIMENT=1 go list ./... | grep -v '/vendor/')
+TEST = $$(go list ./... | grep -v '/vendor/')
 
 all: test
 
 deps:
-	@export GO15VENDOREXPERIMENT=1
-	go get github.com/FiloSottile/gvt
-	gvt rebuild
-	go install -v
+	go get github.com/kardianos/govendor
+	govendor init
+	govendor add +external
 
 test:
 	@./test unit

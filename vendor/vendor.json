@@ -1,0 +1,85 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "SdEcxwaW92m0H3pao3BPj2ZpvaU=",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "446d1c146faa8ed3f4218f056fcd165f6bcfda81",
+			"revisionTime": "2015-12-04T09:14:43-05:00"
+		},
+		{
+			"checksumSHA1": "b55VMQZmwBl4iSpI9BfdesJI9vQ=",
+			"path": "github.com/cenkalti/backoff",
+			"revision": "4dc77674aceaabba2c7e3da25d4c823edfb73f99",
+			"revisionTime": "2015-08-14T12:43:33+03:00"
+		},
+		{
+			"checksumSHA1": "rDJMxHLS+I6TCqUA1JtaWqfXxlk=",
+			"path": "github.com/dancannon/gorethink",
+			"revision": "a124c9663325ed9f7fb669d17c69961b59151e6e",
+			"revisionTime": "2015-11-19T18:08:09Z"
+		},
+		{
+			"checksumSHA1": "WVOGB79sy0MVWs7A5gJSCs23uh4=",
+			"path": "github.com/dancannon/gorethink/encoding",
+			"revision": "a124c9663325ed9f7fb669d17c69961b59151e6e",
+			"revisionTime": "2015-11-19T18:08:09Z"
+		},
+		{
+			"checksumSHA1": "cvdGWKTSukJFncq3khnb2iWYboc=",
+			"path": "github.com/dancannon/gorethink/ql2",
+			"revision": "a124c9663325ed9f7fb669d17c69961b59151e6e",
+			"revisionTime": "2015-11-19T18:08:09Z"
+		},
+		{
+			"checksumSHA1": "p8caZhJVRmenuxaEHJ1UDXV3ZBc=",
+			"path": "github.com/dancannon/gorethink/types",
+			"revision": "a124c9663325ed9f7fb669d17c69961b59151e6e",
+			"revisionTime": "2015-11-19T18:08:09Z"
+		},
+		{
+			"checksumSHA1": "/78vseA9Nzq4noxZuOebO+1UXRU=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "68415e7123da32b07eab49c96d2c4d6158360e9b",
+			"revisionTime": "2015-12-07T15:07:14+11:00"
+		},
+		{
+			"checksumSHA1": "wg1YpUMVhnUaoz26QhOWEhIT1dE=",
+			"path": "github.com/hailocab/go-hostpool",
+			"revision": "0637eae892be221164aff5fcbccc57171aea6406",
+			"revisionTime": "2015-11-17T00:06:41Z"
+		},
+		{
+			"checksumSHA1": "Uvvpt0tvzivoBek6ARQf6fscE1E=",
+			"path": "github.com/nfnt/resize",
+			"revision": "dc93e1b98c579d90ee2fa15c1fd6dac34f6e7899",
+			"revisionTime": "2015-05-27T10:54:45+02:00"
+		},
+		{
+			"checksumSHA1": "TvF3ym5sZVNqGlUOS9HgOIl/sZM=",
+			"path": "github.com/satori/go.uuid",
+			"revision": "d41af8bb6a7704f00bc3b7cba9355ae6a5a80048",
+			"revisionTime": "2015-10-29T02:17:19+03:00"
+		},
+		{
+			"checksumSHA1": "1MGpGDQqnUoRpv7VEcQrXOBydXE=",
+			"path": "golang.org/x/crypto/pbkdf2",
+			"revision": "f18420efc3b4f8e9f3d51f6bd2476e92c46260e9",
+			"revisionTime": "2015-12-15T11:40:13-07:00"
+		},
+		{
+			"checksumSHA1": "eVLQ5gnR3HVumEbARIa+ef5WL9M=",
+			"path": "gopkg.in/fatih/pool.v2",
+			"revision": "cba550ebf9bce999a02e963296d4bc7a486cb715",
+			"revisionTime": "2015-03-25T18:32:52+02:00"
+		},
+		{
+			"checksumSHA1": "Ww6wiSKdA8LwxoJz4DNUF+crH4g=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "f7716cbe52baa25d2e9b0d0da546fcf909fc16b4",
+			"revisionTime": "2015-12-01T14:27:45-02:00"
+		}
+	],
+	"rootPath": "github.com/deskr/gopkg"
+}
