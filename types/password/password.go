@@ -7,14 +7,13 @@ import (
 
 	"github.com/deskr/gopkg/types/secret"
 
-	"golang.org/x/crypto/pbkdf2"
+	"github.com/magical/argon2"
 )
 
 // Password for user
 type Password string
 
-// Hash is the hashed version of the clear-text password
-// The salt used in creating the hash is kept along the password.
+// Hash for the hashed password
 type Hash struct {
 	Hash []byte
 	Salt []byte
@@ -22,11 +21,6 @@ type Hash struct {
 
 // MinimumLength is the minimum password length
 const MinimumLength = 6
-
-const (
-	hashIterations = 100000
-	keyLength      = 128
-)
 
 // generateSalt generates a random strong salt to use in hashing secret stuff
 func generateSalt() []byte {
@@ -37,7 +31,11 @@ func generateSalt() []byte {
 
 // generateHash returns hash
 func generateHash(str string, salt []byte) []byte {
-	return pbkdf2.Key([]byte(string(salt)+str), salt, hashIterations, keyLength, sha1.New)
+	key, err := argon2.Key([]byte(str), salt, 3, 1, 8192, 64)
+	if err != nil {
+		panic(err)
+	}
+	return key
 }
 
 // IsValid checks for valid password
@@ -56,7 +54,8 @@ func (v Password) String() string {
 // this method will return a new value each time called
 func (v Password) NewHash() Hash {
 	salt := generateSalt()
-	hash := generateHash(v.String(), salt)
+	hash := generateHash(string(v), salt)
+
 	return Hash{
 		Hash: hash,
 		Salt: salt,

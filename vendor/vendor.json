@@ -39,6 +39,12 @@
 			"revisionTime": "2015-11-19T18:08:09Z"
 		},
 		{
+			"checksumSHA1": "2PNbJKX+fcmFm7ZUbNf5ZICjico=",
+			"path": "github.com/dchest/blake2b",
+			"revision": "3c8c640cd7bea3ca78209d812b5854442ab92fed",
+			"revisionTime": "2015-10-22T12:35:02+02:00"
+		},
+		{
 			"checksumSHA1": "/78vseA9Nzq4noxZuOebO+1UXRU=",
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "68415e7123da32b07eab49c96d2c4d6158360e9b",
@@ -49,6 +55,24 @@
 			"path": "github.com/hailocab/go-hostpool",
 			"revision": "0637eae892be221164aff5fcbccc57171aea6406",
 			"revisionTime": "2015-11-17T00:06:41Z"
+		},
+		{
+			"checksumSHA1": "vEbM5lwOEbscsyNOblVMKjwGHOw=",
+			"path": "github.com/magical/argon2",
+			"revision": "190e3cf208e185668db6aa048e4985b7b7b4d890",
+			"revisionTime": "2016-03-03T15:56:54-08:00"
+		},
+		{
+			"checksumSHA1": "I4E+5EwgKBOtoFtVSiarbPyWDeg=",
+			"path": "github.com/mailgun/mailgun-go",
+			"revision": "01bd6a648bb5d95d5f6ebd190fee8bb4158d0339",
+			"revisionTime": "2014-12-25T19:17:53+01:00"
+		},
+		{
+			"checksumSHA1": "6ZHTXGreQ5XvBEQjiNejIwweFTM=",
+			"path": "github.com/mbanzon/simplehttp",
+			"revision": "ed64292224debb8a65122f3c2b71d4cd514bc48b",
+			"revisionTime": "2016-02-09T20:25:12+01:00"
 		},
 		{
 			"checksumSHA1": "Uvvpt0tvzivoBek6ARQf6fscE1E=",
@@ -63,16 +87,16 @@
 			"revisionTime": "2015-10-29T02:17:19+03:00"
 		},
 		{
-			"checksumSHA1": "1MGpGDQqnUoRpv7VEcQrXOBydXE=",
-			"path": "golang.org/x/crypto/pbkdf2",
-			"revision": "f18420efc3b4f8e9f3d51f6bd2476e92c46260e9",
-			"revisionTime": "2015-12-15T11:40:13-07:00"
-		},
-		{
 			"checksumSHA1": "eVLQ5gnR3HVumEbARIa+ef5WL9M=",
 			"path": "gopkg.in/fatih/pool.v2",
 			"revision": "cba550ebf9bce999a02e963296d4bc7a486cb715",
 			"revisionTime": "2015-03-25T18:32:52+02:00"
+		},
+		{
+			"checksumSHA1": "5VNZq7vsUaBNc16aWTo3ep85b98=",
+			"path": "gopkg.in/gomail.v2",
+			"revision": "84856b343c307d0d076818e93d6122b71591c4a7",
+			"revisionTime": "2016-03-20T17:20:50+01:00"
 		},
 		{
 			"checksumSHA1": "Ww6wiSKdA8LwxoJz4DNUF+crH4g=",

@@ -3,7 +3,6 @@ package password
 import (
 	"bytes"
 	"testing"
-	"time"
 )
 
 func TestPasswordValidate(t *testing.T) {
@@ -41,16 +40,26 @@ func TestPasswordNewHash(t *testing.T) {
 	}
 }
 
-func TestPasswordGenerationTime(t *testing.T) {
-	clearText := "pAssWrodAbc12"
+func createPasswords(b *testing.B, n int) {
+	var ps []Hash
 
-	pw := Password(clearText)
+	for i := 0; i < n; i++ {
+		clearText := "pAssWrodAbc12"
+		pw := Password(clearText)
+		h := pw.NewHash()
 
-	start := time.Now()
+		ps = append(ps, h)
+	}
+}
 
-	pw.NewHash()
+func BenchmarkPasswordGeneration1(b *testing.B) {
+	createPasswords(b, 1)
+}
 
-	end := time.Now()
+func BenchmarkPasswordGeneration100(b *testing.B) {
+	createPasswords(b, 100)
+}
 
-	t.Logf("Password generation time: %s", end.Sub(start).String())
+func BenchmarkPasswordGeneration1000(b *testing.B) {
+	createPasswords(b, 1000)
 }
