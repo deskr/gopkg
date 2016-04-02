@@ -19,12 +19,12 @@ const countriesJSON = `{
     "name": "Andorra",
     "capital": "Andorra la Vella",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "ca"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -35,16 +35,16 @@ const countriesJSON = `{
     "name": "United Arab Emirates",
     "capital": "Abu Dhabi",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "AED",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "AED",
+    "language_codes": [
       "ar",
       "fa",
       "en",
       "hi",
       "ur"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -55,15 +55,15 @@ const countriesJSON = `{
     "name": "Afghanistan",
     "capital": "Kabul",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "AFN",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "AFN",
+    "language_codes": [
       "fa",
       "ps",
       "uz",
       "tk"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -74,12 +74,12 @@ const countriesJSON = `{
     "name": "Antigua and Barbuda",
     "capital": "St. John's",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -90,12 +90,12 @@ const countriesJSON = `{
     "name": "Anguilla",
     "capital": "The Valley",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -106,13 +106,13 @@ const countriesJSON = `{
     "name": "Albania",
     "capital": "Tirana",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "ALL",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "ALL",
+    "language_codes": [
       "sq",
       "el"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -123,12 +123,12 @@ const countriesJSON = `{
     "name": "Armenia",
     "capital": "Yerevan",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "AMD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "AMD",
+    "language_codes": [
       "hy"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -139,12 +139,12 @@ const countriesJSON = `{
     "name": "Angola",
     "capital": "Luanda",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "AOA",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "AOA",
+    "language_codes": [
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -155,10 +155,10 @@ const countriesJSON = `{
     "name": "Antarctica",
     "capital": "",
     "continent": "AN",
-    "continentName": "Antarctica",
-    "currencyCode": "",
-    "languageCodes": null,
-    "vatRates": {
+    "continent_name": "Antarctica",
+    "currency_code": "",
+    "language_codes": null,
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -169,9 +169,9 @@ const countriesJSON = `{
     "name": "Argentina",
     "capital": "Buenos Aires",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "ARS",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "ARS",
+    "language_codes": [
       "es",
       "en",
       "it",
@@ -179,7 +179,7 @@ const countriesJSON = `{
       "fr",
       "gn"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -190,14 +190,14 @@ const countriesJSON = `{
     "name": "American Samoa",
     "capital": "Pago Pago",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "en",
       "sm",
       "to"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -208,15 +208,15 @@ const countriesJSON = `{
     "name": "Austria",
     "capital": "Vienna",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "de",
       "hr",
       "hu",
       "sl"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 20,
       "reduced1": 10,
       "reduced2": 13
@@ -227,12 +227,12 @@ const countriesJSON = `{
     "name": "Australia",
     "capital": "Canberra",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "AUD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "AUD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -243,14 +243,14 @@ const countriesJSON = `{
     "name": "Aruba",
     "capital": "Oranjestad",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "AWG",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "AWG",
+    "language_codes": [
       "nl",
       "es",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -261,12 +261,12 @@ const countriesJSON = `{
     "name": "\u00c5land",
     "capital": "Mariehamn",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "sv"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -277,14 +277,14 @@ const countriesJSON = `{
     "name": "Azerbaijan",
     "capital": "Baku",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "AZN",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "AZN",
+    "language_codes": [
       "az",
       "ru",
       "hy"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -295,14 +295,14 @@ const countriesJSON = `{
     "name": "Bosnia and Herzegovina",
     "capital": "Sarajevo",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "BAM",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "BAM",
+    "language_codes": [
       "bs",
       "hr",
       "sr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -313,12 +313,12 @@ const countriesJSON = `{
     "name": "Barbados",
     "capital": "Bridgetown",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "BBD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "BBD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -329,13 +329,13 @@ const countriesJSON = `{
     "name": "Bangladesh",
     "capital": "Dhaka",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "BDT",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "BDT",
+    "language_codes": [
       "bn",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -346,14 +346,14 @@ const countriesJSON = `{
     "name": "Belgium",
     "capital": "Brussels",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "nl",
       "fr",
       "de"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 21,
       "reduced1": 12,
       "reduced2": 6
@@ -364,12 +364,12 @@ const countriesJSON = `{
     "name": "Burkina Faso",
     "capital": "Ouagadougou",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -380,13 +380,13 @@ const countriesJSON = `{
     "name": "Bulgaria",
     "capital": "Sofia",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "BGN",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "BGN",
+    "language_codes": [
       "bg",
       "tr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 20,
       "reduced1": 9,
       "reduced2": 0
@@ -397,15 +397,15 @@ const countriesJSON = `{
     "name": "Bahrain",
     "capital": "Manama",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "BHD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "BHD",
+    "language_codes": [
       "ar",
       "en",
       "fa",
       "ur"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -416,13 +416,13 @@ const countriesJSON = `{
     "name": "Burundi",
     "capital": "Bujumbura",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "BIF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "BIF",
+    "language_codes": [
       "fr",
       "rn"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -433,12 +433,12 @@ const countriesJSON = `{
     "name": "Benin",
     "capital": "Porto-Novo",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -449,12 +449,12 @@ const countriesJSON = `{
     "name": "Saint Barth\u00e9lemy",
     "capital": "Gustavia",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -465,13 +465,13 @@ const countriesJSON = `{
     "name": "Bermuda",
     "capital": "Hamilton",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "BMD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "BMD",
+    "language_codes": [
       "en",
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -482,13 +482,13 @@ const countriesJSON = `{
     "name": "Brunei",
     "capital": "Bandar Seri Begawan",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "BND",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "BND",
+    "language_codes": [
       "ms",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -499,14 +499,14 @@ const countriesJSON = `{
     "name": "Bolivia",
     "capital": "Sucre",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "BOB",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "BOB",
+    "language_codes": [
       "es",
       "qu",
       "ay"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -517,13 +517,13 @@ const countriesJSON = `{
     "name": "Bonaire",
     "capital": "Kralendijk",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "USD",
+    "language_codes": [
       "nl",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -534,15 +534,15 @@ const countriesJSON = `{
     "name": "Brazil",
     "capital": "Bras\u00edlia",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "BRL",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "BRL",
+    "language_codes": [
       "pt",
       "es",
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -553,12 +553,12 @@ const countriesJSON = `{
     "name": "Bahamas",
     "capital": "Nassau",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "BSD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "BSD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -569,10 +569,10 @@ const countriesJSON = `{
     "name": "Bhutan",
     "capital": "Thimphu",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "BTN",
-    "languageCodes": null,
-    "vatRates": {
+    "continent_name": "Asia",
+    "currency_code": "BTN",
+    "language_codes": null,
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -583,10 +583,10 @@ const countriesJSON = `{
     "name": "Bouvet Island",
     "capital": "",
     "continent": "AN",
-    "continentName": "Antarctica",
-    "currencyCode": "NOK",
-    "languageCodes": null,
-    "vatRates": {
+    "continent_name": "Antarctica",
+    "currency_code": "NOK",
+    "language_codes": null,
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -597,13 +597,13 @@ const countriesJSON = `{
     "name": "Botswana",
     "capital": "Gaborone",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "BWP",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "BWP",
+    "language_codes": [
       "en",
       "tn"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -614,13 +614,13 @@ const countriesJSON = `{
     "name": "Belarus",
     "capital": "Minsk",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "BYR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "BYR",
+    "language_codes": [
       "be",
       "ru"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -631,13 +631,13 @@ const countriesJSON = `{
     "name": "Belize",
     "capital": "Belmopan",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "BZD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "BZD",
+    "language_codes": [
       "en",
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -648,14 +648,14 @@ const countriesJSON = `{
     "name": "Canada",
     "capital": "Ottawa",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "CAD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "CAD",
+    "language_codes": [
       "en",
       "fr",
       "iu"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -666,13 +666,13 @@ const countriesJSON = `{
     "name": "Cocos [Keeling] Islands",
     "capital": "West Island",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "AUD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "AUD",
+    "language_codes": [
       "ms",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -683,14 +683,14 @@ const countriesJSON = `{
     "name": "Democratic Republic of the Congo",
     "capital": "Kinshasa",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "CDF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "CDF",
+    "language_codes": [
       "fr",
       "ln",
       "kg"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -701,15 +701,15 @@ const countriesJSON = `{
     "name": "Central African Republic",
     "capital": "Bangui",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XAF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XAF",
+    "language_codes": [
       "fr",
       "sg",
       "ln",
       "kg"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -720,14 +720,14 @@ const countriesJSON = `{
     "name": "Republic of the Congo",
     "capital": "Brazzaville",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XAF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XAF",
+    "language_codes": [
       "fr",
       "kg",
       "ln"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -738,15 +738,15 @@ const countriesJSON = `{
     "name": "Switzerland",
     "capital": "Bern",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "CHF",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "CHF",
+    "language_codes": [
       "de",
       "fr",
       "it",
       "rm"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -757,12 +757,12 @@ const countriesJSON = `{
     "name": "Ivory Coast",
     "capital": "Yamoussoukro",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -773,13 +773,13 @@ const countriesJSON = `{
     "name": "Cook Islands",
     "capital": "Avarua",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "NZD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "NZD",
+    "language_codes": [
       "en",
       "mi"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -790,12 +790,12 @@ const countriesJSON = `{
     "name": "Chile",
     "capital": "Santiago",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "CLP",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "CLP",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -806,13 +806,13 @@ const countriesJSON = `{
     "name": "Cameroon",
     "capital": "Yaound\u00e9",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XAF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XAF",
+    "language_codes": [
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -823,14 +823,14 @@ const countriesJSON = `{
     "name": "China",
     "capital": "Beijing",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "CNY",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "CNY",
+    "language_codes": [
       "zh",
       "ug",
       "za"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -841,12 +841,12 @@ const countriesJSON = `{
     "name": "Colombia",
     "capital": "Bogot\u00e1",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "COP",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "COP",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -857,13 +857,13 @@ const countriesJSON = `{
     "name": "Costa Rica",
     "capital": "San Jos\u00e9",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "CRC",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "CRC",
+    "language_codes": [
       "es",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -874,12 +874,12 @@ const countriesJSON = `{
     "name": "Cuba",
     "capital": "Havana",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "CUP",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "CUP",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -890,12 +890,12 @@ const countriesJSON = `{
     "name": "Cape Verde",
     "capital": "Praia",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "CVE",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "CVE",
+    "language_codes": [
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -906,12 +906,12 @@ const countriesJSON = `{
     "name": "Curacao",
     "capital": "Willemstad",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "ANG",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "ANG",
+    "language_codes": [
       "nl"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -922,14 +922,14 @@ const countriesJSON = `{
     "name": "Christmas Island",
     "capital": "Flying Fish Cove",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "AUD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "AUD",
+    "language_codes": [
       "en",
       "zh",
       "ms"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -940,14 +940,14 @@ const countriesJSON = `{
     "name": "Cyprus",
     "capital": "Nicosia",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "el",
       "tr",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 19,
       "reduced1": 9,
       "reduced2": 5
@@ -958,13 +958,13 @@ const countriesJSON = `{
     "name": "Czech Republic",
     "capital": "Prague",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "CZK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "CZK",
+    "language_codes": [
       "cs",
       "sk"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 21,
       "reduced1": 15,
       "reduced2": 10
@@ -975,12 +975,12 @@ const countriesJSON = `{
     "name": "Germany",
     "capital": "Berlin",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "de"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 19,
       "reduced1": 7,
       "reduced2": 0
@@ -991,15 +991,15 @@ const countriesJSON = `{
     "name": "Djibouti",
     "capital": "Djibouti",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "DJF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "DJF",
+    "language_codes": [
       "fr",
       "ar",
       "so",
       "aa"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1010,15 +1010,15 @@ const countriesJSON = `{
     "name": "Denmark",
     "capital": "Copenhagen",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "DKK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "DKK",
+    "language_codes": [
       "da",
       "en",
       "fo",
       "de"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 25,
       "reduced1": 0,
       "reduced2": 0
@@ -1029,12 +1029,12 @@ const countriesJSON = `{
     "name": "Dominica",
     "capital": "Roseau",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1045,12 +1045,12 @@ const countriesJSON = `{
     "name": "Dominican Republic",
     "capital": "Santo Domingo",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "DOP",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "DOP",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1061,12 +1061,12 @@ const countriesJSON = `{
     "name": "Algeria",
     "capital": "Algiers",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "DZD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "DZD",
+    "language_codes": [
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1077,12 +1077,12 @@ const countriesJSON = `{
     "name": "Ecuador",
     "capital": "Quito",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "USD",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1093,13 +1093,13 @@ const countriesJSON = `{
     "name": "Estonia",
     "capital": "Tallinn",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "et",
       "ru"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 20,
       "reduced1": 9,
       "reduced2": 0
@@ -1110,14 +1110,14 @@ const countriesJSON = `{
     "name": "Egypt",
     "capital": "Cairo",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "EGP",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "EGP",
+    "language_codes": [
       "ar",
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1128,12 +1128,12 @@ const countriesJSON = `{
     "name": "Western Sahara",
     "capital": "La\u00e2youne \/ El Aai\u00fan",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "MAD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "MAD",
+    "language_codes": [
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1144,14 +1144,14 @@ const countriesJSON = `{
     "name": "Eritrea",
     "capital": "Asmara",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "ERN",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "ERN",
+    "language_codes": [
       "aa",
       "ar",
       "ti"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1162,16 +1162,16 @@ const countriesJSON = `{
     "name": "Spain",
     "capital": "Madrid",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "es",
       "ca",
       "gl",
       "eu",
       "oc"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 21,
       "reduced1": 10,
       "reduced2": 0
@@ -1182,16 +1182,16 @@ const countriesJSON = `{
     "name": "Ethiopia",
     "capital": "Addis Ababa",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "ETB",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "ETB",
+    "language_codes": [
       "am",
       "en",
       "om",
       "ti",
       "so"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1202,13 +1202,13 @@ const countriesJSON = `{
     "name": "Finland",
     "capital": "Helsinki",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "fi",
       "sv"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 24,
       "reduced1": 14,
       "reduced2": 10
@@ -1219,13 +1219,13 @@ const countriesJSON = `{
     "name": "Fiji",
     "capital": "Suva",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "FJD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "FJD",
+    "language_codes": [
       "en",
       "fj"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1236,12 +1236,12 @@ const countriesJSON = `{
     "name": "Falkland Islands",
     "capital": "Stanley",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "FKP",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "FKP",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1252,12 +1252,12 @@ const countriesJSON = `{
     "name": "Micronesia",
     "capital": "Palikir",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1268,13 +1268,13 @@ const countriesJSON = `{
     "name": "Faroe Islands",
     "capital": "T\u00f3rshavn",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "DKK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "DKK",
+    "language_codes": [
       "fo",
       "da"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1285,9 +1285,9 @@ const countriesJSON = `{
     "name": "France",
     "capital": "Paris",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr",
       "br",
       "co",
@@ -1295,7 +1295,7 @@ const countriesJSON = `{
       "eu",
       "oc"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 20,
       "reduced1": 10,
       "reduced2": 5.5
@@ -1306,12 +1306,12 @@ const countriesJSON = `{
     "name": "Gabon",
     "capital": "Libreville",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XAF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XAF",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1322,14 +1322,14 @@ const countriesJSON = `{
     "name": "United Kingdom",
     "capital": "London",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "GBP",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "GBP",
+    "language_codes": [
       "en",
       "cy",
       "gd"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 20,
       "reduced1": 5,
       "reduced2": 0
@@ -1340,12 +1340,12 @@ const countriesJSON = `{
     "name": "Grenada",
     "capital": "St. George's",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1356,15 +1356,15 @@ const countriesJSON = `{
     "name": "Georgia",
     "capital": "Tbilisi",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "GEL",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "GEL",
+    "language_codes": [
       "ka",
       "ru",
       "hy",
       "az"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1375,12 +1375,12 @@ const countriesJSON = `{
     "name": "French Guiana",
     "capital": "Cayenne",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1391,13 +1391,13 @@ const countriesJSON = `{
     "name": "Guernsey",
     "capital": "St Peter Port",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "GBP",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "GBP",
+    "language_codes": [
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1408,15 +1408,15 @@ const countriesJSON = `{
     "name": "Ghana",
     "capital": "Accra",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "GHS",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "GHS",
+    "language_codes": [
       "en",
       "ak",
       "ee",
       "tw"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1427,15 +1427,15 @@ const countriesJSON = `{
     "name": "Gibraltar",
     "capital": "Gibraltar",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "GIP",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "GIP",
+    "language_codes": [
       "en",
       "es",
       "it",
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1446,14 +1446,14 @@ const countriesJSON = `{
     "name": "Greenland",
     "capital": "Nuuk",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "DKK",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "DKK",
+    "language_codes": [
       "kl",
       "da",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1464,14 +1464,14 @@ const countriesJSON = `{
     "name": "Gambia",
     "capital": "Bathurst",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "GMD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "GMD",
+    "language_codes": [
       "en",
       "wo",
       "ff"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1482,12 +1482,12 @@ const countriesJSON = `{
     "name": "Guinea",
     "capital": "Conakry",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "GNF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "GNF",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1498,12 +1498,12 @@ const countriesJSON = `{
     "name": "Guadeloupe",
     "capital": "Basse-Terre",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1514,13 +1514,13 @@ const countriesJSON = `{
     "name": "Equatorial Guinea",
     "capital": "Malabo",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XAF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XAF",
+    "language_codes": [
       "es",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1531,14 +1531,14 @@ const countriesJSON = `{
     "name": "Greece",
     "capital": "Athens",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "el",
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 23,
       "reduced1": 13,
       "reduced2": 6
@@ -1549,12 +1549,12 @@ const countriesJSON = `{
     "name": "South Georgia and the South Sandwich Islands",
     "capital": "Grytviken",
     "continent": "AN",
-    "continentName": "Antarctica",
-    "currencyCode": "GBP",
-    "languageCodes": [
+    "continent_name": "Antarctica",
+    "currency_code": "GBP",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1565,12 +1565,12 @@ const countriesJSON = `{
     "name": "Guatemala",
     "capital": "Guatemala City",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "GTQ",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "GTQ",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1581,13 +1581,13 @@ const countriesJSON = `{
     "name": "Guam",
     "capital": "Hag\u00e5t\u00f1a",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "en",
       "ch"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1598,12 +1598,12 @@ const countriesJSON = `{
     "name": "Guinea-Bissau",
     "capital": "Bissau",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1614,12 +1614,12 @@ const countriesJSON = `{
     "name": "Guyana",
     "capital": "Georgetown",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "GYD",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "GYD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1630,14 +1630,14 @@ const countriesJSON = `{
     "name": "Hong Kong",
     "capital": "Hong Kong",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "HKD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "HKD",
+    "language_codes": [
       "zh",
       "zh",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1648,10 +1648,10 @@ const countriesJSON = `{
     "name": "Heard Island and McDonald Islands",
     "capital": "",
     "continent": "AN",
-    "continentName": "Antarctica",
-    "currencyCode": "AUD",
-    "languageCodes": null,
-    "vatRates": {
+    "continent_name": "Antarctica",
+    "currency_code": "AUD",
+    "language_codes": null,
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1662,12 +1662,12 @@ const countriesJSON = `{
     "name": "Honduras",
     "capital": "Tegucigalpa",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "HNL",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "HNL",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1678,13 +1678,13 @@ const countriesJSON = `{
     "name": "Croatia",
     "capital": "Zagreb",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "HRK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "HRK",
+    "language_codes": [
       "hr",
       "sr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 25,
       "reduced1": 13,
       "reduced2": 5
@@ -1695,13 +1695,13 @@ const countriesJSON = `{
     "name": "Haiti",
     "capital": "Port-au-Prince",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "HTG",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "HTG",
+    "language_codes": [
       "ht",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1712,12 +1712,12 @@ const countriesJSON = `{
     "name": "Hungary",
     "capital": "Budapest",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "HUF",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "HUF",
+    "language_codes": [
       "hu"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 27,
       "reduced1": 18,
       "reduced2": 5
@@ -1728,15 +1728,15 @@ const countriesJSON = `{
     "name": "Indonesia",
     "capital": "Jakarta",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "IDR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "IDR",
+    "language_codes": [
       "id",
       "en",
       "nl",
       "jv"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1747,13 +1747,13 @@ const countriesJSON = `{
     "name": "Ireland",
     "capital": "Dublin",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "en",
       "ga"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 23,
       "reduced1": 13.5,
       "reduced2": 9
@@ -1764,14 +1764,14 @@ const countriesJSON = `{
     "name": "Israel",
     "capital": "",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "ILS",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "ILS",
+    "language_codes": [
       "he",
       "ar",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1782,13 +1782,13 @@ const countriesJSON = `{
     "name": "Isle of Man",
     "capital": "Douglas",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "GBP",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "GBP",
+    "language_codes": [
       "en",
       "gv"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1799,9 +1799,9 @@ const countriesJSON = `{
     "name": "India",
     "capital": "New Delhi",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "INR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "INR",
+    "language_codes": [
       "en",
       "hi",
       "bn",
@@ -1822,7 +1822,7 @@ const countriesJSON = `{
       "sa",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1833,12 +1833,12 @@ const countriesJSON = `{
     "name": "British Indian Ocean Territory",
     "capital": "",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "USD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1849,14 +1849,14 @@ const countriesJSON = `{
     "name": "Iraq",
     "capital": "Baghdad",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "IQD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "IQD",
+    "language_codes": [
       "ar",
       "ku",
       "hy"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1867,13 +1867,13 @@ const countriesJSON = `{
     "name": "Iran",
     "capital": "Tehran",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "IRR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "IRR",
+    "language_codes": [
       "fa",
       "ku"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1884,9 +1884,9 @@ const countriesJSON = `{
     "name": "Iceland",
     "capital": "Reykjavik",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "ISK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "ISK",
+    "language_codes": [
       "is",
       "en",
       "de",
@@ -1894,7 +1894,7 @@ const countriesJSON = `{
       "sv",
       "no"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1905,9 +1905,9 @@ const countriesJSON = `{
     "name": "Italy",
     "capital": "Rome",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "it",
       "de",
       "fr",
@@ -1916,7 +1916,7 @@ const countriesJSON = `{
       "co",
       "sl"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 22,
       "reduced1": 10,
       "reduced2": 4
@@ -1927,13 +1927,13 @@ const countriesJSON = `{
     "name": "Jersey",
     "capital": "Saint Helier",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "GBP",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "GBP",
+    "language_codes": [
       "en",
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1944,12 +1944,12 @@ const countriesJSON = `{
     "name": "Jamaica",
     "capital": "Kingston",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "JMD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "JMD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1960,13 +1960,13 @@ const countriesJSON = `{
     "name": "Jordan",
     "capital": "Amman",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "JOD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "JOD",
+    "language_codes": [
       "ar",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1977,12 +1977,12 @@ const countriesJSON = `{
     "name": "Japan",
     "capital": "Tokyo",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "JPY",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "JPY",
+    "language_codes": [
       "ja"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -1993,13 +1993,13 @@ const countriesJSON = `{
     "name": "Kenya",
     "capital": "Nairobi",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "KES",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "KES",
+    "language_codes": [
       "en",
       "sw"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2010,14 +2010,14 @@ const countriesJSON = `{
     "name": "Kyrgyzstan",
     "capital": "Bishkek",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "KGS",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "KGS",
+    "language_codes": [
       "ky",
       "uz",
       "ru"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2028,14 +2028,14 @@ const countriesJSON = `{
     "name": "Cambodia",
     "capital": "Phnom Penh",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "KHR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "KHR",
+    "language_codes": [
       "km",
       "fr",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2046,12 +2046,12 @@ const countriesJSON = `{
     "name": "Kiribati",
     "capital": "Tarawa",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "AUD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "AUD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2062,13 +2062,13 @@ const countriesJSON = `{
     "name": "Comoros",
     "capital": "Moroni",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "KMF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "KMF",
+    "language_codes": [
       "ar",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2079,12 +2079,12 @@ const countriesJSON = `{
     "name": "Saint Kitts and Nevis",
     "capital": "Basseterre",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2095,12 +2095,12 @@ const countriesJSON = `{
     "name": "North Korea",
     "capital": "Pyongyang",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "KPW",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "KPW",
+    "language_codes": [
       "ko"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2111,13 +2111,13 @@ const countriesJSON = `{
     "name": "South Korea",
     "capital": "Seoul",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "KRW",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "KRW",
+    "language_codes": [
       "ko",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2128,13 +2128,13 @@ const countriesJSON = `{
     "name": "Kuwait",
     "capital": "Kuwait City",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "KWD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "KWD",
+    "language_codes": [
       "ar",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2145,12 +2145,12 @@ const countriesJSON = `{
     "name": "Cayman Islands",
     "capital": "George Town",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "KYD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "KYD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2161,13 +2161,13 @@ const countriesJSON = `{
     "name": "Kazakhstan",
     "capital": "Astana",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "KZT",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "KZT",
+    "language_codes": [
       "kk",
       "ru"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2178,14 +2178,14 @@ const countriesJSON = `{
     "name": "Laos",
     "capital": "Vientiane",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "LAK",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "LAK",
+    "language_codes": [
       "lo",
       "fr",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2196,15 +2196,15 @@ const countriesJSON = `{
     "name": "Lebanon",
     "capital": "Beirut",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "LBP",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "LBP",
+    "language_codes": [
       "ar",
       "fr",
       "en",
       "hy"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2215,12 +2215,12 @@ const countriesJSON = `{
     "name": "Saint Lucia",
     "capital": "Castries",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2231,12 +2231,12 @@ const countriesJSON = `{
     "name": "Liechtenstein",
     "capital": "Vaduz",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "CHF",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "CHF",
+    "language_codes": [
       "de"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2247,14 +2247,14 @@ const countriesJSON = `{
     "name": "Sri Lanka",
     "capital": "Colombo",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "LKR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "LKR",
+    "language_codes": [
       "si",
       "ta",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2265,12 +2265,12 @@ const countriesJSON = `{
     "name": "Liberia",
     "capital": "Monrovia",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "LRD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "LRD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2281,14 +2281,14 @@ const countriesJSON = `{
     "name": "Lesotho",
     "capital": "Maseru",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "LSL",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "LSL",
+    "language_codes": [
       "en",
       "st",
       "xh"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2299,14 +2299,14 @@ const countriesJSON = `{
     "name": "Lithuania",
     "capital": "Vilnius",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "lt",
       "ru",
       "pl"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 21,
       "reduced1": 9,
       "reduced2": 5
@@ -2317,14 +2317,14 @@ const countriesJSON = `{
     "name": "Luxembourg",
     "capital": "Luxembourg",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "lb",
       "de",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 17,
       "reduced1": 14,
       "reduced2": 8
@@ -2335,14 +2335,14 @@ const countriesJSON = `{
     "name": "Latvia",
     "capital": "Riga",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "lv",
       "ru",
       "lt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 21,
       "reduced1": 12,
       "reduced2": 0
@@ -2353,14 +2353,14 @@ const countriesJSON = `{
     "name": "Libya",
     "capital": "Tripoli",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "LYD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "LYD",
+    "language_codes": [
       "ar",
       "it",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2371,13 +2371,13 @@ const countriesJSON = `{
     "name": "Morocco",
     "capital": "Rabat",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "MAD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "MAD",
+    "language_codes": [
       "ar",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2388,14 +2388,14 @@ const countriesJSON = `{
     "name": "Monaco",
     "capital": "Monaco",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr",
       "en",
       "it"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2406,14 +2406,14 @@ const countriesJSON = `{
     "name": "Moldova",
     "capital": "Chi\u015fin\u0103u",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "MDL",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "MDL",
+    "language_codes": [
       "ro",
       "ru",
       "tr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2424,16 +2424,16 @@ const countriesJSON = `{
     "name": "Montenegro",
     "capital": "Podgorica",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "sr",
       "hu",
       "bs",
       "sq",
       "hr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2444,12 +2444,12 @@ const countriesJSON = `{
     "name": "Saint Martin",
     "capital": "Marigot",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2460,13 +2460,13 @@ const countriesJSON = `{
     "name": "Madagascar",
     "capital": "Antananarivo",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "MGA",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "MGA",
+    "language_codes": [
       "fr",
       "mg"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2477,13 +2477,13 @@ const countriesJSON = `{
     "name": "Marshall Islands",
     "capital": "Majuro",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "mh",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2494,15 +2494,15 @@ const countriesJSON = `{
     "name": "Macedonia",
     "capital": "Skopje",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "MKD",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "MKD",
+    "language_codes": [
       "mk",
       "sq",
       "tr",
       "sr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2513,13 +2513,13 @@ const countriesJSON = `{
     "name": "Mali",
     "capital": "Bamako",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "fr",
       "bm"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2530,12 +2530,12 @@ const countriesJSON = `{
     "name": "Myanmar [Burma]",
     "capital": "Naypyitaw",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "MMK",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "MMK",
+    "language_codes": [
       "my"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2546,13 +2546,13 @@ const countriesJSON = `{
     "name": "Mongolia",
     "capital": "Ulan Bator",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "MNT",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "MNT",
+    "language_codes": [
       "mn",
       "ru"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2563,14 +2563,14 @@ const countriesJSON = `{
     "name": "Macao",
     "capital": "Macao",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "MOP",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "MOP",
+    "language_codes": [
       "zh",
       "zh",
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2581,15 +2581,15 @@ const countriesJSON = `{
     "name": "Northern Mariana Islands",
     "capital": "Saipan",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "tl",
       "zh",
       "ch",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2600,12 +2600,12 @@ const countriesJSON = `{
     "name": "Martinique",
     "capital": "Fort-de-France",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2616,14 +2616,14 @@ const countriesJSON = `{
     "name": "Mauritania",
     "capital": "Nouakchott",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "MRO",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "MRO",
+    "language_codes": [
       "ar",
       "fr",
       "wo"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2634,12 +2634,12 @@ const countriesJSON = `{
     "name": "Montserrat",
     "capital": "Plymouth",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2650,13 +2650,13 @@ const countriesJSON = `{
     "name": "Malta",
     "capital": "Valletta",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "mt",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 18,
       "reduced1": 7,
       "reduced2": 5
@@ -2667,13 +2667,13 @@ const countriesJSON = `{
     "name": "Mauritius",
     "capital": "Port Louis",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "MUR",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "MUR",
+    "language_codes": [
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2684,13 +2684,13 @@ const countriesJSON = `{
     "name": "Maldives",
     "capital": "Mal\u00e9",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "MVR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "MVR",
+    "language_codes": [
       "dv",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2701,12 +2701,12 @@ const countriesJSON = `{
     "name": "Malawi",
     "capital": "Lilongwe",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "MWK",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "MWK",
+    "language_codes": [
       "ny"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2717,12 +2717,12 @@ const countriesJSON = `{
     "name": "Mexico",
     "capital": "Mexico City",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "MXN",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "MXN",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2733,9 +2733,9 @@ const countriesJSON = `{
     "name": "Malaysia",
     "capital": "Kuala Lumpur",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "MYR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "MYR",
+    "language_codes": [
       "ms",
       "en",
       "zh",
@@ -2745,7 +2745,7 @@ const countriesJSON = `{
       "pa",
       "th"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2756,12 +2756,12 @@ const countriesJSON = `{
     "name": "Mozambique",
     "capital": "Maputo",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "MZN",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "MZN",
+    "language_codes": [
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2772,15 +2772,15 @@ const countriesJSON = `{
     "name": "Namibia",
     "capital": "Windhoek",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "NAD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "NAD",
+    "language_codes": [
       "en",
       "af",
       "de",
       "hz"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2791,12 +2791,12 @@ const countriesJSON = `{
     "name": "New Caledonia",
     "capital": "Noumea",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "XPF",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "XPF",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2807,14 +2807,14 @@ const countriesJSON = `{
     "name": "Niger",
     "capital": "Niamey",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "fr",
       "ha",
       "kr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2825,12 +2825,12 @@ const countriesJSON = `{
     "name": "Norfolk Island",
     "capital": "Kingston",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "AUD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "AUD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2841,16 +2841,16 @@ const countriesJSON = `{
     "name": "Nigeria",
     "capital": "Abuja",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "NGN",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "NGN",
+    "language_codes": [
       "en",
       "ha",
       "yo",
       "ig",
       "ff"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2861,13 +2861,13 @@ const countriesJSON = `{
     "name": "Nicaragua",
     "capital": "Managua",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "NIO",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "NIO",
+    "language_codes": [
       "es",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2878,13 +2878,13 @@ const countriesJSON = `{
     "name": "Netherlands",
     "capital": "Amsterdam",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "nl",
       "fy"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 21,
       "reduced1": 6,
       "reduced2": 0
@@ -2895,16 +2895,16 @@ const countriesJSON = `{
     "name": "Norway",
     "capital": "Oslo",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "NOK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "NOK",
+    "language_codes": [
       "no",
       "nb",
       "nn",
       "se",
       "fi"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 25,
       "reduced1": 15,
       "reduced2": 8
@@ -2915,13 +2915,13 @@ const countriesJSON = `{
     "name": "Nepal",
     "capital": "Kathmandu",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "NPR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "NPR",
+    "language_codes": [
       "ne",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2932,13 +2932,13 @@ const countriesJSON = `{
     "name": "Nauru",
     "capital": "Yaren",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "AUD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "AUD",
+    "language_codes": [
       "na",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2949,12 +2949,12 @@ const countriesJSON = `{
     "name": "Niue",
     "capital": "Alofi",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "NZD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "NZD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2965,13 +2965,13 @@ const countriesJSON = `{
     "name": "New Zealand",
     "capital": "Wellington",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "NZD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "NZD",
+    "language_codes": [
       "en",
       "mi"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -2982,14 +2982,14 @@ const countriesJSON = `{
     "name": "Oman",
     "capital": "Muscat",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "OMR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "OMR",
+    "language_codes": [
       "ar",
       "en",
       "ur"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3000,13 +3000,13 @@ const countriesJSON = `{
     "name": "Panama",
     "capital": "Panama City",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "PAB",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "PAB",
+    "language_codes": [
       "es",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3017,14 +3017,14 @@ const countriesJSON = `{
     "name": "Peru",
     "capital": "Lima",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "PEN",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "PEN",
+    "language_codes": [
       "es",
       "qu",
       "ay"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3035,13 +3035,13 @@ const countriesJSON = `{
     "name": "French Polynesia",
     "capital": "Papeete",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "XPF",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "XPF",
+    "language_codes": [
       "fr",
       "ty"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3052,13 +3052,13 @@ const countriesJSON = `{
     "name": "Papua New Guinea",
     "capital": "Port Moresby",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "PGK",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "PGK",
+    "language_codes": [
       "en",
       "ho"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3069,13 +3069,13 @@ const countriesJSON = `{
     "name": "Philippines",
     "capital": "Manila",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "PHP",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "PHP",
+    "language_codes": [
       "tl",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3086,16 +3086,16 @@ const countriesJSON = `{
     "name": "Pakistan",
     "capital": "Islamabad",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "PKR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "PKR",
+    "language_codes": [
       "ur",
       "en",
       "pa",
       "sd",
       "ps"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3106,12 +3106,12 @@ const countriesJSON = `{
     "name": "Poland",
     "capital": "Warsaw",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "PLN",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "PLN",
+    "language_codes": [
       "pl"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 23,
       "reduced1": 8,
       "reduced2": 5
@@ -3122,12 +3122,12 @@ const countriesJSON = `{
     "name": "Saint Pierre and Miquelon",
     "capital": "Saint-Pierre",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3138,12 +3138,12 @@ const countriesJSON = `{
     "name": "Pitcairn Islands",
     "capital": "Adamstown",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "NZD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "NZD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3154,13 +3154,13 @@ const countriesJSON = `{
     "name": "Puerto Rico",
     "capital": "San Juan",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "USD",
+    "language_codes": [
       "en",
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3171,12 +3171,12 @@ const countriesJSON = `{
     "name": "Palestine",
     "capital": "",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "ILS",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "ILS",
+    "language_codes": [
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3187,12 +3187,12 @@ const countriesJSON = `{
     "name": "Portugal",
     "capital": "Lisbon",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 23,
       "reduced1": 13,
       "reduced2": 6
@@ -3203,14 +3203,14 @@ const countriesJSON = `{
     "name": "Palau",
     "capital": "Melekeok",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "en",
       "ja",
       "zh"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3221,13 +3221,13 @@ const countriesJSON = `{
     "name": "Paraguay",
     "capital": "Asunci\u00f3n",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "PYG",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "PYG",
+    "language_codes": [
       "es",
       "gn"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3238,13 +3238,13 @@ const countriesJSON = `{
     "name": "Qatar",
     "capital": "Doha",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "QAR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "QAR",
+    "language_codes": [
       "ar",
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3255,12 +3255,12 @@ const countriesJSON = `{
     "name": "R\u00e9union",
     "capital": "Saint-Denis",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3271,13 +3271,13 @@ const countriesJSON = `{
     "name": "Romania",
     "capital": "Bucharest",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "RON",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "RON",
+    "language_codes": [
       "ro",
       "hu"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 20,
       "reduced1": 9,
       "reduced2": 5
@@ -3288,14 +3288,14 @@ const countriesJSON = `{
     "name": "Serbia",
     "capital": "Belgrade",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "RSD",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "RSD",
+    "language_codes": [
       "sr",
       "hu",
       "bs"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3306,9 +3306,9 @@ const countriesJSON = `{
     "name": "Russia",
     "capital": "Moscow",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "RUB",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "RUB",
+    "language_codes": [
       "ru",
       "tt",
       "kv",
@@ -3316,7 +3316,7 @@ const countriesJSON = `{
       "cv",
       "ba"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3327,15 +3327,15 @@ const countriesJSON = `{
     "name": "Rwanda",
     "capital": "Kigali",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "RWF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "RWF",
+    "language_codes": [
       "rw",
       "en",
       "fr",
       "sw"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3346,12 +3346,12 @@ const countriesJSON = `{
     "name": "Saudi Arabia",
     "capital": "Riyadh",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "SAR",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "SAR",
+    "language_codes": [
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3362,12 +3362,12 @@ const countriesJSON = `{
     "name": "Solomon Islands",
     "capital": "Honiara",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "SBD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "SBD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3378,13 +3378,13 @@ const countriesJSON = `{
     "name": "Seychelles",
     "capital": "Victoria",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "SCR",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "SCR",
+    "language_codes": [
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3395,13 +3395,13 @@ const countriesJSON = `{
     "name": "Sudan",
     "capital": "Khartoum",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "SDG",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "SDG",
+    "language_codes": [
       "ar",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3412,14 +3412,14 @@ const countriesJSON = `{
     "name": "Sweden",
     "capital": "Stockholm",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "SEK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "SEK",
+    "language_codes": [
       "sv",
       "se",
       "fi"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 25,
       "reduced1": 12,
       "reduced2": 6
@@ -3430,15 +3430,15 @@ const countriesJSON = `{
     "name": "Singapore",
     "capital": "Singapore",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "SGD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "SGD",
+    "language_codes": [
       "en",
       "ms",
       "ta",
       "zh"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3449,12 +3449,12 @@ const countriesJSON = `{
     "name": "Saint Helena",
     "capital": "Jamestown",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "SHP",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "SHP",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3465,12 +3465,12 @@ const countriesJSON = `{
     "name": "Slovenia",
     "capital": "Ljubljana",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "sl"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 22,
       "reduced1": 9.5,
       "reduced2": 0
@@ -3481,13 +3481,13 @@ const countriesJSON = `{
     "name": "Svalbard and Jan Mayen",
     "capital": "Longyearbyen",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "NOK",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "NOK",
+    "language_codes": [
       "no",
       "ru"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3498,13 +3498,13 @@ const countriesJSON = `{
     "name": "Slovakia",
     "capital": "Bratislava",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "sk",
       "hu"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 20,
       "reduced1": 10,
       "reduced2": 0
@@ -3515,12 +3515,12 @@ const countriesJSON = `{
     "name": "Sierra Leone",
     "capital": "Freetown",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "SLL",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "SLL",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3531,12 +3531,12 @@ const countriesJSON = `{
     "name": "San Marino",
     "capital": "San Marino",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "it"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3547,13 +3547,13 @@ const countriesJSON = `{
     "name": "Senegal",
     "capital": "Dakar",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "fr",
       "wo"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3564,15 +3564,15 @@ const countriesJSON = `{
     "name": "Somalia",
     "capital": "Mogadishu",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "SOS",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "SOS",
+    "language_codes": [
       "so",
       "ar",
       "it",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3583,14 +3583,14 @@ const countriesJSON = `{
     "name": "Suriname",
     "capital": "Paramaribo",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "SRD",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "SRD",
+    "language_codes": [
       "nl",
       "en",
       "jv"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3601,12 +3601,12 @@ const countriesJSON = `{
     "name": "South Sudan",
     "capital": "Juba",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "SSP",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "SSP",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3617,12 +3617,12 @@ const countriesJSON = `{
     "name": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
     "capital": "S\u00e3o Tom\u00e9",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "STD",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "STD",
+    "language_codes": [
       "pt"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3633,12 +3633,12 @@ const countriesJSON = `{
     "name": "El Salvador",
     "capital": "San Salvador",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "USD",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3649,13 +3649,13 @@ const countriesJSON = `{
     "name": "Sint Maarten",
     "capital": "Philipsburg",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "ANG",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "ANG",
+    "language_codes": [
       "nl",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3666,16 +3666,16 @@ const countriesJSON = `{
     "name": "Syria",
     "capital": "Damascus",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "SYP",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "SYP",
+    "language_codes": [
       "ar",
       "ku",
       "hy",
       "fr",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3686,13 +3686,13 @@ const countriesJSON = `{
     "name": "Swaziland",
     "capital": "Mbabane",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "SZL",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "SZL",
+    "language_codes": [
       "en",
       "ss"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3703,12 +3703,12 @@ const countriesJSON = `{
     "name": "Turks and Caicos Islands",
     "capital": "Cockburn Town",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "USD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3719,13 +3719,13 @@ const countriesJSON = `{
     "name": "Chad",
     "capital": "N'Djamena",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XAF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XAF",
+    "language_codes": [
       "fr",
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3736,12 +3736,12 @@ const countriesJSON = `{
     "name": "French Southern Territories",
     "capital": "Port-aux-Fran\u00e7ais",
     "continent": "AN",
-    "continentName": "Antarctica",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Antarctica",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3752,14 +3752,14 @@ const countriesJSON = `{
     "name": "Togo",
     "capital": "Lom\u00e9",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "XOF",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "XOF",
+    "language_codes": [
       "fr",
       "ee",
       "ha"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3770,13 +3770,13 @@ const countriesJSON = `{
     "name": "Thailand",
     "capital": "Bangkok",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "THB",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "THB",
+    "language_codes": [
       "th",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3787,13 +3787,13 @@ const countriesJSON = `{
     "name": "Tajikistan",
     "capital": "Dushanbe",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "TJS",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "TJS",
+    "language_codes": [
       "tg",
       "ru"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3804,12 +3804,12 @@ const countriesJSON = `{
     "name": "Tokelau",
     "capital": "",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "NZD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "NZD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3820,14 +3820,14 @@ const countriesJSON = `{
     "name": "East Timor",
     "capital": "Dili",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "pt",
       "id",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3838,14 +3838,14 @@ const countriesJSON = `{
     "name": "Turkmenistan",
     "capital": "Ashgabat",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "TMT",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "TMT",
+    "language_codes": [
       "tk",
       "ru",
       "uz"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3856,13 +3856,13 @@ const countriesJSON = `{
     "name": "Tunisia",
     "capital": "Tunis",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "TND",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "TND",
+    "language_codes": [
       "ar",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3873,13 +3873,13 @@ const countriesJSON = `{
     "name": "Tonga",
     "capital": "Nuku'alofa",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "TOP",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "TOP",
+    "language_codes": [
       "to",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3890,15 +3890,15 @@ const countriesJSON = `{
     "name": "Turkey",
     "capital": "Ankara",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "TRY",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "TRY",
+    "language_codes": [
       "tr",
       "ku",
       "az",
       "av"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3909,15 +3909,15 @@ const countriesJSON = `{
     "name": "Trinidad and Tobago",
     "capital": "Port of Spain",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "TTD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "TTD",
+    "language_codes": [
       "en",
       "fr",
       "es",
       "zh"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3928,13 +3928,13 @@ const countriesJSON = `{
     "name": "Tuvalu",
     "capital": "Funafuti",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "AUD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "AUD",
+    "language_codes": [
       "en",
       "sm"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3945,13 +3945,13 @@ const countriesJSON = `{
     "name": "Taiwan",
     "capital": "Taipei",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "TWD",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "TWD",
+    "language_codes": [
       "zh",
       "zh"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3962,14 +3962,14 @@ const countriesJSON = `{
     "name": "Tanzania",
     "capital": "Dodoma",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "TZS",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "TZS",
+    "language_codes": [
       "sw",
       "en",
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3980,15 +3980,15 @@ const countriesJSON = `{
     "name": "Ukraine",
     "capital": "Kiev",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "UAH",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "UAH",
+    "language_codes": [
       "uk",
       "ru",
       "pl",
       "hu"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -3999,15 +3999,15 @@ const countriesJSON = `{
     "name": "Uganda",
     "capital": "Kampala",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "UGX",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "UGX",
+    "language_codes": [
       "en",
       "lg",
       "sw",
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4018,12 +4018,12 @@ const countriesJSON = `{
     "name": "U.S. Minor Outlying Islands",
     "capital": "",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "USD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4034,14 +4034,14 @@ const countriesJSON = `{
     "name": "United States",
     "capital": "Washington",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "USD",
+    "language_codes": [
       "en",
       "es",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4052,12 +4052,12 @@ const countriesJSON = `{
     "name": "Uruguay",
     "capital": "Montevideo",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "UYU",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "UYU",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4068,14 +4068,14 @@ const countriesJSON = `{
     "name": "Uzbekistan",
     "capital": "Tashkent",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "UZS",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "UZS",
+    "language_codes": [
       "uz",
       "ru",
       "tg"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4086,14 +4086,14 @@ const countriesJSON = `{
     "name": "Vatican City",
     "capital": "Vatican City",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "la",
       "it",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4104,13 +4104,13 @@ const countriesJSON = `{
     "name": "Saint Vincent and the Grenadines",
     "capital": "Kingstown",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "XCD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "XCD",
+    "language_codes": [
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4121,12 +4121,12 @@ const countriesJSON = `{
     "name": "Venezuela",
     "capital": "Caracas",
     "continent": "SA",
-    "continentName": "South America",
-    "currencyCode": "VEF",
-    "languageCodes": [
+    "continent_name": "South America",
+    "currency_code": "VEF",
+    "language_codes": [
       "es"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4137,12 +4137,12 @@ const countriesJSON = `{
     "name": "British Virgin Islands",
     "capital": "Road Town",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "USD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4153,12 +4153,12 @@ const countriesJSON = `{
     "name": "U.S. Virgin Islands",
     "capital": "Charlotte Amalie",
     "continent": "NA",
-    "continentName": "North America",
-    "currencyCode": "USD",
-    "languageCodes": [
+    "continent_name": "North America",
+    "currency_code": "USD",
+    "language_codes": [
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4169,16 +4169,16 @@ const countriesJSON = `{
     "name": "Vietnam",
     "capital": "Hanoi",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "VND",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "VND",
+    "language_codes": [
       "vi",
       "en",
       "fr",
       "zh",
       "km"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4189,14 +4189,14 @@ const countriesJSON = `{
     "name": "Vanuatu",
     "capital": "Port Vila",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "VUV",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "VUV",
+    "language_codes": [
       "bi",
       "en",
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4207,12 +4207,12 @@ const countriesJSON = `{
     "name": "Wallis and Futuna",
     "capital": "Mata-Utu",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "XPF",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "XPF",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4223,13 +4223,13 @@ const countriesJSON = `{
     "name": "Samoa",
     "capital": "Apia",
     "continent": "OC",
-    "continentName": "Oceania",
-    "currencyCode": "WST",
-    "languageCodes": [
+    "continent_name": "Oceania",
+    "currency_code": "WST",
+    "language_codes": [
       "sm",
       "en"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4240,13 +4240,13 @@ const countriesJSON = `{
     "name": "Kosovo",
     "capital": "Pristina",
     "continent": "EU",
-    "continentName": "Europe",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Europe",
+    "currency_code": "EUR",
+    "language_codes": [
       "sq",
       "sr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4257,12 +4257,12 @@ const countriesJSON = `{
     "name": "Yemen",
     "capital": "Sanaa",
     "continent": "AS",
-    "continentName": "Asia",
-    "currencyCode": "YER",
-    "languageCodes": [
+    "continent_name": "Asia",
+    "currency_code": "YER",
+    "language_codes": [
       "ar"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4273,12 +4273,12 @@ const countriesJSON = `{
     "name": "Mayotte",
     "capital": "Mamoudzou",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "EUR",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "EUR",
+    "language_codes": [
       "fr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4289,9 +4289,9 @@ const countriesJSON = `{
     "name": "South Africa",
     "capital": "Pretoria",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "ZAR",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "ZAR",
+    "language_codes": [
       "xh",
       "af",
       "en",
@@ -4302,7 +4302,7 @@ const countriesJSON = `{
       "ve",
       "nr"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4313,13 +4313,13 @@ const countriesJSON = `{
     "name": "Zambia",
     "capital": "Lusaka",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "ZMW",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "ZMW",
+    "language_codes": [
       "en",
       "ny"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0
@@ -4330,15 +4330,15 @@ const countriesJSON = `{
     "name": "Zimbabwe",
     "capital": "Harare",
     "continent": "AF",
-    "continentName": "Africa",
-    "currencyCode": "ZWL",
-    "languageCodes": [
+    "continent_name": "Africa",
+    "currency_code": "ZWL",
+    "language_codes": [
       "en",
       "sn",
       "nr",
       "nd"
     ],
-    "vatRates": {
+    "vat_rates": {
       "standard": 0,
       "reduced1": 0,
       "reduced2": 0

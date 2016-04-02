@@ -4,9 +4,9 @@ package currency
 type Currency struct {
 	Name          string `json:"name"`
 	Symbol        string `json:"symbol"`
-	NativeSymbol  string `json:"nativeSymbol"`
-	PluralName    string `json:"pluralName"`
-	DecimalDigits int    `json:"decimalDigits"`
+	NativeSymbol  string `json:"native_symbol"`
+	PluralName    string `json:"plural_name"`
+	DecimalDigits int    `json:"decimal_digits"`
 	Code          Code   `json:"code"`
 }
 

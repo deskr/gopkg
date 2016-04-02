@@ -6,7 +6,7 @@ import "strings"
 type Language struct {
 	Code       Code   `json:"code"`
 	Name       string `json:"name"`
-	NativeName string `json:"nativeName"`
+	NativeName string `json:"native_name"`
 }
 
 // Code ISO 639-1

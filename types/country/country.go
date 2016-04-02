@@ -9,10 +9,10 @@ type Country struct {
 	Name          string          `json:"name"`
 	Capital       string          `json:"capital"`
 	Continent     string          `json:"continent"`
-	ContinentName string          `json:"continentName"`
-	CurrencyCode  currency.Code   `json:"currencyCode"`
-	LanguageCodes []language.Code `json:"languageCodes"`
-	VatRates      VatRates        `json:"vatRates"`
+	ContinentName string          `json:"continent_name"`
+	CurrencyCode  currency.Code   `json:"currency_code"`
+	LanguageCodes []language.Code `json:"language_codes"`
+	VatRates      VatRates        `json:"vat_rates"`
 }
 
 // VatRates for country

@@ -18,7 +18,7 @@ type Formatter interface {
 type NOAddress struct {
 	Recipient  string `json:"recipient"`
 	Street     string `json:"street"`
-	PostalCode string `json:"postalCode"`
+	PostalCode string `json:"postal_code"`
 	Locality   string `json:"locality"`
 }
 
@@ -38,8 +38,8 @@ type USAddress struct {
 	Recipient  string `json:"recipient"`
 	Street     string `json:"street"`
 	Locality   string `json:"locality"`
-	StateCode  string `json:"stateCode"`
-	PostalCode string `json:"postalCode"`
+	StateCode  string `json:"state_code"`
+	PostalCode string `json:"postal_code"`
 }
 
 // Format returns a formatted address
