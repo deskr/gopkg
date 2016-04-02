@@ -3,8 +3,6 @@ package address
 import (
 	"fmt"
 	"strings"
-
-	"github.com/deskr/gopkg/types/country"
 )
 
 func trimLine(str string) string {
@@ -35,11 +33,6 @@ func (a NOAddress) Format() string {
 		"NORWAY")
 }
 
-// PostalCodeInfo for this address
-func (a NOAddress) PostalCodeInfo() (PostalCodeInfo, bool) {
-	return GetPostalCodeInfo(country.Code("NO"), a.PostalCode)
-}
-
 // USAddress for us format
 type USAddress struct {
 	Recipient  string `json:"recipient"`
@@ -59,9 +52,4 @@ func (a USAddress) Format() string {
 			a.StateCode,
 			a.PostalCode)),
 		"UNITED STATES")
-}
-
-// PostalCodeInfo for this address
-func (a USAddress) PostalCodeInfo() (PostalCodeInfo, bool) {
-	return GetPostalCodeInfo(country.Code("US"), a.PostalCode)
 }

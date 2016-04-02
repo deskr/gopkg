@@ -13,17 +13,6 @@ func TestNOAddress(t *testing.T) {
 		Locality:   "Oslo",
 	}
 
-	pi, ok := adr.PostalCodeInfo()
-	if !ok {
-		t.Errorf("Failed to get post code info for: %+v", adr)
-		return
-	}
-
-	if pi.F1 != "Oslo" {
-		t.Errorf("Unexpected F1: %+v", pi)
-		return
-	}
-
 	const adrFmt = `Mike Lowrey
 Markveien 21
 0554 Oslo
@@ -43,27 +32,6 @@ func TestUSAddress(t *testing.T) {
 		Locality:   "San Jose",
 		StateCode:  "CA",
 		PostalCode: "95111",
-	}
-
-	pi, ok := adr.PostalCodeInfo()
-	if !ok {
-		t.Errorf("Failed to get post code info for: %+v", adr)
-		return
-	}
-
-	if pi.F1 != "San Jose" {
-		t.Errorf("Unexpected F1: %+v", pi)
-		return
-	}
-
-	if pi.F2 != "California" {
-		t.Errorf("Unexpected F2: %+v", pi)
-		return
-	}
-
-	if pi.F3 != "Santa Clara" {
-		t.Errorf("Unexpected F3: %+v", pi)
-		return
 	}
 
 	const adrFmt = `Jeremy Martinson
