@@ -9,6 +9,8 @@ import (
 // OpenConnection initializes the rethink db
 func OpenConnection(address string, database string) (c *gorethink.Session, err error) {
 
+	gorethink.SetTags("gorethink", "json")
+
 	for i := 0; i < 10; i++ {
 		c, err = gorethink.Connect(gorethink.ConnectOpts{
 			Address:  address,
