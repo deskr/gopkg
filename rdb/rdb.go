@@ -1,13 +1,22 @@
 package rdb
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/dancannon/gorethink"
 )
 
+var sessions map[string]*gorethink.Session
+
 // OpenConnection initializes the rethink db
 func OpenConnection(address string, database string) (c *gorethink.Session, err error) {
+	skey := fmt.Sprintf("%s#%s", address, database)
+
+	if s, ok := sessions[skey]; ok && s.IsConnected() {
+		c = s
+		return
+	}
 
 	gorethink.SetTags("gorethink", "json")
 
@@ -43,6 +52,8 @@ func OpenConnection(address string, database string) (c *gorethink.Session, err 
 	}
 
 	c.Use(database)
+
+	sessions[skey] = c
 
 	return
 }
