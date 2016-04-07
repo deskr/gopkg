@@ -7,7 +7,7 @@ import (
 	"github.com/dancannon/gorethink"
 )
 
-var sessions map[string]*gorethink.Session
+var sessions = make(map[string]*gorethink.Session, 0)
 
 // OpenConnection initializes the rethink db
 func OpenConnection(address string, database string) (c *gorethink.Session, err error) {
