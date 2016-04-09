@@ -69,6 +69,24 @@
 			"revisionTime": "2015-10-29T02:17:19+03:00"
 		},
 		{
+			"checksumSHA1": "RPG91S6uYm4h3OzTfLczFLf7AXQ=",
+			"path": "github.com/ventu-io/go-shortid",
+			"revision": "f3377b9160ef91541d29453587d9430f138a0e76",
+			"revisionTime": "2016-02-18T22:19:44Z"
+		},
+		{
+			"checksumSHA1": "XEWEGaUVQ37jrDSbH0yO30+Q0L8=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "a80ff226bd294315526e7ae48959d55635143ea7",
+			"revisionTime": "2016-04-07T23:01:11Z"
+		},
+		{
+			"checksumSHA1": "6IzzHO9p32aHJhMYMwijccDUIVA=",
+			"path": "gopkg.in/alexcesaro/quotedprintable.v3",
+			"revision": "2caba252f4dc53eaf6b553000885530023f54623",
+			"revisionTime": "2015-07-16T17:19:45Z"
+		},
+		{
 			"checksumSHA1": "KB7lOHjDamyMO1R7Vtu0UIPPuvA=",
 			"path": "gopkg.in/dancannon/gorethink.v1/encoding",
 			"revision": "ef48c048b4f1f4d923de4197e78c1b206c14fa4c",

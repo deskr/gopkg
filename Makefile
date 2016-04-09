@@ -4,13 +4,15 @@ all: test
 
 deps:
 	go get github.com/kardianos/govendor
-	govendor init
-	govendor add +external
+	-govendor init
+	-govendor add +outside
+	-govendor sync +outside
+	-govendor fetch +outside
 
 test:
-	@./test unit
+	@./scripts/test unit
 
 test-race:
-	@./test unit-race
+	@./scripts/test unit-race
 
 .PHONY: all deps test
