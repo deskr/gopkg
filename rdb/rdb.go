@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dancannon/gorethink"
+	"gopkg.in/dancannon/gorethink.v2"
 )
 
 var sessions = make(map[string]*gorethink.Session, 0)
