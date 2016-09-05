@@ -3,32 +3,29 @@ package rdb
 import "gopkg.in/dancannon/gorethink.v2"
 
 // OpenSession initializes the rethink db session
-func OpenSession(address string, database string) (session *gorethink.Session, err error) {
+func OpenSession(options gorethink.ConnectOpts) (session *gorethink.Session, err error) {
 	gorethink.SetTags("gorethink", "json")
 
-	session, err = gorethink.Connect(gorethink.ConnectOpts{
-		Address:  address,
-		Database: database,
-	})
+	session, err = gorethink.Connect(options)
 	if err != nil {
 		return
 	}
 
 	// Create database if not already exists
-	exists, err := DatabaseExists(database, session)
+	exists, err := DatabaseExists(options.Database, session)
 	if err != nil {
 		session.Close()
 		return
 	}
 
 	if !exists {
-		if err = gorethink.DBCreate(database).Exec(session); err != nil {
+		if err = gorethink.DBCreate(options.Database).Exec(session); err != nil {
 			session.Close()
 			return
 		}
 	}
 
-	session.Use(database)
+	session.Use(options.Database)
 	return
 }
 
