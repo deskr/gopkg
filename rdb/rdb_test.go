@@ -17,6 +17,8 @@ func TestMain(m *testing.M) {
 	conf.Image = "rethinkdb:latest"
 	conf.Tty = true
 	conf.OpenStdin = true
+
+	// Using "Docker for Mac" - so no connection from host -> container :(
 	conf.ExposedPorts = map[docker.Port]struct{}{
 		"28015/tcp": {},
 	}
