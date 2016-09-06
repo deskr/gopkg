@@ -50,3 +50,15 @@ func TestOpenSession(t *testing.T) {
 		return
 	}
 }
+
+// TestOpenSessionNoWait works only if it get's tested after another connection has been made
+func TestOpenSessionNoWait(t *testing.T) {
+	_, err := OpenSession(gorethink.ConnectOpts{
+		Address:  "localhost:28015",
+		Database: "test",
+	}, 0)
+	if err != nil {
+		t.Errorf("Failed to open session: %v", err)
+		return
+	}
+}
