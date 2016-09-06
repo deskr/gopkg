@@ -1,31 +1,63 @@
 package rdb
 
-import "gopkg.in/dancannon/gorethink.v2"
+import (
+	"errors"
+	"fmt"
+	"time"
+
+	"gopkg.in/dancannon/gorethink.v2"
+)
 
 // OpenSession initializes the rethink db session
-func OpenSession(options gorethink.ConnectOpts) (session *gorethink.Session, err error) {
+func OpenSession(opts gorethink.ConnectOpts, maxWait time.Duration) (session *gorethink.Session, err error) {
 	gorethink.SetTags("gorethink", "json")
 
-	session, err = gorethink.Connect(options)
+	if maxWait > 0 {
+		addr := opts.Address
+		if addr == "" && len(opts.Addresses) == 0 {
+			err = errors.New("Missing address")
+			return
+		}
+		if addr == "" {
+			addr = opts.Addresses[0]
+		}
+
+		done := time.Now().Add(maxWait)
+		for time.Now().Before(done) {
+			var c *gorethink.Connection
+			c, err = gorethink.NewConnection(addr, &opts)
+			if err == nil {
+				c.Close()
+				break
+			}
+			time.Sleep(100 * time.Millisecond)
+		}
+		if err != nil {
+			err = fmt.Errorf("Failed to connect to %v for %v with error: %v", addr, maxWait, err)
+			return
+		}
+	}
+
+	session, err = gorethink.Connect(opts)
 	if err != nil {
 		return
 	}
 
 	// Create database if not already exists
-	exists, err := DatabaseExists(options.Database, session)
+	exists, err := DatabaseExists(opts.Database, session)
 	if err != nil {
 		session.Close()
 		return
 	}
 
 	if !exists {
-		if err = gorethink.DBCreate(options.Database).Exec(session); err != nil {
+		if err = gorethink.DBCreate(opts.Database).Exec(session); err != nil {
 			session.Close()
 			return
 		}
 	}
 
-	session.Use(options.Database)
+	session.Use(opts.Database)
 	return
 }
 
