@@ -12,35 +12,34 @@ import (
 func OpenSession(opts gorethink.ConnectOpts, maxWait time.Duration) (session *gorethink.Session, err error) {
 	gorethink.SetTags("gorethink", "json")
 
-	if maxWait > 0 {
-		addr := opts.Address
-		if addr == "" && len(opts.Addresses) == 0 {
-			err = errors.New("Missing address")
-			return
-		}
-		if addr == "" {
-			addr = opts.Addresses[0]
-		}
+	addr := opts.Address
+	if addr == "" && len(opts.Addresses) == 0 {
+		err = errors.New("Missing address")
+		return
+	}
+	if addr == "" {
+		addr = opts.Addresses[0]
+	}
 
+	if maxWait > 0 {
 		done := time.Now().Add(maxWait)
 		for time.Now().Before(done) {
-			var c *gorethink.Connection
-			c, err = gorethink.NewConnection(addr, &opts)
+			session, err = gorethink.Connect(opts)
 			if err == nil {
-				c.Close()
 				break
 			}
 			time.Sleep(100 * time.Millisecond)
 		}
 		if err != nil {
-			err = fmt.Errorf("Failed to connect to %v for %v with error: %v", addr, maxWait, err)
+			err = fmt.Errorf("Failed to connect to %s for %v: %v", addr, maxWait, err)
 			return
 		}
-	}
-
-	session, err = gorethink.Connect(opts)
-	if err != nil {
-		return
+	} else {
+		session, err = gorethink.Connect(opts)
+		if err != nil {
+			err = fmt.Errorf("Failed to connect to %s: %v", addr, err)
+			return
+		}
 	}
 
 	// Create database if not already exists
