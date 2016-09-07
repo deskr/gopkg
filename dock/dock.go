@@ -19,10 +19,11 @@ type Config struct {
 	docker.HostConfig
 }
 
+// Run a docker container
 func Run(config Config) (ip string, closer func(), err error) {
 	client, err := docker.NewClient(Address)
 	if err != nil {
-		return "", nil, err
+		return
 	}
 
 	c, err := client.CreateContainer(docker.CreateContainerOptions{
@@ -30,7 +31,7 @@ func Run(config Config) (ip string, closer func(), err error) {
 		HostConfig: &config.HostConfig,
 	})
 	if err != nil {
-		return "", nil, err
+		return
 	}
 
 	closer = func() {
@@ -42,23 +43,23 @@ func Run(config Config) (ip string, closer func(), err error) {
 		}
 	}
 
-	err = client.StartContainer(c.ID, &config.HostConfig)
-	if err != nil {
+	if err = client.StartContainer(c.ID, &config.HostConfig); err != nil {
 		closer()
-		return "", nil, err
+		return
 	}
 
 	// wait for container to wake up
-	if err := waitStarted(client, c.ID, 5*time.Second); err != nil {
+	if err = waitStarted(client, c.ID, 5*time.Second); err != nil {
 		closer()
-		return "", nil, err
+		return
 	}
 	if c, err = client.InspectContainer(c.ID); err != nil {
 		closer()
-		return "", nil, err
+		return
 	}
 
-	return strings.TrimSpace(c.NetworkSettings.IPAddress), closer, nil
+	ip = strings.TrimSpace(c.NetworkSettings.IPAddress)
+	return
 }
 
 // waitStarted waits for container to start for the maxWait time.
@@ -77,7 +78,9 @@ func waitStarted(client *docker.Client, id string, maxWait time.Duration) error 
 	return fmt.Errorf("Failed to start container %s for %v", id, maxWait)
 }
 
-func WaitReachable(addr string, maxWait time.Duration) error {
+// WaitReachable waits for a successful connection
+func WaitReachable(host string, port int, maxWait time.Duration) error {
+	addr := fmt.Sprintf("%s:%d", host, port)
 	done := time.Now().Add(maxWait)
 	for time.Now().Before(done) {
 		c, err := net.DialTimeout("tcp", addr, time.Second*1)

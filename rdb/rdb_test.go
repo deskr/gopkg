@@ -8,7 +8,7 @@ import (
 
 	gorethink "gopkg.in/dancannon/gorethink.v2"
 
-	"github.com/deskr/gopkg/internal/dock"
+	"github.com/deskr/gopkg/dock"
 	docker "github.com/fsouza/go-dockerclient"
 )
 
