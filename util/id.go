@@ -31,5 +31,5 @@ func NewIDGenerator(typeID string) *IDGenerator {
 func (g IDGenerator) Generate() string {
 	id := g.sid.MustGenerate()
 	data := []byte(fmt.Sprintf("%s:%s", g.typ, id))
-	return base64.StdEncoding.EncodeToString(data)
+	return base64.RawURLEncoding.EncodeToString(data)
 }
