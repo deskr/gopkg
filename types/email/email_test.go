@@ -34,7 +34,6 @@ func TestInvalidEmails(t *testing.T) {
 		"mike+deskr.co",
 		"json+teg@gmail.",
 		"damien.coko@.com",
-		"pol.A+tes@co.deks.A .com.",
 		"s.a.b.c@hun123",
 		"123Gmail@..",
 		"@gmail.com",
