@@ -1,23 +1,13 @@
-package: bitbucket.org/deskr/gopkg
+package: github.com/deskr/gopkg
 import:
-- package: github.com/deskr/gopkg
-  subpackages:
-  - types/currency
-  - types/email
-  - types/language
-  - types/secret
-  - types/uuid
+- package: github.com/docker/docker
+  version: ^1.13.0-rc2
 - package: github.com/fsouza/go-dockerclient
 - package: github.com/magical/argon2
 - package: github.com/mailgun/mailgun-go
-  version: ^1.0.2
 - package: github.com/nfnt/resize
 - package: github.com/satori/go.uuid
-  version: ^1.1.0
 - package: github.com/ventu-io/go-shortid
-  version: ^1.0.0
 - package: gopkg.in/dancannon/gorethink.v2
-  version: ^2.2.2
 - package: gopkg.in/gomail.v2
-  version: ^2.0.0
 - package: gopkg.in/yaml.v2
