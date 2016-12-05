@@ -11,7 +11,7 @@ func TestIDGenerate(t *testing.T) {
 
 	id := g.Generate()
 
-	cb, err := base64.StdEncoding.DecodeString(id)
+	cb, err := base64.RawURLEncoding.DecodeString(id)
 	if err != nil {
 		t.Error(err)
 		return

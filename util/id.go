@@ -22,7 +22,7 @@ func NewIDGenerator(typeID string) *IDGenerator {
 	s := h.Sum64()
 
 	return &IDGenerator{
-		sid: shortid.MustNew(1, shortid.DefaultABC, s),
+		sid: shortid.MustNew(1, shortid.DEFAULT_ABC, s),
 		typ: typeID,
 	}
 }
