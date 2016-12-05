@@ -1,5 +1,5 @@
 hash: e4994365d893cfe93118d97d1c684f8c9f49154f90225f76273287f0ac5b2864
-updated: 2016-12-05T12:30:15.853330156+01:00
+updated: 2016-12-05T15:07:37.106183943+01:00
 imports:
 - name: github.com/Azure/go-ansiterm
   version: fa152c58bc15761d0200cb75fe958b89a9d4888e
@@ -42,7 +42,7 @@ imports:
   subpackages:
   - nat
 - name: github.com/docker/go-units
-  version: e30f1e79f3cd72542f2026ceec18d3bd67ab859c
+  version: 9b001659dd36225e356b4467c465d732e745f53d
 - name: github.com/fsouza/go-dockerclient
   version: 773542a4a30a7d9b5a3ddfca64e593508299ddda
 - name: github.com/golang/protobuf
@@ -71,13 +71,13 @@ imports:
 - name: github.com/Sirupsen/logrus
   version: 26709e2714106fb8ad40b773b711ebce25b78914
 - name: github.com/ventu-io/go-shortid
-  version: 6c56cef5189ca1b3d5ef01dc07f4d611dfc0bb33
+  version: f3377b9160ef91541d29453587d9430f138a0e76
 - name: golang.org/x/crypto
   version: 8a549a1948fc5271eb24f36dcb0d3b47dec75a16
   subpackages:
   - pbkdf2
 - name: golang.org/x/net
-  version: fb93926129b8ec0056f2f458b1f519654814edf0
+  version: 6cdc0daab091c43fc46193327e0047b4f883c613
   subpackages:
   - context
   - context/ctxhttp
