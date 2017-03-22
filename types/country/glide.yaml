@@ -1,0 +1,6 @@
+package: github.com/deskr/gopkg/types/country
+import:
+- package: github.com/deskr/gopkg
+  subpackages:
+  - types/currency
+  - types/language

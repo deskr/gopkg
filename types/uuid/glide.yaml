@@ -1,0 +1,3 @@
+package: github.com/deskr/gopkg/types/uuid
+import:
+- package: github.com/satori/go.uuid

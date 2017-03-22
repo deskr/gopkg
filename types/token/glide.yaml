@@ -1,0 +1,6 @@
+package: github.com/deskr/gopkg/types/token
+import:
+- package: github.com/deskr/gopkg
+  subpackages:
+  - types/secret
+  - types/uuid

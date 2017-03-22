@@ -1,0 +1,6 @@
+hash: ab5b4693988cbda0cf3eed09d30d85d340602b41b5ccab1d9c6f1ead9d696502
+updated: 2017-03-22T13:10:14.057597378+01:00
+imports:
+- name: github.com/ventu-io/go-shortid
+  version: 935de6796a71e222e8a8a141ead882d70b6ba6d0
+testImports: []

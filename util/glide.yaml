@@ -1,0 +1,3 @@
+package: github.com/deskr/gopkg/util
+import:
+- package: github.com/ventu-io/go-shortid

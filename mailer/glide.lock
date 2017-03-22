@@ -1,0 +1,14 @@
+hash: fcabf0f499749a10936c15f63195131be6518ca8ae2129f53996a12d1962723c
+updated: 2017-03-22T13:08:47.585366221+01:00
+imports:
+- name: github.com/mailgun/mailgun-go
+  version: 6448d11974b9ca2395bdd60f19976ab7de75d6f9
+- name: github.com/pkg/errors
+  version: ff09b135c25aae272398c51a07235b90a75aa4f0
+- name: gopkg.in/alexcesaro/quotedprintable.v3
+  version: 2caba252f4dc53eaf6b553000885530023f54623
+- name: gopkg.in/gomail.v2
+  version: 81ebce5c23dfd25c6c67194b37d3dd3f338c98b1
+- name: gopkg.in/yaml.v2
+  version: a3f3340b5840cee44f372bddb5880fcbc419b46a
+testImports: []

@@ -1,0 +1,3 @@
+package: github.com/deskr/gopkg/types/image
+import:
+- package: github.com/nfnt/resize

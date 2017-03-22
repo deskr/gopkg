@@ -1,0 +1,8 @@
+package: github.com/deskr/gopkg/rdb
+import:
+- package: gopkg.in/dancannon/gorethink.v2
+testImport:
+- package: github.com/deskr/gopkg
+  subpackages:
+  - dock
+- package: github.com/fsouza/go-dockerclient

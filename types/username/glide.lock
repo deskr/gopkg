@@ -1,0 +1,8 @@
+hash: e1d2fac7dd9c5d8191e903c1a06ebda4b3dab3ea43b7713c16907726ae7a312a
+updated: 2017-03-22T13:12:39.954400581+01:00
+imports:
+- name: github.com/deskr/gopkg
+  version: 3e9fb1837ade667c131c7f4d77a21f35a945faf9
+  subpackages:
+  - types/email
+testImports: []

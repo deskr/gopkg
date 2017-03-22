@@ -1,0 +1,9 @@
+hash: cf15184b7dbfaaa93a1824c4cfd03f542a20b2a7ae8fd22ba506a71d42fd400a
+updated: 2017-03-22T13:10:39.788938654+01:00
+imports:
+- name: github.com/deskr/gopkg
+  version: 3e9fb1837ade667c131c7f4d77a21f35a945faf9
+  subpackages:
+  - types/currency
+  - types/language
+testImports: []

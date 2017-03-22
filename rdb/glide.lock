@@ -1,0 +1,89 @@
+hash: 29a20c48314357b7451edbbb286702773e508bea73e86a30d22e4fec98fdc18b
+updated: 2017-03-22T13:09:55.827751211+01:00
+imports:
+- name: github.com/cenk/backoff
+  version: 3db60c813733fce657c114634171689bbf1f8dee
+- name: github.com/golang/protobuf
+  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
+  subpackages:
+  - proto
+- name: github.com/hailocab/go-hostpool
+  version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
+- name: github.com/Sirupsen/logrus
+  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
+- name: golang.org/x/crypto
+  version: 459e26527287adbc2adcc5d0d49abff9a5f315a7
+  subpackages:
+  - pbkdf2
+- name: golang.org/x/net
+  version: 61557ac0112b576429a0df080e1c2cef5dfbb642
+  subpackages:
+  - context
+  - context/ctxhttp
+- name: golang.org/x/sys
+  version: e24f485414aeafb646f6fca458b0bf869c0880a1
+  subpackages:
+  - unix
+  - windows
+- name: gopkg.in/dancannon/gorethink.v2
+  version: 016a1d3b4d15951ab2e39bd3596718ba94d298ba
+  subpackages:
+  - encoding
+  - ql2
+  - types
+- name: gopkg.in/fatih/pool.v2
+  version: 6e328e67893eb46323ad06f0e92cb9536babbabc
+testImports:
+- name: github.com/Azure/go-ansiterm
+  version: fa152c58bc15761d0200cb75fe958b89a9d4888e
+  subpackages:
+  - winterm
+- name: github.com/deskr/gopkg
+  version: 3e9fb1837ade667c131c7f4d77a21f35a945faf9
+  subpackages:
+  - dock
+- name: github.com/docker/docker
+  version: 092cba3727bb9b4a2f0e922cd6c0f93ea270e363
+  subpackages:
+  - api/types
+  - api/types/blkiodev
+  - api/types/container
+  - api/types/filters
+  - api/types/mount
+  - api/types/network
+  - api/types/registry
+  - api/types/strslice
+  - api/types/swarm
+  - api/types/versions
+  - opts
+  - pkg/archive
+  - pkg/fileutils
+  - pkg/homedir
+  - pkg/idtools
+  - pkg/ioutils
+  - pkg/jsonlog
+  - pkg/jsonmessage
+  - pkg/longpath
+  - pkg/pools
+  - pkg/promise
+  - pkg/stdcopy
+  - pkg/system
+  - pkg/term
+  - pkg/term/windows
+- name: github.com/docker/go-connections
+  version: 7da10c8c50cad14494ec818dcdfb6506265c0086
+  subpackages:
+  - nat
+- name: github.com/docker/go-units
+  version: 0dadbb0345b35ec7ef35e228dabb8de89a65bf52
+- name: github.com/fsouza/go-dockerclient
+  version: 000a4bc90f4caf682cdb0d464f93435c196e61dd
+- name: github.com/hashicorp/go-cleanhttp
+  version: 3573b8b52aa7b37b9358d966a898feb387f62437
+- name: github.com/Microsoft/go-winio
+  version: fff283ad5116362ca252298cfc9b95828956d85d
+- name: github.com/opencontainers/runc
+  version: 4f21aea40d060d0171b1c94861f2f63f4a6029d0
+  subpackages:
+  - libcontainer/system
+  - libcontainer/user

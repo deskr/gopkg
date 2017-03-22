@@ -1,0 +1,6 @@
+package: github.com/deskr/gopkg/types/password
+import:
+- package: github.com/deskr/gopkg
+  subpackages:
+  - types/secret
+- package: github.com/magical/argon2

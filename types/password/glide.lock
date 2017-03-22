@@ -1,0 +1,12 @@
+hash: 96584e518db7844b2e8f576bbd8814ed3963a6b23eb21a65354f13cb1ee74b7a
+updated: 2017-03-22T13:11:56.590929818+01:00
+imports:
+- name: github.com/dchest/blake2b
+  version: 06006a921c7d13e3fdf63c401cb0e4529a26e6e4
+- name: github.com/deskr/gopkg
+  version: 3e9fb1837ade667c131c7f4d77a21f35a945faf9
+  subpackages:
+  - types/secret
+- name: github.com/magical/argon2
+  version: 190e3cf208e185668db6aa048e4985b7b7b4d890
+testImports: []

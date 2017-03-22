@@ -1,0 +1,5 @@
+package: github.com/deskr/gopkg/mailer
+import:
+- package: github.com/mailgun/mailgun-go
+- package: gopkg.in/gomail.v2
+- package: gopkg.in/yaml.v2
