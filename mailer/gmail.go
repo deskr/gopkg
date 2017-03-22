@@ -1,12 +1,13 @@
 package mailer
 
 import (
+	"fmt"
+
 	"gopkg.in/gomail.v2"
 )
 
 // gmailMailer for mailing through gmail relay service
 type gmailMailer struct {
-	fromEmail    string
 	dialer       *gomail.Dialer
 	sentHandlers []*SentMailHandler
 }
@@ -16,8 +17,7 @@ type GMailConfig struct {
 	// Gmail username
 	Username string
 	// Gmail password
-	Password  string
-	FromEmail string
+	Password string
 }
 
 // NewGMailer creates an new gmail mailer
@@ -26,8 +26,6 @@ func NewGMailer(config GMailConfig) Mailer {
 
 	m.dialer = gomail.NewPlainDialer("smtp-relay.gmail.com", 465,
 		config.Username, config.Password)
-
-	m.fromEmail = config.FromEmail
 
 	return m
 }
@@ -49,17 +47,11 @@ func (m *gmailMailer) RemoveSentMailHandler(handler *SentMailHandler) {
 
 // Send sends an email
 func (m gmailMailer) Send(email Email) (err error) {
-
-	fromEmail := email.From
-	if fromEmail == "" {
-		fromEmail = m.fromEmail
-	}
-
 	msg := gomail.NewMessage()
-	msg.SetHeader("From", fromEmail)
-	msg.SetHeader("To", email.To)
-	if email.ReplyTo != "" {
-		msg.SetHeader("Reply-To", email.ReplyTo)
+	msg.SetHeader("From", fmt.Sprintf("%s <%s>", email.From.Name, email.From.Address))
+	msg.SetHeader("To", fmt.Sprintf("%s <%s>", email.To.Name, email.To.Address))
+	if email.ReplyTo != nil {
+		msg.SetHeader("Reply-To", fmt.Sprintf("%s <%s>", email.ReplyTo.Name, email.ReplyTo.Address))
 	}
 	msg.SetHeader("Subject", email.Subject)
 	msg.SetBody("text/plain", string(email.Body.Text))

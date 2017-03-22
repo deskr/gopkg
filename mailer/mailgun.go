@@ -1,20 +1,20 @@
 package mailer
 
 import (
+	"fmt"
+
 	"github.com/mailgun/mailgun-go"
 )
 
 // mailgunMailer for mailing through mailgun service
 type mailgunMailer struct {
 	mg           mailgun.Mailgun
-	fromEmail    string
 	sentHandlers []*SentMailHandler
 }
 
 // MailgunConfig hold domain, apiKey and publicApiKey
 type MailgunConfig struct {
 	Domain        string
-	FromEmail     string
 	PrivateAPIKey string
 	PublicAPIKey  string
 }
@@ -25,8 +25,6 @@ func NewMailgunMailer(config MailgunConfig) Mailer {
 
 	m.mg = mailgun.NewMailgun(config.Domain,
 		config.PrivateAPIKey, config.PublicAPIKey)
-
-	m.fromEmail = config.FromEmail
 
 	return m
 }
@@ -48,24 +46,20 @@ func (m *mailgunMailer) RemoveSentMailHandler(handler *SentMailHandler) {
 
 // Send sends an email
 func (m mailgunMailer) Send(email Email) (err error) {
-
-	fromEmail := email.From
-	if fromEmail == "" {
-		fromEmail = m.fromEmail
-	}
-
-	mail := m.mg.NewMessage(
-		fromEmail,
+	msg := m.mg.NewMessage(
+		"",
 		email.Subject,
 		string(email.Body.Text),
-		email.To,
+		"",
 	)
-	if email.ReplyTo != "" {
-		mail.AddHeader("Reply-To", email.ReplyTo)
+	msg.AddHeader("From", fmt.Sprintf("%s <%s>", email.From.Name, email.From.Address))
+	msg.AddHeader("To", fmt.Sprintf("%s <%s>", email.To.Name, email.To.Address))
+	if email.ReplyTo != nil {
+		msg.AddHeader("Reply-To", fmt.Sprintf("%s <%s>", email.ReplyTo.Name, email.ReplyTo.Address))
 	}
-	mail.SetHtml(string(email.Body.HTML))
+	msg.SetHtml(string(email.Body.HTML))
 
-	_, _, err = m.mg.Send(mail)
+	_, _, err = m.mg.Send(msg)
 	if err != nil {
 		return
 	}

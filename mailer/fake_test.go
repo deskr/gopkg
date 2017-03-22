@@ -10,8 +10,8 @@ func TestSendMail(t *testing.T) {
 	m := NewFakeMailer()
 
 	err := m.Send(Email{
-		To:      "mike@deskr.co",
-		From:    "carina@deskr.co",
+		To:      Address{Name: "Mike", Address: "mike@deskr.co"},
+		From:    Address{Name: "Carina", Address: "carina@deskr.co"},
 		Subject: "Something important",
 		Body: Body{
 			Text: "Hello you",
@@ -41,8 +41,8 @@ func TestAddRemoveSentHandler(t *testing.T) {
 	}
 
 	m.Send(Email{
-		To:      "mike@deskr.co",
-		From:    "carina@deskr.co",
+		To:      Address{Name: "Mike", Address: "mike@deskr.co"},
+		From:    Address{Name: "Carina", Address: "carina@deskr.co"},
 		Subject: "Something important",
 		Body: Body{
 			Text: "Hello you",
@@ -75,8 +75,8 @@ body:
 	}
 
 	email := Email{
-		To:   "mike@deskr.co",
-		From: "carina@deskr.co",
+		To:   Address{Name: "Mike", Address: "mike@deskr.co"},
+		From: Address{Name: "Carina", Address: "carina@deskr.co"},
 	}
 
 	data := struct {

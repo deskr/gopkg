@@ -22,11 +22,16 @@ type Body struct {
 	Text Text
 }
 
+type Address struct {
+	Name    string
+	Address string // email address
+}
+
 // Email for building e-mails with text/template
 type Email struct {
-	From    string
-	To      string
-	ReplyTo string
+	From    Address
+	To      Address
+	ReplyTo *Address
 	Subject string
 	Body    Body
 }
