@@ -58,6 +58,9 @@ func (m gmailMailer) Send(email Email) (err error) {
 	msg := gomail.NewMessage()
 	msg.SetHeader("From", fromEmail)
 	msg.SetHeader("To", email.To)
+	if email.ReplyTo != "" {
+		msg.SetHeader("Reply-To", email.ReplyTo)
+	}
 	msg.SetHeader("Subject", email.Subject)
 	msg.SetBody("text/plain", string(email.Body.Text))
 	msg.AddAlternative("text/html", string(email.Body.HTML))

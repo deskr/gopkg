@@ -26,6 +26,7 @@ type Body struct {
 type Email struct {
 	From    string
 	To      string
+	ReplyTo string
 	Subject string
 	Body    Body
 }

@@ -25,7 +25,7 @@ func TestMain(m *testing.M) {
 	conf.PortBindings = map[docker.Port][]docker.PortBinding{
 		"28015/tcp": []docker.PortBinding{
 			{
-				HostPort: "28015",
+				HostPort: "29017",
 			},
 		},
 	}
@@ -44,7 +44,7 @@ func TestMain(m *testing.M) {
 
 func TestOpenSession(t *testing.T) {
 	_, err := OpenSession(gorethink.ConnectOpts{
-		Address:  "localhost:28015",
+		Address:  "localhost:29017",
 		Database: "test",
 	}, time.Second*5)
 	if err != nil {
@@ -56,7 +56,7 @@ func TestOpenSession(t *testing.T) {
 // TestOpenSessionNoWait works only if it get's tested after another connection has been made
 func TestOpenSessionNoWait(t *testing.T) {
 	_, err := OpenSession(gorethink.ConnectOpts{
-		Address:  "localhost:28015",
+		Address:  "localhost:29017",
 		Database: "test",
 	}, 0)
 	if err != nil {

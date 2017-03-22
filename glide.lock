@@ -1,16 +1,16 @@
 hash: e4994365d893cfe93118d97d1c684f8c9f49154f90225f76273287f0ac5b2864
-updated: 2016-12-05T15:07:37.106183943+01:00
+updated: 2017-03-22T12:31:55.173313318+01:00
 imports:
 - name: github.com/Azure/go-ansiterm
   version: fa152c58bc15761d0200cb75fe958b89a9d4888e
   subpackages:
   - winterm
 - name: github.com/cenk/backoff
-  version: b02f2bbce11d7ea6b97f282ef1771b0fe2f65ef3
+  version: 3db60c813733fce657c114634171689bbf1f8dee
 - name: github.com/dchest/blake2b
-  version: 3c8c640cd7bea3ca78209d812b5854442ab92fed
+  version: 06006a921c7d13e3fdf63c401cb0e4529a26e6e4
 - name: github.com/docker/docker
-  version: 1f9b3ef9e9c74c2905780ac5347d018646a20022
+  version: 092cba3727bb9b4a2f0e922cd6c0f93ea270e363
   subpackages:
   - api/types
   - api/types/blkiodev
@@ -38,13 +38,13 @@ imports:
   - pkg/term
   - pkg/term/windows
 - name: github.com/docker/go-connections
-  version: 4ccf312bf1d35e5dbda654e57a9be4c3f3cd0366
+  version: 7da10c8c50cad14494ec818dcdfb6506265c0086
   subpackages:
   - nat
 - name: github.com/docker/go-units
-  version: 9b001659dd36225e356b4467c465d732e745f53d
+  version: 0dadbb0345b35ec7ef35e228dabb8de89a65bf52
 - name: github.com/fsouza/go-dockerclient
-  version: 773542a4a30a7d9b5a3ddfca64e593508299ddda
+  version: 000a4bc90f4caf682cdb0d464f93435c196e61dd
 - name: github.com/golang/protobuf
   version: 8ee79997227bf9b34611aee7946ae64735e6fd93
   subpackages:
@@ -52,38 +52,41 @@ imports:
 - name: github.com/hailocab/go-hostpool
   version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
 - name: github.com/hashicorp/go-cleanhttp
-  version: ad28ea4487f05916463e2423a55166280e8254b5
+  version: 3573b8b52aa7b37b9358d966a898feb387f62437
 - name: github.com/magical/argon2
   version: 190e3cf208e185668db6aa048e4985b7b7b4d890
 - name: github.com/mailgun/mailgun-go
-  version: 369a1fa57ce6fb314e627087b9fff0db5c266c0f
+  version: 6448d11974b9ca2395bdd60f19976ab7de75d6f9
 - name: github.com/Microsoft/go-winio
-  version: 24a3e3d3fc7451805e09d11e11e95d9a0a4f205e
+  version: fff283ad5116362ca252298cfc9b95828956d85d
 - name: github.com/nfnt/resize
   version: 891127d8d1b52734debe1b3c3d7e747502b6c366
 - name: github.com/opencontainers/runc
-  version: 4271a8b5aec07d69f128df5474dea064d4694832
+  version: 4f21aea40d060d0171b1c94861f2f63f4a6029d0
   subpackages:
   - libcontainer/system
   - libcontainer/user
+- name: github.com/pkg/errors
+  version: ff09b135c25aae272398c51a07235b90a75aa4f0
 - name: github.com/satori/go.uuid
-  version: b061729afc07e77a8aa4fad0a2fd840958f1942a
+  version: 5bf94b69c6b68ee1b541973bb8e1144db23a194b
 - name: github.com/Sirupsen/logrus
-  version: 26709e2714106fb8ad40b773b711ebce25b78914
+  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: github.com/ventu-io/go-shortid
-  version: f3377b9160ef91541d29453587d9430f138a0e76
+  version: 935de6796a71e222e8a8a141ead882d70b6ba6d0
 - name: golang.org/x/crypto
-  version: 8a549a1948fc5271eb24f36dcb0d3b47dec75a16
+  version: 459e26527287adbc2adcc5d0d49abff9a5f315a7
   subpackages:
   - pbkdf2
 - name: golang.org/x/net
-  version: 6cdc0daab091c43fc46193327e0047b4f883c613
+  version: 61557ac0112b576429a0df080e1c2cef5dfbb642
   subpackages:
   - context
   - context/ctxhttp
 - name: golang.org/x/sys
-  version: f5a6bd43051d3f1f5dd3e0dbd531721aa5e75d28
+  version: e24f485414aeafb646f6fca458b0bf869c0880a1
   subpackages:
+  - unix
   - windows
 - name: gopkg.in/alexcesaro/quotedprintable.v3
   version: 2caba252f4dc53eaf6b553000885530023f54623
@@ -94,9 +97,9 @@ imports:
   - ql2
   - types
 - name: gopkg.in/fatih/pool.v2
-  version: 20a0a429c5f93de45c90f5f09ea297c25e0929b3
+  version: 6e328e67893eb46323ad06f0e92cb9536babbabc
 - name: gopkg.in/gomail.v2
   version: 81ebce5c23dfd25c6c67194b37d3dd3f338c98b1
 - name: gopkg.in/yaml.v2
-  version: a5b47d31c556af34a302ce5d659e6fea44d90de0
+  version: a3f3340b5840cee44f372bddb5880fcbc419b46a
 testImports: []

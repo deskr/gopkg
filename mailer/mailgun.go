@@ -60,6 +60,9 @@ func (m mailgunMailer) Send(email Email) (err error) {
 		string(email.Body.Text),
 		email.To,
 	)
+	if email.ReplyTo != "" {
+		mail.AddHeader("Reply-To", email.ReplyTo)
+	}
 	mail.SetHtml(string(email.Body.HTML))
 
 	_, _, err = m.mg.Send(mail)
