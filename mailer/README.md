@@ -29,7 +29,6 @@ if err != nil {
 Sending an email with YAML template:
 ```go
 m := mailer.NewFakeMailer()
-
 tmpl, err := mailer.ParseYAML([]byte(
     `subject: Something important
 body:
@@ -39,23 +38,20 @@ body:
 if err != nil {
     panic(err)
 }
-
 data := struct {
     Who string
 }{
     Who: "You",
 }
-
 body, err := tmpl.Execute(data, data)
 if err != nil {
     panic(err)
 }
-
-err = m.Send(mailer.Email{
-    To:      "mike@deskr.co",
-    From:    "carina@deskr.co",
+err := m.Send(Email{
+    To:      Address{Name: "Mike", Address: "mike@deskr.co"},
+    From:    Address{Name: "Carina", Address: "carina@deskr.co"},
     Subject: "Something important",
-    Body:    body,
+    Body: body,
 })
 if err != nil {
     panic(err)
@@ -66,15 +62,12 @@ if err != nil {
 Sending an email with "on sent" email handler:
 ```go
 m := mailer.NewFakeMailer()
-
 wg := sync.WaitGroup{}
 wg.Add(1)
-
 h := mailer.SentMailHandler(func(email mailer.Email) {
     wg.Done()
 })
 m.AttachSentMailHandler(&h)
-
 go func() {
     m.Send(mailer.Email{
         To:      "mike@deskr.co",
@@ -86,6 +79,5 @@ go func() {
         },
     })
 }()
-
 wg.Wait()
 ```
