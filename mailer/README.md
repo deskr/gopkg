@@ -11,12 +11,11 @@ Implemented providers:
 Sending an email:
 ```go
 m := mailer.NewFakeMailer()
-
-err := m.Send(mailer.Email{
-    To:      "mike@deskr.co",
-    From:    "carina@deskr.co",
+err := m.Send(Email{
+    To:      Address{Name: "Mike", Address: "mike@deskr.co"},
+    From:    Address{Name: "Carina", Address: "carina@deskr.co"},
     Subject: "Something important",
-    Body: mailer.Body{
+    Body: Body{
         Text: "Hello you",
         HTML: "<strong>Hello you</strong>",
     },
@@ -24,7 +23,6 @@ err := m.Send(mailer.Email{
 if err != nil {
     panic(err)
 }
-
 ```
 
 
