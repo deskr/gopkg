@@ -1,8 +1,6 @@
 package mailer
 
 import (
-	"fmt"
-
 	"gopkg.in/gomail.v2"
 )
 
@@ -48,10 +46,10 @@ func (m *gmailMailer) RemoveSentMailHandler(handler *SentMailHandler) {
 // Send sends an email
 func (m gmailMailer) Send(email Email) (err error) {
 	msg := gomail.NewMessage()
-	msg.SetHeader("From", fmt.Sprintf("%s <%s>", email.From.Name, email.From.Address))
-	msg.SetHeader("To", fmt.Sprintf("%s <%s>", email.To.Name, email.To.Address))
+	msg.SetHeader("From", email.From.toHeaderFormat())
+	msg.SetHeader("To", email.To.toHeaderFormat())
 	if email.ReplyTo != nil {
-		msg.SetHeader("Reply-To", fmt.Sprintf("%s <%s>", email.ReplyTo.Name, email.ReplyTo.Address))
+		msg.SetHeader("Reply-To", email.ReplyTo.toHeaderFormat())
 	}
 	msg.SetHeader("Subject", email.Subject)
 	msg.SetBody("text/plain", string(email.Body.Text))

@@ -1,8 +1,6 @@
 package mailer
 
 import (
-	"fmt"
-
 	"github.com/mailgun/mailgun-go"
 )
 
@@ -52,10 +50,10 @@ func (m mailgunMailer) Send(email Email) (err error) {
 		string(email.Body.Text),
 		"",
 	)
-	msg.AddHeader("From", fmt.Sprintf("%s <%s>", email.From.Name, email.From.Address))
-	msg.AddHeader("To", fmt.Sprintf("%s <%s>", email.To.Name, email.To.Address))
+	msg.AddHeader("From", email.From.toHeaderFormat())
+	msg.AddHeader("To", email.To.toHeaderFormat())
 	if email.ReplyTo != nil {
-		msg.AddHeader("Reply-To", fmt.Sprintf("%s <%s>", email.ReplyTo.Name, email.ReplyTo.Address))
+		msg.AddHeader("Reply-To", email.ReplyTo.toHeaderFormat())
 	}
 	msg.SetHtml(string(email.Body.HTML))
 

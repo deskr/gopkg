@@ -1,5 +1,9 @@
 package mailer
 
+import (
+	"gopkg.in/gomail.v2"
+)
+
 // Mailer interface
 type Mailer interface {
 	Send(email Email) (err error)
@@ -25,6 +29,13 @@ type Body struct {
 type Address struct {
 	Name    string
 	Address string // email address
+}
+
+// format to RFC5322
+// NB: Uses default gomail settings (charset, encoding)
+func (a Address) toHeaderFormat() string {
+	msg := gomail.NewMessage()
+	return msg.FormatAddress(a.Address, a.Name)
 }
 
 // Email for building e-mails with text/template
