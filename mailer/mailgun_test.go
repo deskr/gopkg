@@ -26,6 +26,7 @@ func TestMailgunSendMail(t *testing.T) {
 	err := m.Send(Email{
 		To:      Address{Name: "Mike", Address: "mc@deskr.co"},
 		From:    Address{Name: "Carina", Address: "carina@deskr.co"},
+		ReplyTo: &Address{Name: "Martin", Address: "martin@deskr.co"},
 		Subject: "Something important",
 		Body: Body{
 			Text: "Hello you",
