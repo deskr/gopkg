@@ -2,15 +2,29 @@ package mailer
 
 import (
 	"bytes"
+	"os"
 	"sync"
 	"testing"
 )
 
-func TestFakeSendMail(t *testing.T) {
-	m := NewFakeMailer()
+var mailgunTestConfig MailgunConfig
+
+func init() {
+	mailgunTestConfig.Domain = os.Getenv("MAILGUN_DOMAIN")
+	mailgunTestConfig.PrivateAPIKey = os.Getenv("MAILGUN_PRIVATE_KEY")
+	mailgunTestConfig.PublicAPIKey = os.Getenv("MAILGUN_PUBLIC_KEY")
+}
+
+func TestMailgunSendMail(t *testing.T) {
+	if mailgunTestConfig.Domain == "" {
+		t.SkipNow()
+		return
+	}
+
+	m := NewMailgunMailer(mailgunTestConfig)
 
 	err := m.Send(Email{
-		To:      Address{Name: "Mike", Address: "mike@deskr.co"},
+		To:      Address{Name: "Mike", Address: "mc@deskr.co"},
 		From:    Address{Name: "Carina", Address: "carina@deskr.co"},
 		Subject: "Something important",
 		Body: Body{
@@ -24,43 +38,13 @@ func TestFakeSendMail(t *testing.T) {
 	}
 }
 
-func TestFakeAddRemoveSentHandler(t *testing.T) {
-	m := &fakeMailer{}
-
-	wg := sync.WaitGroup{}
-
-	wg.Add(1)
-	h := SentMailHandler(func(email Email) {
-		wg.Done()
-	})
-
-	m.AttachSentMailHandler(&h)
-	if len(m.sentHandlers) != 1 {
-		t.Errorf("Expected 1 listener, got: %d", len(m.sentHandlers))
+func TestMailgunSendWithYAML(t *testing.T) {
+	if mailgunTestConfig.Domain == "" {
+		t.SkipNow()
 		return
 	}
 
-	m.Send(Email{
-		To:      Address{Name: "Mike", Address: "mike@deskr.co"},
-		From:    Address{Name: "Carina", Address: "carina@deskr.co"},
-		Subject: "Something important",
-		Body: Body{
-			Text: "Hello you",
-			HTML: "<strong>Hello you</strong>",
-		},
-	})
-
-	m.RemoveSentMailHandler(&h)
-	if len(m.sentHandlers) != 0 {
-		t.Errorf("Expected 0 listeners, got: %d", len(m.sentHandlers))
-		return
-	}
-
-	wg.Wait()
-}
-
-func TestFakeSendWithYAML(t *testing.T) {
-	m := NewFakeMailer()
+	m := NewMailgunMailer(mailgunTestConfig)
 
 	tmpl, err := ParseYAML(bytes.NewReader([]byte(
 		`subject: Something important
@@ -75,7 +59,7 @@ body:
 	}
 
 	email := Email{
-		To:   Address{Name: "Mike", Address: "mike@deskr.co"},
+		To:   Address{Name: "Mike", Address: "mc@deskr.co"},
 		From: Address{Name: "Carina", Address: "carina@deskr.co"},
 	}
 

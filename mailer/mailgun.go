@@ -45,13 +45,11 @@ func (m *mailgunMailer) RemoveSentMailHandler(handler *SentMailHandler) {
 // Send sends an email
 func (m mailgunMailer) Send(email Email) (err error) {
 	msg := m.mg.NewMessage(
-		"",
+		email.From.toHeaderFormat(),
 		email.Subject,
 		string(email.Body.Text),
-		"",
+		email.To.toHeaderFormat(),
 	)
-	msg.AddHeader("From", email.From.toHeaderFormat())
-	msg.AddHeader("To", email.To.toHeaderFormat())
 	if email.ReplyTo != nil {
 		msg.AddHeader("Reply-To", email.ReplyTo.toHeaderFormat())
 	}
