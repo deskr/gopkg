@@ -1,3 +1,0 @@
-package: github.com/deskr/gopkg/dock
-import:
-- package: github.com/fsouza/go-dockerclient
